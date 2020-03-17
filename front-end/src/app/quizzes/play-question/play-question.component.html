@@ -1,0 +1,8 @@
+<div class="card p-3 m-2">
+    <h2 class="card-title">
+        {{question.label}}
+    </h2>
+    <button  *ngFor="let answer of question.answers" (click)="changingQuestion()">{{answer.value}}</button>
+    
+
+</div>

@@ -10,6 +10,8 @@ import { QuestionFormComponent } from './quizzes/question-form/question-form.com
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './header/header.component';
+import { PlayQuizComponent } from './quizzes/play-quiz/play-quiz.component';
+import { PlayQuestionComponent } from './quizzes/play-question/play-question.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { HeaderComponent } from './header/header.component';
     QuizComponent,
     EditQuizComponent,
     QuestionFormComponent,
-    HeaderComponent
+    HeaderComponent,
+    PlayQuizComponent,
+    PlayQuestionComponent
   ],
   imports: [
     BrowserModule,

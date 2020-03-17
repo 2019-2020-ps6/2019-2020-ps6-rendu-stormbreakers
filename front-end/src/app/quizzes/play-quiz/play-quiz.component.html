@@ -1,0 +1,11 @@
+
+<div *ngIf="!isLaunch">vous allez lancer le quiz {{quizPlayed.name}}</div>
+<button  (click)="launch()" *ngIf="!isLaunch">lancer</button>
+
+<div *ngIf="isLaunch">{{quizPlayed.name}}</div>
+<div *ngIf="isLaunch && !quizIsFinished">
+    <app-play-question  [question]="currentQuestion" (changeQuestion)="changingQuestion($event)"></app-play-question>
+</div>
+<div *ngIf="quizIsFinished">
+    quiz terminé
+</div>

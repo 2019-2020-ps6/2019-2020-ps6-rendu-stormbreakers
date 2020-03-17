@@ -15,12 +15,25 @@ export const QUESTION_ACTOR: Question = {
      ]
 };
 
+export const QUESTION_ACTOR2: Question = {
+    label: 'Edouard baer a joué dans...',
+    answers: [
+       {
+           value: 'Asterix et obelix',
+           isCorrect: true,
+       },
+        {
+           value: 'Taxi 4',
+           isCorrect: false,
+        }
+    ]
+};
 export const QUIZ_LIST: Quiz[] = [
     {
         id: 'vfjnkvf',
         name: 'Les Acteurs', // What's happening if I change this value..?
         theme: 'Actor',
-        questions: [QUESTION_ACTOR],
+        questions: [QUESTION_ACTOR,QUESTION_ACTOR2],
     },
     {
         id: 'dcbdvd',

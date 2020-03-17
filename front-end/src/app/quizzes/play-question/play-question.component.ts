@@ -12,7 +12,7 @@ export class PlayQuestionComponent implements OnInit {
   question:Question;
 
   @Output()
-  changeQuestion: EventEmitter<boolean>= new EventEmitter<boolean>();
+  changeQuestion: EventEmitter<Answer>= new EventEmitter<Answer>();
 
   constructor() { 
   }
@@ -20,9 +20,9 @@ export class PlayQuestionComponent implements OnInit {
   ngOnInit() {
   }
 
-  changingQuestion(){
+  changingQuestion(answer:Answer){
     console.log("question emit");
-    this.changeQuestion.emit(true);
+    this.changeQuestion.emit(answer);
   }
 
 }

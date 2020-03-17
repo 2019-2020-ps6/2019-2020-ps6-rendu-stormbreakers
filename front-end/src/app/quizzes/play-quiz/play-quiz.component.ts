@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { QuizService } from '../../../services/quiz.service';
 import { Quiz } from 'src/models/quiz.model';
-import { Question } from 'src/models/question.model';
+import { Question, Answer } from 'src/models/question.model';
 
 @Component({
   selector: 'app-play-quiz',
@@ -25,6 +25,7 @@ export class PlayQuizComponent implements OnInit {
   public currentQuestionPos:number;
   public currentQuestion:Question;
   public quizIsFinished:boolean;
+  public reponseUtilisateur=[];
   ngOnInit() {
     this.getQuiz()
     this.isLaunch=false;
@@ -45,11 +46,12 @@ export class PlayQuizComponent implements OnInit {
       this.currentQuestionPos = 0;
     }
 
-    changingQuestion(val:boolean){
-      console.log("receive"+val);
+    changingQuestion(val:Answer){
+      console.log("receive"+val.value);
       this.currentQuestionPos++;
       if(this.quizPlayed.questions.length>this.currentQuestionPos){
         this.currentQuestion= this.quizPlayed.questions[this.currentQuestionPos];
+        this.reponseUtilisateur.push(val)
       }else{
         this.quizIsFinished=true;
       }

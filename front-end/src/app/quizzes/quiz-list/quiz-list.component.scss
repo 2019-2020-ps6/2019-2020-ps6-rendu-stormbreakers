@@ -1,0 +1,15 @@
+@import '../../../styles/creative.scss';
+
+
+.quiz-list{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+@media(max-width:415px){
+  .quiz-list{
+    flex-direction: column;
+  }
+  
+}

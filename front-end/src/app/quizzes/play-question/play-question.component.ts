@@ -4,7 +4,7 @@ import { Question, Answer } from 'src/models/question.model';
 @Component({
   selector: 'app-play-question',
   templateUrl: './play-question.component.html',
-  styleUrls: ['./play-question.component.css']
+  styleUrls: ['./play-question.component.scss']
 })
 export class PlayQuestionComponent implements OnInit {
 

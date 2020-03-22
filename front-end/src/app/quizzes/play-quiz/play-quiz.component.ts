@@ -8,7 +8,7 @@ import { Question, Answer } from 'src/models/question.model';
 @Component({
   selector: 'app-play-quiz',
   templateUrl: './play-quiz.component.html',
-  styleUrls: ['./play-quiz.component.css']
+  styleUrls: ['./play-quiz.component.scss']
 })
 export class PlayQuizComponent implements OnInit {
 

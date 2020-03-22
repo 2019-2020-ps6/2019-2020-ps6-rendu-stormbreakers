@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,6 +11,8 @@ import { QuestionFormComponent } from './quizzes/question-form/question-form.com
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './header/header.component';
+import { SliderSizeComponent } from './adaptability/slider-size/slider-size.component';
+import { StorageServiceModule } from 'angular-webstorage-service';
 
 @NgModule({
   declarations: [
@@ -18,13 +21,16 @@ import { HeaderComponent } from './header/header.component';
     QuizComponent,
     EditQuizComponent,
     QuestionFormComponent,
-    HeaderComponent
+    HeaderComponent,
+    SliderSizeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    StorageServiceModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

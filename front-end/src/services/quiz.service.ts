@@ -17,7 +17,7 @@ export class QuizService {
    * The list of quiz.
    * The list is retrieved from the mock.
    */
-  
+
   private url = 'https://api.myjson.com/bins/13ajhy';
   private quizzes: Quiz[] = QUIZ_LIST;
 
@@ -28,7 +28,7 @@ export class QuizService {
   public quizzes$: BehaviorSubject<Quiz[]> = new BehaviorSubject(this.quizzes);
 
   constructor(private http: HttpClient) {
-    
+
   }
 
   addQuiz(quiz: Quiz) {

@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { QuizListComponent } from './quizzes/quiz-list/quiz-list.component';
 import { EditQuizComponent } from './quizzes/edit-quiz/edit-quiz.component';
-import {PlayQuizComponent } from './quizzes/play-quiz/play-quiz.component';
+import { PlayQuizComponent } from './quizzes/play-quiz/play-quiz.component';
+import { QuizResultComponent } from './quizzes/quiz-result/quiz-result.component';
 const routes: Routes = [
   {
     path: '',
@@ -15,6 +16,10 @@ const routes: Routes = [
   {
     path: 'playquiz/:id',
     component: PlayQuizComponent
+  },
+  {
+    path: 'quizresult/:id',
+    component: QuizResultComponent
   }
 ];
 

@@ -39,7 +39,7 @@ export class QuizService {
   }
 
   deleteQuiz(deleted: Quiz) {
-    this.quizzes = this.quizzes.filter(q => q.name !== deleted.name && q.theme !== deleted.name);
+    this.quizzes = this.quizzes.filter(q => q.name !== deleted.name /*&& q.theme !== deleted.name*/);
     this.quizzes$.next(this.quizzes);
   }
 

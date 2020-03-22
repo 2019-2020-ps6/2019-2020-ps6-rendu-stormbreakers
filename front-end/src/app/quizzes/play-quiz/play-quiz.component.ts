@@ -1,5 +1,5 @@
-import { Component, OnInit,} from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit, Output, EventEmitter,} from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { QuizService } from '../../../services/quiz.service';
 import { Quiz } from 'src/models/quiz.model';
@@ -13,6 +13,7 @@ import { Question, Answer } from 'src/models/question.model';
 export class PlayQuizComponent implements OnInit {
 
   constructor(
+    private  router:Router,
     private route: ActivatedRoute,
     private quizService:QuizService,
     private location:Location,
@@ -25,7 +26,9 @@ export class PlayQuizComponent implements OnInit {
   public currentQuestionPos:number;
   public currentQuestion:Question;
   public quizIsFinished:boolean;
-  public reponseUtilisateur=[];
+  public reponseUtilisateur:Answer[]=[];
+
+
   ngOnInit() {
     this.getQuiz()
     this.isLaunch=false;
@@ -53,7 +56,14 @@ export class PlayQuizComponent implements OnInit {
         this.currentQuestion= this.quizPlayed.questions[this.currentQuestionPos];
         this.reponseUtilisateur.push(val)
       }else{
+        this.reponseUtilisateur.push(val)
         this.quizIsFinished=true;
       }
     }
+
+    
+  showResult() {
+    console.log("quiz result"+this.quizPlayed.id);
+    this.router.navigate(['/quizresult/'+this.quizPlayed.id],{state: {result:this.reponseUtilisateur}})
+  }
 }

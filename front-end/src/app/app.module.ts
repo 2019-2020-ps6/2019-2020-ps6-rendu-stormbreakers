@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './header/header.component';
 import { PlayQuizComponent } from './quizzes/play-quiz/play-quiz.component';
 import { PlayQuestionComponent } from './quizzes/play-question/play-question.component';
+import { QuizResultComponent } from './quizzes/quiz-result/quiz-result.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { PlayQuestionComponent } from './quizzes/play-question/play-question.com
     QuestionFormComponent,
     HeaderComponent,
     PlayQuizComponent,
-    PlayQuestionComponent
+    PlayQuestionComponent,
+    QuizResultComponent
   ],
   imports: [
     BrowserModule,

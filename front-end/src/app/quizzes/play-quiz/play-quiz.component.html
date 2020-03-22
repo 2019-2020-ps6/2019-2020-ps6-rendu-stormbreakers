@@ -1,14 +1,15 @@
 <body >
     <div class="card p-3 m-2 to_center center_hor">
         <h2 *ngIf="!isLaunch ">vous allez lancer le quiz {{quizPlayed.name}}</h2>
-        <button class=" ml-1 mr-1 btn btn-success btn_size marge-button"  (click)="launch()" *ngIf="!isLaunch">lancer</button>
+        <button class=" ml-1 mr-1 btn btn-success btn_size "  (click)="launch()" *ngIf="!isLaunch">lancer</button>
 
         <h2 *ngIf="isLaunch">{{quizPlayed.name}}</h2>
         <div *ngIf="isLaunch && !quizIsFinished">
             <app-play-question  [question]="currentQuestion" (changeQuestion)="changingQuestion($event)"></app-play-question>
         </div>
-        <h2 *ngIf="quizIsFinished">
-            quiz terminé
-        </h2>
+        <div *ngIf="quizIsFinished">
+            <h2> quiz terminé</h2>
+                <button class="btn btn-success" (click)="showResult()">Résultats </button>
+        </div>
 </div>
 </body>

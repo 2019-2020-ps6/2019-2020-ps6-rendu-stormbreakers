@@ -64,6 +64,6 @@ export class PlayQuizComponent implements OnInit {
     
   showResult() {
     console.log("quiz result"+this.quizPlayed.id);
-    this.router.navigate(['/quizresult/'+this.quizPlayed.id],{state: {result:this.reponseUtilisateur}})
+    this.router.navigate([this.router.url+'/results'],{state: {result:this.reponseUtilisateur}})
   }
 }

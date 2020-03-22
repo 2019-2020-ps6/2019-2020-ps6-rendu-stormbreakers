@@ -13,6 +13,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './header/header.component';
 import { SliderSizeComponent } from './adaptability/slider-size/slider-size.component';
 import { StorageServiceModule } from 'angular-webstorage-service';
+import { PlayQuizComponent } from './quizzes/play-quiz/play-quiz.component';
+import { PlayQuestionComponent } from './quizzes/play-question/play-question.component';
+import { QuizResultComponent } from './quizzes/quiz-result/quiz-result.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,10 @@ import { StorageServiceModule } from 'angular-webstorage-service';
     EditQuizComponent,
     QuestionFormComponent,
     HeaderComponent,
-    SliderSizeComponent
+    SliderSizeComponent,
+    PlayQuizComponent,
+    PlayQuestionComponent,
+    QuizResultComponent
   ],
   imports: [
     BrowserModule,

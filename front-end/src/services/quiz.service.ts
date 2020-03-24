@@ -3,6 +3,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { Quiz } from '../models/quiz.model';
 import { QUIZ_LIST } from '../mocks/quiz-list.mock';
 import { HttpClient } from '@angular/common/http';
+import { serverUrl, httpOptionsBase } from '../configs/server.config';
 
 @Injectable({
   providedIn: 'root'
@@ -18,39 +19,48 @@ export class QuizService {
    * The list is retrieved from the mock.
    */
 
-  private url = 'https://api.myjson.com/bins/13ajhy';
+  private url = serverUrl+'/quizzes';
   private quizzes: Quiz[] = QUIZ_LIST;
-
+  private quizPlayed:Quiz;
   /**
    * Observable which contains the list of the quiz.
    * Naming convention: Add '$' at the end of the variable name to highlight it as an Observable.
    */
   public quizzes$: BehaviorSubject<Quiz[]> = new BehaviorSubject(this.quizzes);
+  public quizPlayed$: BehaviorSubject<Quiz> = new BehaviorSubject(this.quizPlayed);
 
   constructor(private http: HttpClient) {
-
+    this.getQuizzes();
   }
 
   addQuiz(quiz: Quiz) {
-    this.quizzes.push(quiz);
-    this.quizzes$.next(this.quizzes);
+    this.http.post<Quiz>(this.url,quiz,httpOptionsBase).subscribe(()=> this.getQuizzes())
     // You need here to update the list of quiz and then update our observable (Subject) with the new list
     // More info: https://angular.io/tutorial/toh-pt6#the-searchterms-rxjs-subject
+    
   }
 
   deleteQuiz(deleted: Quiz) {
-    this.quizzes = this.quizzes.filter(q => q.name !== deleted.name /*&& q.theme !== deleted.name*/);
-    this.quizzes$.next(this.quizzes);
+    //this.quizzes = this.quizzes.filter(q => q.name !== deleted.name /*&& q.theme !== deleted.name*/);
+    this.http.delete<Quiz>(this.url+"/"+deleted.id).subscribe(() => this.getQuizzes());
+  //  this.quizzes$.next(this.quizzes);
   }
 
   getQuizzes() {
-    this.http.request('GET', this.url, { responseType: 'json' }).subscribe((result: { quizzes: Quiz[] }) => {
-      this.quizzes = result.quizzes;
+    this.http.request('GET', this.url, { responseType: 'json' }).subscribe((result:  Quiz[] ) => {
+      
+      this.quizzes = result;
       this.quizzes$.next(this.quizzes);
+
     });
   }
 
-  getQuizById(id: string): Observable<Quiz> {
-    return new BehaviorSubject(this.quizzes.find(q => q.id === id));
+  getSelectQuiz(quizId: String){
+    this.http.request('GET', this.url+"/"+quizId, { responseType: 'json' }).subscribe((result:  Quiz ) => {
+      this.quizPlayed = result;
+      this.quizPlayed$.next(this.quizPlayed);
+      console.log(result)
+    });
   }
+
 }

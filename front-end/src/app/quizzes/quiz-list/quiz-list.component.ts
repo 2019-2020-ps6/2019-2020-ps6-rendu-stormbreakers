@@ -14,7 +14,10 @@ export class QuizListComponent implements OnInit {
 
   constructor(private  router:Router,public quizService: QuizService) {
     //this.quizService.getQuizzes();
-    this.quizService.quizzes$.subscribe((quiz) => {this.quizList = quiz; console.log(this.quizList); });
+    this.quizService.quizzes$.subscribe((quizzes: Quiz[]) => {
+      this.quizList = quizzes;
+    });
+    console.log(this.quizList);
   }
 
   ngOnInit() {

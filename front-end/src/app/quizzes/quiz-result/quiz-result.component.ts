@@ -20,6 +20,9 @@ export class QuizResultComponent implements OnInit {
     private location:Location,
   ) {
       this.userAnswers= this.router.getCurrentNavigation().extras.state.result
+      this.quizService.quizPlayed$.subscribe(quiz => {
+        this.quiz=quiz
+      });
    }
 
     private quiz : Quiz;
@@ -36,10 +39,7 @@ export class QuizResultComponent implements OnInit {
 
   getQuiz():void{
     const id = this.route.snapshot.paramMap.get('id');
-    console.log("id"+id);
-    this.quizService.quizzes$.subscribe(quizList => {
-      this.quiz = quizList.find(q => q.id === this.route.snapshot.paramMap.get('id'));
-    });
+    this.quizService.getSelectQuiz(id);
   }
 
   setAnswersCount(){

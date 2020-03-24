@@ -4,19 +4,19 @@ const { Question } = require('../../../models')
 
 const router = new Router({ mergeParams: true })
 
-
+const { filterQuestionsFromQuizz, getQuestionWithId } = require('./manager')
 const AnswerRoute = require('./answers');
 
 router.get('/', (req, res) => {
     try {
-        res.status(200).json(Question.get().filter(t => t.quizId===req.params.quizId))
+        res.status(200).json(filterQuestionsFromQuizz(req.params.quizId))
     } catch (err) {
         res.status(500).json(err)
     }
 })
 router.get('/:questionId', (req, res) => {
     try {
-        res.status(200).json(Question.getById(req.params.questionId))
+        res.status(200).json(getQuestionWithId(req.params.quizId,req.params.questionId))
     } catch (err) {
         res.status(500).json(err)
     }
@@ -43,6 +43,16 @@ router.post('/', (req, res) => {
 router.delete('/:questionId', (req, res) => {
     try {
         res.status(200).json(Question.delete(req.params.questionId))
+    } catch (err) {
+        res.status(500).json(err)
+    }
+})
+
+router.delete( (req, res)=>{
+    try {
+        for(let question in Question.get()){
+            res.status(200).json(Question.delete(question.questionId))
+        }
     } catch (err) {
         res.status(500).json(err)
     }

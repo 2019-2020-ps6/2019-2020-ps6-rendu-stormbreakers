@@ -27,7 +27,6 @@ router.post('/', (req, res) => {
         const question = req.body
         question.answers = []
         question.quizId = req.params.quizId
-        console.log(req.params.quizId)
         const ret = Question.create(question)
         res.status(201).json(ret)
     } catch (err) {

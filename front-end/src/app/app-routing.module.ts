@@ -4,6 +4,9 @@ import { QuizListComponent } from './quizzes/quiz-list/quiz-list.component';
 import { EditQuizComponent } from './quizzes/edit-quiz/edit-quiz.component';
 import { PlayQuizComponent } from './quizzes/play-quiz/play-quiz.component';
 import { QuizResultComponent } from './quizzes/quiz-result/quiz-result.component';
+import { AdminComponent } from './admin/admin.component';
+import { DashboardAdminComponent } from './admin/dashboard-admin/dashboard-admin.component'
+import { AdminCreationQuizComponent } from './admin/admin-creation-quiz/admin-creation-quiz.component';
 const routes: Routes = [
   {
     path: '',
@@ -20,6 +23,18 @@ const routes: Routes = [
   {
     path: 'playquiz/:id/results',
     component: QuizResultComponent
+  },
+  {
+    path: 'admin',
+    component: AdminComponent
+  },
+  {
+    path: 'admin/dashboard',
+    component: DashboardAdminComponent
+  },
+  {
+    path: 'admin/quiz',
+    component: AdminCreationQuizComponent
   }
 ];
 

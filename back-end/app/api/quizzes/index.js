@@ -45,6 +45,7 @@ router.post('/', (req, res) => {
 
 router.delete('/:quizId', (req, res) => {
   try {
+    Quiz.delete(req.params.quizId)
     res.status(204).end()
   } catch (err) {
     res.status(500).json(err)

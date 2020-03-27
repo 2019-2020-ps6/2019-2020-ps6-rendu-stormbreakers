@@ -20,10 +20,8 @@ const filterQuestionsFromQuizz = (quizId) => {
     const questionsWithAnswer = questions.map((q)=>{
 
         const answers = filterAnswersFromQuestion(q.id);
-       // console.log(answers)
         return {...q,answers: answers}
     })
-    //console.log(questionsWithAnswer)
     return questionsWithAnswer
 }
 /**

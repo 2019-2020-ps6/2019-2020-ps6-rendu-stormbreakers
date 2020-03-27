@@ -10,8 +10,6 @@ const filterAnswersFromQuestion = (questionId) => {
     questionIdParse=parseInt(questionId,10) 
     return Answer.get().filter((answer) => {
         const answerQuestionId=parseInt(answer.questionId,10) 
-        console.log(answerQuestionId+"---"+questionId)
-        console.log(answerQuestionId === questionId)
         return answerQuestionId === questionId
     })
 }

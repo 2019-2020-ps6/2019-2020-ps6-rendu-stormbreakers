@@ -1,0 +1,15 @@
+<div class="center-elem">
+    <div *ngIf="wrongPassword" class="font-red">Mauvais mot de passe</div>
+    <div class="card size-card ">
+        <div class="text-center">Admin</div>
+        <form [formGroup]="connectForm" (ngSubmit)="login()">
+            <div data-validate="Mot de passe requis">
+                <span>mot de passe :</span>
+                <input class="form-control-plaintext" type="password" formControlName="password" placeholder="password">
+            </div>
+            <div class="center-elem">
+            <button type='submit'  >connect</button>
+        </div>    
+        </form>
+    </div>
+</div>

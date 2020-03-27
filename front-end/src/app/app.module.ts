@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
+import { CookieService } from 'ngx-cookie-service';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { QuizListComponent } from './quizzes/quiz-list/quiz-list.component';
@@ -16,6 +16,11 @@ import { StorageServiceModule } from 'angular-webstorage-service';
 import { PlayQuizComponent } from './quizzes/play-quiz/play-quiz.component';
 import { PlayQuestionComponent } from './quizzes/play-question/play-question.component';
 import { QuizResultComponent } from './quizzes/quiz-result/quiz-result.component';
+import { AdminComponent } from './admin/admin.component';
+import { DashboardAdminComponent } from './admin/dashboard-admin/dashboard-admin.component';
+import { AdminCreationQuizComponent } from './admin/admin-creation-quiz/admin-creation-quiz.component';
+import { QuizAdminComponent } from './quizzes/quiz-admin/quiz-admin.component';
+
 
 @NgModule({
   declarations: [
@@ -28,7 +33,11 @@ import { QuizResultComponent } from './quizzes/quiz-result/quiz-result.component
     SliderSizeComponent,
     PlayQuizComponent,
     PlayQuestionComponent,
-    QuizResultComponent
+    QuizResultComponent,
+    AdminComponent,
+    DashboardAdminComponent,
+    AdminCreationQuizComponent,
+    QuizAdminComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,7 +47,7 @@ import { QuizResultComponent } from './quizzes/quiz-result/quiz-result.component
     StorageServiceModule,
     FormsModule
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

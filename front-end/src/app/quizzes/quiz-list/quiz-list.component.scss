@@ -1,13 +1,11 @@
 
-
-
 .quiz-list{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
-@media(max-width:415px){
+@media(max-width:300px){
   .quiz-list{
     flex-direction: column;
   }

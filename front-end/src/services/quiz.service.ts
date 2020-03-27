@@ -3,6 +3,8 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { Quiz } from '../models/quiz.model';
 import { QUIZ_LIST } from '../mocks/quiz-list.mock';
 import { HttpClient } from '@angular/common/http';
+import { Theme } from 'src/models/theme.model';
+import { THEME_LIST } from '../mocks/quiz-list.mock';
 
 @Injectable({
   providedIn: 'root'

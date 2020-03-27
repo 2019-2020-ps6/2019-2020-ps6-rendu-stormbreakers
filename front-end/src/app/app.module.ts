@@ -16,12 +16,16 @@ import { StorageServiceModule } from 'angular-webstorage-service';
 import { PlayQuizComponent } from './quizzes/play-quiz/play-quiz.component';
 import { PlayQuestionComponent } from './quizzes/play-question/play-question.component';
 import { QuizResultComponent } from './quizzes/quiz-result/quiz-result.component';
+import { ThemeComponent } from './themes/theme/theme.component';
+import { ThemeListComponent } from './themes/theme-list/theme-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     QuizListComponent,
     QuizComponent,
+    ThemeComponent,
+    ThemeListComponent,
     EditQuizComponent,
     QuestionFormComponent,
     HeaderComponent,

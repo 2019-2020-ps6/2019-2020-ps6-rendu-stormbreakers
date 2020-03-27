@@ -4,7 +4,9 @@ import { QuizListComponent } from './quizzes/quiz-list/quiz-list.component';
 import { EditQuizComponent } from './quizzes/edit-quiz/edit-quiz.component';
 import { PlayQuizComponent } from './quizzes/play-quiz/play-quiz.component';
 import { QuizResultComponent } from './quizzes/quiz-result/quiz-result.component';
+import { ThemeListComponent} from './themes/theme-list/theme-list.component'
 const routes: Routes = [
+  
   {
     path: '',
     component: QuizListComponent,

@@ -20,6 +20,7 @@ import { AdminComponent } from './admin/admin.component';
 import { DashboardAdminComponent } from './admin/dashboard-admin/dashboard-admin.component';
 import { AdminCreationQuizComponent } from './admin/admin-creation-quiz/admin-creation-quiz.component';
 import { QuizAdminComponent } from './quizzes/quiz-admin/quiz-admin.component';
+import { AdminStatistiqueComponent } from './admin/admin-statistique/admin-statistique.component';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { QuizAdminComponent } from './quizzes/quiz-admin/quiz-admin.component';
     DashboardAdminComponent,
     AdminCreationQuizComponent,
     QuizAdminComponent,
+    AdminStatistiqueComponent,
   ],
   imports: [
     BrowserModule,

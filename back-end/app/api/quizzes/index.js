@@ -1,7 +1,6 @@
 const { Router } = require('express')
 
 const { Quiz } = require('../../models')
-const {Question} = require('../../models')
 const { buildQuizz, buildQuizzes } = require('./manager')
 
 const QuestionRoute = require('./questions');

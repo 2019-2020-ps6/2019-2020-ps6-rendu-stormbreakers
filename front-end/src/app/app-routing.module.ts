@@ -7,6 +7,7 @@ import { QuizResultComponent } from './quizzes/quiz-result/quiz-result.component
 import { AdminComponent } from './admin/admin.component';
 import { DashboardAdminComponent } from './admin/dashboard-admin/dashboard-admin.component'
 import { AdminCreationQuizComponent } from './admin/admin-creation-quiz/admin-creation-quiz.component';
+import { AdminStatistiqueComponent } from './admin/admin-statistique/admin-statistique.component';
 const routes: Routes = [
   {
     path: '',
@@ -35,6 +36,10 @@ const routes: Routes = [
   {
     path: 'admin/quiz',
     component: AdminCreationQuizComponent
+  },
+  {
+    path: 'admin/statistique',
+    component: AdminStatistiqueComponent
   }
 ];
 

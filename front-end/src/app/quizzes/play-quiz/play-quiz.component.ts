@@ -4,6 +4,9 @@ import { Location } from '@angular/common';
 import { QuizService } from '../../../services/quiz.service';
 import { Quiz } from 'src/models/quiz.model';
 import { Question, Answer } from 'src/models/question.model';
+import { Statistique } from 'src/models/statistique.model';
+import { HttpClient } from '@angular/common/http';
+import { StatService } from 'src/services/statistique.service';
 
 @Component({
   selector: 'app-play-quiz',
@@ -16,7 +19,7 @@ export class PlayQuizComponent implements OnInit {
     private  router:Router,
     private route: ActivatedRoute,
     private quizService:QuizService,
-    private location:Location,
+    private statservice:StatService
   ) { 
     this.quizService.quizPlayed$.subscribe(quiz => {
       this.quizPlayed=quiz
@@ -28,8 +31,10 @@ export class PlayQuizComponent implements OnInit {
   public currentQuestionPos:number;
   public currentQuestion:Question;
   public quizIsFinished:boolean;
+  /** statistique about quiz */
   public reponseUtilisateur:Answer[]=[];
-
+  public timeToRespond:Number[]=[];
+  public quizBegining:Date;
 
   ngOnInit() {
     this.getQuiz()
@@ -45,11 +50,15 @@ export class PlayQuizComponent implements OnInit {
       this.isLaunch=true;
       this.currentQuestion= this.quizPlayed.questions[0];
       this.currentQuestionPos = 0;
+      this.quizBegining = new Date();
     }
 
     changingQuestion(val:Answer){
       console.log("receive"+val.value);
       this.currentQuestionPos++;
+      const dateEndQuiz=new Date();
+      const difference =dateEndQuiz.getTime()-this.quizBegining.getTime();
+      this.timeToRespond.push(difference);
       if(this.quizPlayed.questions.length>this.currentQuestionPos){
         this.currentQuestion= this.quizPlayed.questions[this.currentQuestionPos];
         this.reponseUtilisateur.push(val)
@@ -57,11 +66,27 @@ export class PlayQuizComponent implements OnInit {
         this.reponseUtilisateur.push(val)
         this.quizIsFinished=true;
       }
+      
     }
+    
 
     
   showResult() {
     console.log("quiz result"+this.quizPlayed.id);
+    this.sendData()
     this.router.navigate([this.router.url+'/results'],{state: {result:this.reponseUtilisateur}})
   }
+  sendData() {
+    for(let i=0;i<this.quizPlayed.questions.length;i++){
+    let stat:Statistique= {
+      quizId: this.quizPlayed.id,
+      questionId :this.quizPlayed.questions[i].id,
+      time : this.timeToRespond[i],
+      answer : this.reponseUtilisateur[i].isCorrect
+    }
+    this.statservice.addStatistique(stat)
+  }
+  }
+
+
 }

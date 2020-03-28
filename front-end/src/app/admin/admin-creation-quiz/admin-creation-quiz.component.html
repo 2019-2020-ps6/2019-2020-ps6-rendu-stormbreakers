@@ -1,15 +1,18 @@
 <p>admin-creation-quiz works!</p>
 <div class="column">
-<nav>
-<ul>
-    <li>
-        <button><i class="fas fa-home"></i></button>
-    </li>
-    <li>
-        <button ><i class="far fa-file"></i></button>
-    </li>
-</ul>
-</nav>
+    <nav>
+        <ul>
+            <li>
+                <button (click)="goToHome()"><i class="fas fa-home"></i></button>
+            </li>
+            <li>
+                <button ><i class="far fa-file"></i></button>
+            </li>
+            <li> 
+                <button (click)="goToStat()"><i class="fas fa-chart-bar"></i></button>
+            </li>
+        </ul>
+        </nav>
 <div class="card m-1">
     <app-quiz-admin  *ngFor="let quiz of quizzes" [quiz]="quiz"   (quizSelected)="quizSelect($event)"  (quizDeleted)="quizDelete($event)" class="reverse-list"></app-quiz-admin>
 </div>

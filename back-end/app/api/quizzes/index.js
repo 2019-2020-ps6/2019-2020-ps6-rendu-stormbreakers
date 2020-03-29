@@ -1,11 +1,12 @@
 const { Router } = require('express')
 
 const { Quiz } = require('../../models')
-const {Question} = require('../../models')
 const { buildQuizz, buildQuizzes } = require('./manager')
 
-const QuestionRoute = require('./questions');
+const QuestionsRouter = require('./questions');
 const router = new Router()
+
+router.use('/:quizId/questions',QuestionsRouter)
 
 router.get('/', (req, res) => {
   try {
@@ -52,5 +53,4 @@ router.delete('/:quizId', (req, res) => {
   }
 })
 
-router.use('/:quizId/questions',QuestionRoute)
 module.exports = router

@@ -14,7 +14,7 @@ import { Question } from 'src/models/question.model';
 export class QuizResultComponent implements OnInit {
 
   constructor(
-    private  router:Router,
+    private router:Router,
     private route: ActivatedRoute,
     private quizService:QuizService,
     private location:Location,

@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Quiz } from 'src/models/quiz.model';
 import { QuizService } from 'src/services/quiz.service';
 
@@ -10,15 +10,29 @@ import { QuizService } from 'src/services/quiz.service';
 })
 export class EditQuizComponent implements OnInit {
 
-  currentQuiz: Quiz;
-  constructor(private route: ActivatedRoute, public quizservice: QuizService) { }
+  @Input()
+  quiz: Quiz;
+
+  constructor(private route: ActivatedRoute, router:Router, public quizService: QuizService) { 
+    //this.questions= this.router.getCurrentNavigation().extras.state.result
+    this.quizService.quizPlayed$.subscribe(quiz => {
+      this.quiz=quiz
+    });
+   }
+
+   private toSave: boolean = false;
 
   ngOnInit() {
-    console.log('On init');
-    this.quizservice.quizzes$.subscribe(quizList => {
-      this.currentQuiz = quizList.find(q => q.id === this.route.snapshot.paramMap.get('id'));
-    });
+    this.getQuiz();
+  }
 
+  getQuiz():void{
+    const id = this.route.snapshot.paramMap.get('id');
+    this.quizService.getSelectQuiz(id);
+  }
+
+  save(){
+    this.toSave = true;
   }
 
 }

@@ -20,6 +20,7 @@ import { AdminComponent } from './admin/admin.component';
 import { DashboardAdminComponent } from './admin/dashboard-admin/dashboard-admin.component';
 import { AdminCreationQuizComponent } from './admin/admin-creation-quiz/admin-creation-quiz.component';
 import { QuizAdminComponent } from './quizzes/quiz-admin/quiz-admin.component';
+import { ChartsModule } from 'ng2-charts';
 import { AdminStatistiqueComponent } from './admin/admin-statistique/admin-statistique.component';
 
 
@@ -47,7 +48,8 @@ import { AdminStatistiqueComponent } from './admin/admin-statistique/admin-stati
     ReactiveFormsModule,
     HttpClientModule,
     StorageServiceModule,
-    FormsModule
+    FormsModule,
+    ChartsModule
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]

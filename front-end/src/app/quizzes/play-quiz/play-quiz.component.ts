@@ -33,7 +33,7 @@ export class PlayQuizComponent implements OnInit {
   public quizIsFinished:boolean;
   /** statistique about quiz */
   public reponseUtilisateur:Answer[]=[];
-  public timeToRespond:Number[]=[];
+  public timeToRespond:number[]=[];
   public quizBegining:Date;
 
   ngOnInit() {
@@ -79,8 +79,8 @@ export class PlayQuizComponent implements OnInit {
   sendData() {
     for(let i=0;i<this.quizPlayed.questions.length;i++){
     let stat:Statistique= {
-      quizId: this.quizPlayed.id,
-      questionId :this.quizPlayed.questions[i].id,
+      quizId: "" + this.quizPlayed.id,
+      questionId : "" + this.quizPlayed.questions[i].id,
       time : this.timeToRespond[i],
       answer : this.reponseUtilisateur[i].isCorrect
     }

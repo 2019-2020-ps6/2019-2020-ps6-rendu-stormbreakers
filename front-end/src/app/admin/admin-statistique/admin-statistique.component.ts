@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ChartDataSets, ChartOptions } from 'chart.js';
+import { ChartDataSets, ChartOptions} from 'chart.js';
 import { Color, Label } from 'ng2-charts';
 import { Quiz } from '../../../models/quiz.model';
 import { QuizService } from 'src/services/quiz.service';
@@ -15,6 +15,8 @@ export class AdminStatistiqueComponent implements OnInit {
 
   @Input()
   private quiz: Quiz;
+
+  quizList: Quiz[] = [];
 
   data:ChartDataSets[] =[];
   questionsNumber:Label[] =[];
@@ -34,16 +36,18 @@ export class AdminStatistiqueComponent implements OnInit {
     private quizService:QuizService,
     private statService: StatService
   ) { 
-    this.statService.statistiques$.subscribe((stat:Statistique[])=>
-    this.statList=stat  );
+    this.statService.statistiques$.subscribe((stat:Statistique[])=> this.statList = stat);
+    this.quizService.quizzes$.subscribe((quizzes: Quiz[]) => {
+      this.quizList = quizzes;
+      this.quiz=this.quizList[0];
+      this.setData();
+    });
   }
 
   ngOnInit() {
-    this.quiz=this.quizService.getQuizzes()[0];
-    this.setData()
+    this.quizService.getQuizzes();
   }
   setData() {
-    
     const listTimeToRespond:number[] =[];
     for(let i=0;i<this.quiz.questions.length;i++){
       this.statService.getStatistiqueByQuizIdAndQuestionId(this.quiz.id,this.quiz.questions[i].id);
@@ -54,9 +58,10 @@ export class AdminStatistiqueComponent implements OnInit {
   }  
   calculateMoyenne() {
     let moyenne:number=0;
+    console.log(this.statList);
     this.statList.forEach( data =>{
       moyenne+= data.time;
-    })
+    });
     if(this.statList.length>0){
       return (moyenne/this.statList.length);
     }else{

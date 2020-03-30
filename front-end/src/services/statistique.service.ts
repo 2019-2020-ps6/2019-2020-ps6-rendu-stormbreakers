@@ -46,10 +46,8 @@ export class StatService{
 
     getStatistiqueByQuizIdAndQuestionId(quizId: string, questionId: string) {
         this.http.request('GET', this.url+"/"+quizId+"/"+questionId, { responseType: 'json' }).subscribe((result:  Statistique[] ) => {
-      
             this.statistiques = result;
             this.statistiques$.next(this.statistiques);
-      
           });
       }
 

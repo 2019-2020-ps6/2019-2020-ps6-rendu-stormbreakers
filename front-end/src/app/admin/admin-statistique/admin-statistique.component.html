@@ -1,7 +1,8 @@
 <p>admin-statistique works!</p>
 <div class="chart-wrapper">
-    <canvas baseChart
-    [datasets]="lineChartData"
+    <canvas baseChart 
+    [datasets]="data"
+    [labels]="questionsNumber"
     [options]="lineChartOptions"
     [colors]="lineChartColors"
     [legend]="lineChartLegend"

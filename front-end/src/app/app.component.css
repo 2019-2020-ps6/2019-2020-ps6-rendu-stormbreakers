@@ -1,4 +1,7 @@
 .footer-ajuster{
-    position: relative;
-    bottom: 0px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    position: fixed;
+    bottom: 10px;
 }

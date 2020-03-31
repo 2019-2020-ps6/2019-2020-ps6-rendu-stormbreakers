@@ -25,8 +25,8 @@ export class QuizService {
 
   private quizzes: Quiz[] = QUIZ_LIST;
   private questions: Question[];
-  private quizPlayed:Quiz;
-  private lastCreatedQuiz:Quiz;
+  private quizPlayed: Quiz;
+  private lastCreatedQuiz: Quiz;
   private lastCreatedQst: Question;
   /**
    * Observable which contains the list of the quiz.
@@ -43,45 +43,45 @@ export class QuizService {
   }
 
   addQuiz(quiz: Quiz) {
-    this.http.post<Quiz>(this.quizUrl,quiz,httpOptionsBase).subscribe((response)=> {
-      this.getQuizzes()
+    this.http.post<Quiz>(this.quizUrl, quiz, httpOptionsBase).subscribe((response) => {
+      this.getQuizzes();
       this.lastCreatedQuiz = response;
       this.lastCreatedQuiz$.next(this.lastCreatedQuiz);
-    })
-    this.http.post<Quiz>(this.quizUrl,quiz,httpOptionsBase)
+    });
+    this.http.post<Quiz>(this.quizUrl, quiz, httpOptionsBase);
     // You need here to update the list of quiz and then update our observable (Subject) with the new list
     // More info: https://angular.io/tutorial/toh-pt6#the-searchterms-rxjs-subject
-    
+
   }
 
   deleteQuiz(deleted: Quiz) {
-    //this.quizzes = this.quizzes.filter(q => q.name !== deleted.name /*&& q.theme !== deleted.name*/);
-    this.http.delete<Quiz>(this.quizUrl+"/"+deleted.id).subscribe(() => this.getQuizzes());
-  //  this.quizzes$.next(this.quizzes);
+    // this.quizzes = this.quizzes.filter(q => q.name !== deleted.name /*&& q.theme !== deleted.name*/);
+    this.http.delete<Quiz>(this.quizUrl + '/' + deleted.id).subscribe(() => this.getQuizzes());
+    //  this.quizzes$.next(this.quizzes);
   }
 
   getQuizzes() {
-    this.http.request('GET', this.quizUrl, { responseType: 'json' }).subscribe((result:  Quiz[] ) => {
-      
+    this.http.request('GET', this.quizUrl, { responseType: 'json' }).subscribe((result: Quiz[]) => {
+
       this.quizzes = result;
       this.quizzes$.next(this.quizzes);
 
     });
   }
 
-  getSelectQuiz(quizId: String){
-    this.http.get<Quiz>(this.quizUrl + "/" + quizId, {responseType : "json"}).subscribe((quiz) => {
+  getSelectQuiz(quizId: string) {
+    this.http.get<Quiz>(this.quizUrl + '/' + quizId, { responseType: 'json' }).subscribe((quiz) => {
       this.quizPlayed$.next(quiz);
-    })
+    });
   }
 
   addQuestion(quiz: Quiz, question: Question) {
-    const questionUrl = this.quizUrl + '/' + quiz.id + '/' + this.questionsPath;
+    const questionUrl = `${this.quizUrl}/${quiz.id}/${this.questionsPath}`;
     this.http.post<Question>(questionUrl, question, httpOptionsBase).subscribe(() => this.getSelectQuiz(quiz.id));
   }
 
   deleteQuestion(quiz: Quiz, question: Question) {
-    console.log(question)
+    console.log(question);
     const questionUrl = this.quizUrl + '/' + quiz.id + '/questions/' + question.id;
     this.http.delete<Question>(questionUrl, httpOptionsBase).subscribe(() => this.getSelectQuiz(quiz.id));
   }

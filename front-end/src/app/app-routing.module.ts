@@ -36,7 +36,6 @@ const routes: Routes = [
   {
     path: 'admin/statistique',
     component: AdminStatistiqueComponent
-  }
   },
   {
     path: 'admin/editquiz/:id',

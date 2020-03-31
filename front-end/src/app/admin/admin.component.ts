@@ -11,34 +11,34 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class AdminComponent implements OnInit {
 
   connectForm: FormGroup;
-  wrongPassword:boolean=false;
-  constructor(private  router:Router,
-    private route: ActivatedRoute,
-    private formBuilder: FormBuilder,
-    private cookieService:CookieService) { 
+  wrongPassword = false;
+  constructor(private router: Router,
+              private route: ActivatedRoute,
+              private formBuilder: FormBuilder,
+              private cookieService: CookieService) {
 
-    }
-  
+  }
+
   ngOnInit() {
-    this.connectForm=this.formBuilder.group({
+    this.connectForm = this.formBuilder.group({
       password: [],
-    })
-    this.cookieService.set('connect','false')
-    this.cookieService.get('connect')
+    });
+    this.cookieService.set('connect', 'false');
+    this.cookieService.get('connect');
   }
 
-  login(){
-    if(this.connectForm.get("password").value!=="1234abcd"){
-      this.wrongPassword=true;
-      this.cookieService.set('connect','false')
-      this.cookieService.get('connect')
-    }else{
-      console.log("good password")
-      this.cookieService.set('connect','true')
-      this.cookieService.get('connect')
-      this.router.navigate([this.router.url+'/dashboard'])
+  login() {
+    if (this.connectForm.get('password').value !== '1234abcd') {
+      this.wrongPassword = true;
+      this.cookieService.set('connect', 'false');
+      this.cookieService.get('connect');
+    } else {
+      console.log('good password');
+      this.cookieService.set('connect', 'true');
+      this.cookieService.get('connect');
+      this.router.navigate([this.router.url + '/dashboard']);
     }
-    
+
   }
-  
+
 }

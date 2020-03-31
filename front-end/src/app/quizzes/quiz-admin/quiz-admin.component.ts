@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Quiz } from 'src/models/quiz.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-quiz-admin',
@@ -16,19 +17,22 @@ export class QuizAdminComponent implements OnInit {
   @Output()
   quizDeleted: EventEmitter<Quiz> = new EventEmitter<Quiz>();
 
-  constructor() {
+  constructor(
+    private router: Router
+  ) {
   }
 
   ngOnInit() {
   }
 
-  quizSelect() {
-    console.log("selectionner")
+  quizEdit() {
+    console.log('selectionner');
     this.quizSelected.emit(this.quiz);
+    this.router.navigate(['admin/editquiz/' + this.quiz.id], { state: { result: this.quiz } });
   }
 
-  quizDelete(){
-    console.log("supprimer")
+  quizDelete() {
+    console.log('supprimer');
     this.quizDeleted.emit(this.quiz);
   }
 }

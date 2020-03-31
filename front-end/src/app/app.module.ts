@@ -16,6 +16,9 @@ import { StorageServiceModule } from 'angular-webstorage-service';
 import { PlayQuizComponent } from './quizzes/play-quiz/play-quiz.component';
 import { PlayQuestionComponent } from './quizzes/play-question/play-question.component';
 import { QuizResultComponent } from './quizzes/quiz-result/quiz-result.component';
+import { ThemeContainerComponent } from './adaptability/theme-container/theme-container.component';
+
+import { BaseThemeComponent } from './adaptability/base-theme/base-theme.component';
 import { AdminComponent } from './admin/admin.component';
 import { DashboardAdminComponent } from './admin/dashboard-admin/dashboard-admin.component';
 import { AdminCreationQuizComponent } from './admin/admin-creation-quiz/admin-creation-quiz.component';
@@ -23,6 +26,9 @@ import { QuizAdminComponent } from './quizzes/quiz-admin/quiz-admin.component';
 import { ChartsModule } from 'ng2-charts';
 import { AdminStatistiqueComponent } from './admin/admin-statistique/admin-statistique.component';
 import { AdminChartComponent } from './admin/admin-chart/admin-chart.component';
+import { QuestionListComponent } from './quizzes/question-list/question-list.component';
+import { QuestionComponent } from './quizzes/question/question.component';
+
 
 
 @NgModule({
@@ -37,12 +43,16 @@ import { AdminChartComponent } from './admin/admin-chart/admin-chart.component';
     PlayQuizComponent,
     PlayQuestionComponent,
     QuizResultComponent,
+    ThemeContainerComponent,
+    BaseThemeComponent,
     AdminComponent,
     DashboardAdminComponent,
     AdminCreationQuizComponent,
     QuizAdminComponent,
     AdminStatistiqueComponent,
     AdminChartComponent,
+    QuestionListComponent,
+    QuestionComponent
   ],
   imports: [
     BrowserModule,

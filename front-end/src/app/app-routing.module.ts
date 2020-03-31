@@ -14,10 +14,6 @@ const routes: Routes = [
     component: QuizListComponent,
   },
   {
-    path: 'editquiz/:id',
-    component: EditQuizComponent
-  },
-  {
     path: 'playquiz/:id',
     component: PlayQuizComponent
   },
@@ -41,6 +37,11 @@ const routes: Routes = [
     path: 'admin/statistique',
     component: AdminStatistiqueComponent
   }
+  },
+  {
+    path: 'admin/editquiz/:id',
+    component: EditQuizComponent
+  },
 ];
 
 @NgModule({

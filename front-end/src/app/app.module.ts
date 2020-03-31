@@ -16,6 +16,9 @@ import { StorageServiceModule } from 'angular-webstorage-service';
 import { PlayQuizComponent } from './quizzes/play-quiz/play-quiz.component';
 import { PlayQuestionComponent } from './quizzes/play-question/play-question.component';
 import { QuizResultComponent } from './quizzes/quiz-result/quiz-result.component';
+import { ThemeContainerComponent } from './adaptability/theme-container/theme-container.component';
+
+import { BaseThemeComponent } from './adaptability/base-theme/base-theme.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,9 @@ import { QuizResultComponent } from './quizzes/quiz-result/quiz-result.component
     SliderSizeComponent,
     PlayQuizComponent,
     PlayQuestionComponent,
-    QuizResultComponent
+    QuizResultComponent,
+    ThemeContainerComponent,
+    BaseThemeComponent
   ],
   imports: [
     BrowserModule,

@@ -22,6 +22,7 @@ import { AdminCreationQuizComponent } from './admin/admin-creation-quiz/admin-cr
 import { QuizAdminComponent } from './quizzes/quiz-admin/quiz-admin.component';
 import { ChartsModule } from 'ng2-charts';
 import { AdminStatistiqueComponent } from './admin/admin-statistique/admin-statistique.component';
+import { AdminChartComponent } from './admin/admin-chart/admin-chart.component';
 
 
 @NgModule({
@@ -41,6 +42,7 @@ import { AdminStatistiqueComponent } from './admin/admin-statistique/admin-stati
     AdminCreationQuizComponent,
     QuizAdminComponent,
     AdminStatistiqueComponent,
+    AdminChartComponent,
   ],
   imports: [
     BrowserModule,

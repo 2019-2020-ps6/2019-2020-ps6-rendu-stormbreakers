@@ -59,6 +59,7 @@ export class PlayQuizComponent implements OnInit {
       const dateEndQuiz=new Date();
       const difference =dateEndQuiz.getTime()-this.quizBegining.getTime();
       this.timeToRespond.push(difference);
+      this.quizBegining=new Date()
       if(this.quizPlayed.questions.length>this.currentQuestionPos){
         this.currentQuestion= this.quizPlayed.questions[this.currentQuestionPos];
         this.reponseUtilisateur.push(val)

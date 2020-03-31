@@ -28,15 +28,4 @@ export const QUESTION_ACTOR2: Question = {
         }
     ]
 };
-export const QUIZ_LIST: Quiz[] = [
-    {
-        id: 'vfjnkvf',
-        name: 'Les Acteurs', // What's happening if I change this value..?
-        questions: [QUESTION_ACTOR,QUESTION_ACTOR2],
-    },
-    {
-        id: 'dcbdvd',
-        name: 'Les Sports',
-        questions: [],
-    }
-];
+export const QUIZ_LIST: Quiz[] = [];

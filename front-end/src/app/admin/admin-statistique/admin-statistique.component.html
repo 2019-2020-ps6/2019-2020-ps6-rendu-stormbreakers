@@ -1,11 +1,5 @@
 <p>admin-statistique works!</p>
-<div class="chart-wrapper">
-    <canvas baseChart 
-    [datasets]="data"
-    [labels]="questionsNumber"
-    [options]="lineChartOptions"
-    [colors]="lineChartColors"
-    [legend]="lineChartLegend"
-    [chartType]="lineChartType">
-  </canvas>
+
+<div *ngIf="selectQuiz">
+  <app-admin-chart [quiz]="selectQuiz"></app-admin-chart>
 </div>

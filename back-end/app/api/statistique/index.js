@@ -4,7 +4,7 @@ const{ Quiz} = require('../../models')
 const { Statistique } = require('../../models')
 router.get('/', (req, res) => {
   try {
-    response =  {...Statistique.get()}
+    response =  [...Statistique.get()]
     res.status(200).json(response)
   } catch (err) {
     res.status(500).json(err)
@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
 })
 router.get('/:quizId', (req, res) => {
   try {
-  const response = {...Statistique.get().filter((stat) => stat.quizId == req.params.quizId )}
+  const response = [...Statistique.get().filter((stat) => stat.quizId == req.params.quizId )]
   res.status(200).json(response)
   } catch (err) {
     res.status(500).json(err)
@@ -21,7 +21,7 @@ router.get('/:quizId', (req, res) => {
 
 router.get('/:quizId/:questionId', (req, res) => {
     try {
-    const response = {...Statistique.get().filter((stat) => stat.quizId == req.params.quizId && stat.questionId ==  req.params.questionId)}
+    const response = [...Statistique.get().filter((stat) => stat.quizId == req.params.quizId && stat.questionId ==  req.params.questionId)]
     res.status(200).json(response)
     } catch (err) {
       res.status(500).json(err)

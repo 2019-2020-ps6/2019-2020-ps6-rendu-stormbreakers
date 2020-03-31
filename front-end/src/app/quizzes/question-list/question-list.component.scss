@@ -1,0 +1,16 @@
+.question-list {
+    display: flex;
+    margin: 0.5em;
+}
+
+.queston{
+    display: flex;
+    flex-direction: column;
+}
+
+app-question{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}

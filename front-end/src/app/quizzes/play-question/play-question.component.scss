@@ -1,8 +1,15 @@
-.to_center{
-  position: absolute; 
-  top: 50%; left: 50%; 
-  transform: translate(-50%, -50%); 
-}
-.marge-button{
-    margin-top: 1em;
-}
+  .btn_cntr{
+      display: flex;
+      justify-content: flex-end;
+  }
+
+  .answer-list{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .question {
+    display: flex;
+    justify-content: center;
+  }

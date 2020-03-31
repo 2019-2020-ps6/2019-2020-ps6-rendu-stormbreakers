@@ -1,31 +1,28 @@
-<div class="container">
-    <label for="titre-quiz">
-        Titre du Quiz
-    </label>
-    <input type="text" id="titre-quiz" class="form-control">
-    <div class="row flex-row justify-content-around mt-3">
-        <button (click)="addAnswer()" class="btn btn-info">Add answer</button>
-
-    </div>
-    <div [formGroup]="questionForm">
-
-
-        <div class="wrapper-answers" formArrayName="answers">
-
-            <div *ngFor="let address of answers.controls; let i=index">
-
-                <div [formGroupName]="i">
-                    <input type="text" [formControlName]="'value'">
-                    <input type="checkbox" name="" id="" [formControlName]="'isCorrect'">
-
-                </div>
-
-            </div>
-            Something here
+<div class="card p-3 m-2">
+  <h2 class="card-title">Create a new question</h2>
+  <div class="card-body">
+    <form class="quiz-form" [formGroup]="questionForm">
+      <label for="label">
+        Title <br>
+        <input class="input-custom" type="text" id="label" [formControlName]="'label'">
+      </label>
+      <br>
+      
+      <div class="answer" formArrayName="answers">
+        <div *ngFor="let address of answers.controls; let i=index">
+          <div class="answer-form" [formGroupName]="i">
+            <label>
+              Answer
+              <input type="text" [formControlName]="'value'">
+              <br>
+              Correct
+              <input type="checkbox" [formControlName]="'isCorrect'">
+            </label>
+          </div>
         </div>
-    </div>
-
-    <div class="text-center">
-        <button class="btn btn-success">Create</button>
-    </div>
+      </div>
+      <button class="button-card btn btn-info" (click)="addAnswer()">Add Answer</button>
+      <button type="submit" class="button-card btn btn-success" (click)="addQuestion()">Create</button>
+    </form>
+  </div>
 </div>

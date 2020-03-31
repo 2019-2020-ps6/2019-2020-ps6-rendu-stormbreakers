@@ -1,8 +1,11 @@
-<div *ngFor="let theme of themesList" class="theme-container-wrapper">
-
-    <app-base-theme [csstheme]="theme" (themeChosen)="themeHandler($event)">
-
-    </app-base-theme>
+<div class="theme-container-wrapper mt-5">
     
+    <div *ngFor="let theme of themesList" >
 
+        <app-base-theme [csstheme]="theme" (themeChosen)="themeHandler($event)">
+    
+        </app-base-theme>
+        
+    
+    </div>
 </div>

@@ -1,18 +1,20 @@
 const { Router } = require('express')
 
 const { Quiz } = require('../../models')
-const {Question} = require('../../models')
+const { buildQuizz, buildQuizzes } = require('./manager')
 
-const QuestionRoute = require('./questions');
+const QuestionsRouter = require('./questions');
 const router = new Router()
+
+router.use('/:quizId/questions',QuestionsRouter)
 
 router.get('/', (req, res) => {
   try {
-    const response = {...Quiz.get()}
-    for(let i=0;response.size>i;i++){
-      console.log(response[i])
-    }
-    
+  /*const response = [...Quiz.get()];
+   for(let i=0;response.size>i;i++){
+    questions:Question.get().filter((q) => q.quizId === req.params.quizId)
+    }*/
+    const response=buildQuizzes()
     res.status(200).json(response)
   } catch (err) {
     res.status(500).json(err)
@@ -20,8 +22,9 @@ router.get('/', (req, res) => {
 })
 router.get('/:quizId', (req, res) => {
   try {
-    const response = {...Quiz.getById(req.params.quizId), questions:Question.get().filter((q) => q.quizId === req.params.quizId)}
-    res.status(200).json(response)
+  //  const response = {...Quiz.getById(req.params.quizId), questions:Question.get().filter((q) => q.quizId === req.params.quizId)}
+  const response= buildQuizz(req.params.quizId)  
+  res.status(200).json(response)
   } catch (err) {
     res.status(500).json(err)
   }
@@ -43,11 +46,11 @@ router.post('/', (req, res) => {
 
 router.delete('/:quizId', (req, res) => {
   try {
-    res.status(200).json(Quiz.delete(req.params.quizId))
+    Quiz.delete(req.params.quizId)
+    res.status(204).end()
   } catch (err) {
     res.status(500).json(err)
   }
 })
 
-router.use('/:quizId/questions',QuestionRoute)
 module.exports = router

@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
+import { CookieService } from 'ngx-cookie-service';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { QuizListComponent } from './quizzes/quiz-list/quiz-list.component';
@@ -19,6 +19,14 @@ import { QuizResultComponent } from './quizzes/quiz-result/quiz-result.component
 import { ThemeContainerComponent } from './adaptability/theme-container/theme-container.component';
 
 import { BaseThemeComponent } from './adaptability/base-theme/base-theme.component';
+import { AdminComponent } from './admin/admin.component';
+import { DashboardAdminComponent } from './admin/dashboard-admin/dashboard-admin.component';
+import { AdminCreationQuizComponent } from './admin/admin-creation-quiz/admin-creation-quiz.component';
+import { QuizAdminComponent } from './quizzes/quiz-admin/quiz-admin.component';
+import { QuestionListComponent } from './quizzes/question-list/question-list.component';
+import { QuestionComponent } from './quizzes/question/question.component';
+
+
 
 @NgModule({
   declarations: [
@@ -33,7 +41,13 @@ import { BaseThemeComponent } from './adaptability/base-theme/base-theme.compone
     PlayQuestionComponent,
     QuizResultComponent,
     ThemeContainerComponent,
-    BaseThemeComponent
+    BaseThemeComponent,
+    AdminComponent,
+    DashboardAdminComponent,
+    AdminCreationQuizComponent,
+    QuizAdminComponent,
+    QuestionListComponent,
+    QuestionComponent
   ],
   imports: [
     BrowserModule,
@@ -41,9 +55,10 @@ import { BaseThemeComponent } from './adaptability/base-theme/base-theme.compone
     ReactiveFormsModule,
     HttpClientModule,
     StorageServiceModule,
-    FormsModule
+    FormsModule,
+    
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

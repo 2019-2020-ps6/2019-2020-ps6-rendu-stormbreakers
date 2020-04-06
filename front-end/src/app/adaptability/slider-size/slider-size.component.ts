@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 
 import { LOCAL_STORAGE, WebStorageService } from 'angular-webstorage-service';
+import { Button } from 'protractor';
 
 @Component({
   selector: 'app-slider-size',
@@ -17,8 +18,8 @@ export class SliderSizeComponent implements OnInit {
   ngOnInit() {
     this.taille = this.storage.get('userfontsize');
     if (this.taille != null) {
-
       document.querySelector('body').style.fontSize = `${this.taille}pt`;
+      Array.from(document.querySelectorAll('button')).map((button)=> this.changeTextSize(button))
     }
   }
 
@@ -27,7 +28,14 @@ export class SliderSizeComponent implements OnInit {
     console.log(this.taille);
     this.storage.set('userfontsize', this.taille);
     document.querySelector('body').style.fontSize = `${this.taille}pt`;
- 
+    console.log("hello")
+    Array.from(document.querySelectorAll('button')).map((button)=> this.changeTextSize(button))
+  }
+
+  changeTextSize(btn) {
+    console.log("1")
+    const btnSize=((this.taille)/2);
+    btn.style.fontSize= `${btnSize}pt`;
   }
 
 }

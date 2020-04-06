@@ -24,3 +24,21 @@
   background-color: black;
   color: white;
 }
+/** ------------------For the adaptability of the size of the elements-------------------------------------------------*/
+
+
+.cussize-1x{
+  font-size: 10pt;
+}
+
+.cussize-2x{
+  font-size: 14pt;
+}
+
+.cussize-3x{
+  font-size: 18pt;
+}
+
+.cussize-3x{
+  font-size: 24pt;
+}

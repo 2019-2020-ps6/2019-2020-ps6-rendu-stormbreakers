@@ -1,0 +1,10 @@
+.wrapper-adapter{
+    border: solid 2px black;
+    border-radius: 5px;
+    background-color: teal;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 5px;
+
+}

@@ -25,6 +25,10 @@ import { AdminCreationQuizComponent } from './admin/admin-creation-quiz/admin-cr
 import { QuizAdminComponent } from './quizzes/quiz-admin/quiz-admin.component';
 import { QuestionListComponent } from './quizzes/question-list/question-list.component';
 import { QuestionComponent } from './quizzes/question/question.component';
+import { AdapterComponent } from './adaptability/adapter/adapter.component';
+import { SizeChooserContainerComponent } from './adaptability/size-chooser-container/size-chooser-container.component';
+import { BaseSizeChooserComponent } from './adaptability/base-size-chooser/base-size-chooser.component';
+
 
 
 
@@ -47,7 +51,10 @@ import { QuestionComponent } from './quizzes/question/question.component';
     AdminCreationQuizComponent,
     QuizAdminComponent,
     QuestionListComponent,
-    QuestionComponent
+    QuestionComponent,
+    AdapterComponent,
+    SizeChooserContainerComponent,
+    BaseSizeChooserComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +63,7 @@ import { QuestionComponent } from './quizzes/question/question.component';
     HttpClientModule,
     StorageServiceModule,
     FormsModule,
-    
+
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]

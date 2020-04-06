@@ -18,7 +18,7 @@ export class BaseThemeComponent implements OnInit {
   }
 
   choseTheme() {
-    alert('Sault tout le monde');
+
     this.themeChosen.emit(this.csstheme);
   }
 

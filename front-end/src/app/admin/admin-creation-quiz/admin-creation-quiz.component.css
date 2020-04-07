@@ -1,0 +1,11 @@
+.column{
+    display: flex;
+    flex-direction: row;
+}
+
+.center-form{
+    display: flex;
+    margin-top: 2em;
+    margin-left: auto;
+    margin-right: auto;
+  }

@@ -18,11 +18,13 @@ export class PlayQuizComponent implements OnInit {
     private quizService:QuizService,
     private location:Location,
   ) { 
+    this.quizService.quizPlayed$.subscribe(quiz => {
+      this.quizPlayed=quiz
+    });
   }
 
   public quizPlayed:Quiz;
   public isLaunch:boolean;
-  public questions:Question[]=[];
   public currentQuestionPos:number;
   public currentQuestion:Question;
   public quizIsFinished:boolean;
@@ -36,11 +38,7 @@ export class PlayQuizComponent implements OnInit {
   }
   getQuiz():void{
     const id = this.route.snapshot.paramMap.get('id');
-    console.log("id"+id);
-    this.quizService.quizzes$.subscribe(quizList => {
-      this.quizPlayed = quizList.find(q => q.id === this.route.snapshot.paramMap.get('id'));
-    });
-    this.questions=this.quizPlayed.questions;
+    this.quizService.getSelectQuiz(id);
     }
 
     launch(){

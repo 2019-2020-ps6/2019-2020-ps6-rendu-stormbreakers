@@ -6,15 +6,14 @@ import { PlayQuizComponent } from './quizzes/play-quiz/play-quiz.component';
 import { QuizResultComponent } from './quizzes/quiz-result/quiz-result.component';
 import { ThemeListComponent} from './themes/theme-list/theme-list.component'
 import {ThemeComponent} from './themes/theme/theme.component';
+import { AdminComponent } from './admin/admin.component';
+import { DashboardAdminComponent } from './admin/dashboard-admin/dashboard-admin.component'
+import { AdminCreationQuizComponent } from './admin/admin-creation-quiz/admin-creation-quiz.component';
 const routes: Routes = [
   
   {
     path: '',
     component: QuizListComponent,
-  },
-  {
-    path:'',
-    component: ThemeListComponent,
   },
   {
     path: 'editquiz/:id',
@@ -27,7 +26,23 @@ const routes: Routes = [
   {
     path: 'playquiz/:id/results',
     component: QuizResultComponent
-  }
+  },
+  {
+    path: 'admin',
+    component: AdminComponent
+  },
+  {
+    path: 'admin/dashboard',
+    component: DashboardAdminComponent
+  },
+  {
+    path: 'admin/quiz',
+    component: AdminCreationQuizComponent
+  },
+  {
+    path: 'admin/editquiz/:id',
+    component: EditQuizComponent
+  },
 ];
 
 @NgModule({

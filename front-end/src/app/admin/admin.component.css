@@ -1,0 +1,14 @@
+.size-card{
+    width: 50%;
+    height: 50%;
+}
+.center-elem{
+    display: flex;
+    margin-top: 2em;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .font-red{
+      color:red
+  }

@@ -43,10 +43,10 @@ export class ThemeService {
     this.themes$.next(this.themes);
   }
 
-  getThemes() {
-    this.http.request('GET', this.url, { responseType: 'json' }).subscribe((result: { themes: Theme[] }) => {
-      this.themes = result.themes;
-      this.themes$.next(this.themes);
-    });
-  }
+  //getThemes() {
+   // this.http.request('GET', this.url, { responseType: 'json' }).subscribe((result: { themes: Theme[] }) => {
+     // this.themes = result.themes;
+      //this.themes$.next(this.themes);
+    //});
+  //}
 }

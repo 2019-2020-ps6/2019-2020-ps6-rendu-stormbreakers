@@ -12,7 +12,7 @@ export class ThemeListComponent implements OnInit {
 
   public themeList: Theme[] = [];
 
-  constructor(private  router:Router,public themeService: ThemeService) {
+  constructor(private router:Router,public themeService: ThemeService) {
     //this.quizService.getQuizzes();
     this.themeService.themes$.subscribe((theme) => {this.themeList = theme; console.log(this.themeList); });
   }

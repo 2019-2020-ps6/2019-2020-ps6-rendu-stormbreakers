@@ -8,7 +8,7 @@ import { Theme } from '../../../models/theme.model';
 export class ThemeComponent implements OnInit {
 
   @Input()
-  themes: Theme;
+  theme: Theme;
 
   @Output()
   themeLaunched: EventEmitter<Theme> = new EventEmitter<Theme>();

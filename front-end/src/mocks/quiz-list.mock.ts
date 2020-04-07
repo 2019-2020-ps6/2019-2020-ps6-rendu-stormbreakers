@@ -38,12 +38,25 @@ export const QUESTION_ACTOR2: Question = {
         }
     ]
 };
+export const QUESTION_ACTOR3: Question = {
+    label: 'Leonardo dicaprio a joué dans...',
+    answers: [
+       {
+           value: 'Titanic',
+           isCorrect: true,
+       },
+        {
+           value: 'After',
+           isCorrect: false,
+        }
+    ]
+};
 export const QUIZ_LIST: Quiz[] = [
     {
         id: 'vfjnkvf',
         name: 'Les Acteurs', // What's happening if I change this value..?
         theme: THEME_LIST[0],
-        questions: [QUESTION_ACTOR,QUESTION_ACTOR2],
+        questions: [QUESTION_ACTOR,QUESTION_ACTOR2,QUESTION_ACTOR3],
     },
     {
         id: 'dcbdvd',

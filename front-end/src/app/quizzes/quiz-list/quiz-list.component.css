@@ -7,7 +7,12 @@
     grid-template-columns: 1fr 1fr;
   }
   .cus-sizable.cussize-3x.quiz-list {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
+    
+  }
+
+  .cus-sizable.cussize-4x.quiz-list {
+    grid-template-columns: auto;
     
   }
 }

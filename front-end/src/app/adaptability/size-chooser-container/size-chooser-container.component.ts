@@ -7,17 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SizeChooserContainerComponent implements OnInit {
 
-  sizeList: string[] = ['cussize-1x', 'cussize-2x', 'cussize-3x', 'cussize-4x'];
+  sizeList: object[] = [{ className: 'cussize-1x', toDisplay: '1x' }, { className: 'cussize-2x', toDisplay: '2x' }
+    , { className: 'cussize-3x', toDisplay: '3x' }, { className: 'cussize-4x', toDisplay: '4x' }];
   constructor() { }
 
   ngOnInit() {
   }
 
-  sizeChooseHandler(sizechoosen: string) {
+  sizeChooseHandler(sizechoosen: { className: string, toDisplay: string }) {
     console.log(sizechoosen);
     document.querySelectorAll('.cus-sizable').forEach(balise => {
       const tmpclasses = balise.className.split(' ').filter(cls => !cls.startsWith('cussize-'));
-      tmpclasses.push(sizechoosen);
+      tmpclasses.push(sizechoosen.className);
 
       balise.className = tmpclasses.join(' ');
 

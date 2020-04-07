@@ -1,0 +1,12 @@
+.base-size-wrapper-component{
+    width: 200px;
+    
+    
+}
+
+.base-size-wrapper-component p{
+    text-align: justify;
+    text-overflow:ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}

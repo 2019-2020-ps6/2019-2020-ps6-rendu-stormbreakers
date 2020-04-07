@@ -27,7 +27,7 @@ export class SliderSizeComponent implements OnInit {
     console.log(this.taille);
     this.storage.set('userfontsize', this.taille);
     document.querySelector('body').style.fontSize = `${this.taille}pt`;
- 
+
   }
 
 }

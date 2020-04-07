@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
 .q-default {
   background-color: white;
   color: black;
@@ -20,25 +21,34 @@
   color: white;
 }
 
-.themed.custheme-dark.q-default{
+.themed.custheme-dark.q-default {
   background-color: black;
   color: white;
 }
+
 /** ------------------For the adaptability of the size of the elements-------------------------------------------------*/
 
-
-.cussize-1x{
+.cussize-1x {
   font-size: 10pt;
 }
 
-.cussize-2x{
+.cussize-2x {
   font-size: 14pt;
 }
 
-.cussize-3x{
+.cussize-3x {
   font-size: 18pt;
 }
 
-.cussize-3x{
+.cussize-4x {
   font-size: 24pt;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }

@@ -3,13 +3,10 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { Quiz } from '../models/quiz.model';
 import { QUIZ_LIST } from '../mocks/quiz-list.mock';
 import { HttpClient } from '@angular/common/http';
-<<<<<<< HEAD
 import { Theme } from 'src/models/theme.model';
 import { THEME_LIST } from '../mocks/quiz-list.mock';
-=======
 import { serverUrl, httpOptionsBase } from '../configs/server.config';
 import { Question } from 'src/models/question.model';
->>>>>>> 4a374d3ef7c6f851b63f0200d59861746f293b84
 
 @Injectable({
   providedIn: 'root'

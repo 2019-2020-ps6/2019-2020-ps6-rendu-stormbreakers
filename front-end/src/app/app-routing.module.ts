@@ -16,10 +16,6 @@ const routes: Routes = [
     component: QuizListComponent,
   },
   {
-    path: 'editquiz/:id',
-    component: EditQuizComponent
-  },
-  {
     path: 'playquiz/:id',
     component: PlayQuizComponent
   },

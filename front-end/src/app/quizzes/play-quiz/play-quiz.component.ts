@@ -60,17 +60,18 @@ export class PlayQuizComponent implements OnInit {
     }
     passingQuestion(question:Question){
       console.log("question passed");
+      var tmp : Answer = { value: null, isCorrect: false};
       this.currentQuestionPos++;
       this.currentQuestion= this.quizPlayed.questions[this.currentQuestionPos];
       if(this.quizPlayed.questions.length== this.currentQuestionPos){
+        this.reponseUtilisateur.push(tmp);
         this.quizIsFinished=true;
       }
-      
     }
 
     
   showResult() {
-    console.log("quiz result"+this.quizPlayed.id);
+    console.log("quiz results of quiz n°"+this.quizPlayed.id);
     this.router.navigate([this.router.url+'/results'],{state: {result:this.reponseUtilisateur}})
   }
 }

@@ -58,15 +58,13 @@ export class PlayQuizComponent implements OnInit {
         this.quizIsFinished=true;
       }
     }
-    passingQuestion(question:Question){
+    passingQuestion(){
       console.log("question passed");
       var tmp : Answer = { value: null, isCorrect: false};
+      this.reponseUtilisateur.push(tmp);
       this.currentQuestionPos++;
       this.currentQuestion= this.quizPlayed.questions[this.currentQuestionPos];
-      if(this.quizPlayed.questions.length== this.currentQuestionPos){
-        this.reponseUtilisateur.push(tmp);
-        this.quizIsFinished=true;
-      }
+      if(this.quizPlayed.questions.length== this.currentQuestionPos) this.quizIsFinished=true;
     }
 
     

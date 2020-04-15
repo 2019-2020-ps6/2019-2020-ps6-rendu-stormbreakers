@@ -4,10 +4,11 @@
      </h2>
      
      <div class="card-body" >
-          <div class="card res" id="nbQuestions">
+          <div class="card-body res">
+              <div class="card res" id="nbQuestions">
                Nombre de questions : {{quiz.questions.length}}
            </div>
-         <div class="card-body">
+           <span class="resStats">
              <div class="card res" id="true">
                  Nombre de bonnes réponses : {{goodAnswersCount}}
              </div>
@@ -17,6 +18,7 @@
              <div class="card res" id="skipped">
                  Nombre de questions sautées : {{unsansweredCount}}
              </div>
+            </span>
          </div>
          <div>
 

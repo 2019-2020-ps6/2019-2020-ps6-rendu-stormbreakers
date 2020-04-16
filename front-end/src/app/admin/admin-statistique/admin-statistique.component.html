@@ -1,5 +1,9 @@
 <p>admin-statistique works!</p>
-
-<div *ngIf="selectQuiz">
-  <app-admin-chart [quiz]="selectQuiz"></app-admin-chart>
+<div class="column">
+  <div>
+  <app-admin-list-statistique *ngFor="let quiz of quizList" [quiz]="quiz" (quizSelected)="quizSelected($event)"></app-admin-list-statistique>
+  </div>
+  <div *ngIf="selectQuiz">
+    <app-admin-chart [quiz]="selectQuiz"></app-admin-chart>
+  </div>
 </div>

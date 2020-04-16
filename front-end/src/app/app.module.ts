@@ -28,6 +28,7 @@ import { AdminStatistiqueComponent } from './admin/admin-statistique/admin-stati
 import { AdminChartComponent } from './admin/admin-chart/admin-chart.component';
 import { QuestionListComponent } from './quizzes/question-list/question-list.component';
 import { QuestionComponent } from './quizzes/question/question.component';
+import { AdminListStatistiqueComponent } from './admin/admin-list-statistique/admin-list-statistique.component';
 
 
 
@@ -52,7 +53,8 @@ import { QuestionComponent } from './quizzes/question/question.component';
     AdminStatistiqueComponent,
     AdminChartComponent,
     QuestionListComponent,
-    QuestionComponent
+    QuestionComponent,
+    AdminListStatistiqueComponent
   ],
   imports: [
     BrowserModule,

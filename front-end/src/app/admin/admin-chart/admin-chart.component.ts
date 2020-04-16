@@ -18,8 +18,6 @@ export class AdminChartComponent implements OnInit {
   @Input()
   quiz: Quiz;
 
-  quizList: Quiz[] = [];
-
   data:ChartDataSets[] = [{data :[0], label: "temps pour repondre"}];
   questionsNumber:Label[] =[];
 

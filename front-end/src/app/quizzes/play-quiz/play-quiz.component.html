@@ -8,11 +8,15 @@
         <div *ngIf="isLaunch && !quizIsFinished">
             <app-play-question  [question]="currentQuestion" (changeQuestion)="changingQuestion($event)"></app-play-question>
         </div>
+        <div *ngIf="isLaunch && !quizIsFinished">
+            <button type="button" class="btn btn-warning" (click)="passingQuestion()"  >Passer</button>
+        </div>
         <div *ngIf="quizIsFinished">
             <h2> quiz terminé</h2>
             <div class="text-center">
                 <button class="btn btn-success" (click)="showResult()">Résultats </button>
             </div>
         </div>
+
 </div>
 </body>

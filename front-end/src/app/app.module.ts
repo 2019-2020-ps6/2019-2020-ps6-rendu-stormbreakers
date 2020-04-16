@@ -27,21 +27,6 @@ import { EditQuizComponent } from './quizzes/edit-quiz/edit-quiz.component';
 import { PlayQuestionComponent } from './quizzes/play-question/play-question.component';
 import { PlayQuizComponent } from './quizzes/play-quiz/play-quiz.component';
 import { QuestionFormComponent } from './quizzes/question-form/question-form.component';
-import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-import { HeaderComponent } from './header/header.component';
-import { SliderSizeComponent } from './adaptability/slider-size/slider-size.component';
-import { StorageServiceModule } from 'angular-webstorage-service';
-import { PlayQuizComponent } from './quizzes/play-quiz/play-quiz.component';
-import { PlayQuestionComponent } from './quizzes/play-question/play-question.component';
-import { QuizResultComponent } from './quizzes/quiz-result/quiz-result.component';
-import { ThemeContainerComponent } from './adaptability/theme-container/theme-container.component';
-
-import { BaseThemeComponent } from './adaptability/base-theme/base-theme.component';
-import { AdminComponent } from './admin/admin.component';
-import { DashboardAdminComponent } from './admin/dashboard-admin/dashboard-admin.component';
-import { AdminCreationQuizComponent } from './admin/admin-creation-quiz/admin-creation-quiz.component';
-import { QuizAdminComponent } from './quizzes/quiz-admin/quiz-admin.component';
 import { ChartsModule } from 'ng2-charts';
 import { AdminStatistiqueComponent } from './admin/admin-statistique/admin-statistique.component';
 import { AdminChartComponent } from './admin/admin-chart/admin-chart.component';
@@ -78,7 +63,7 @@ import { AdminListStatistiqueComponent } from './admin/admin-list-statistique/ad
     AdminStatistiqueComponent,
     AdminChartComponent,
     QuestionListComponent,
-    AdminListStatistiqueComponent
+    AdminListStatistiqueComponent,
     QuestionComponent,
     AdapterComponent,
     SizeChooserContainerComponent,
@@ -92,7 +77,7 @@ import { AdminListStatistiqueComponent } from './admin/admin-list-statistique/ad
     HttpClientModule,
     StorageServiceModule,
     FormsModule,
-    ChartsModule
+    ChartsModule,
     BrowserAnimationsModule,
     MatDialogModule, MatInputModule, MatButtonModule, MatCardModule, MatFormFieldModule
 

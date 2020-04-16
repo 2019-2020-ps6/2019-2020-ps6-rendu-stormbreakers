@@ -19,7 +19,7 @@ export class QuizResultComponent implements OnInit {
     private quizService:QuizService,
     private location:Location,
   ) {
-      this.userAnswers= this.router.getCurrentNavigation().extras.state.result
+      this.userAnswers= this.router.getCurrentNavigation().extras.state.result;
       this.quizService.quizPlayed$.subscribe(quiz => {
         this.quiz=quiz
       });
@@ -44,13 +44,18 @@ export class QuizResultComponent implements OnInit {
 
   setAnswersCount(){
     this.userAnswers.forEach(ans => {
-      if(ans.isCorrect) this.goodAnswersCount++;
-      else this.badAnswersCount++;
+      if(ans.value == null) {
+        this.unsansweredCount++;
+      } else if(ans.isCorrect){
+        this.goodAnswersCount++;
+      } else {
+        this.badAnswersCount++;
+      }
     });
-    this.unsansweredCount = this.quiz.questions.length - this.goodAnswersCount - this.badAnswersCount;
   }
 
   answerFromQuestion(q: Question, answer: Answer){
-    return q.answers.find(a => a == answer);
+    if(answer.value == null) return false;
+    return q.answers.find(a => a.value === answer.value);
   }
 }

@@ -20,7 +20,7 @@ export class ThemeContainerComponent implements OnInit {
   }
 
   themeHandler(theme: string) {
-    alert('Theme Handler');
+
     document.querySelectorAll('.themed:not(.static-themed)').forEach(balise => {
 
 

@@ -1,14 +1,14 @@
-<div class="card p-3 m-2">
-    <h2 class="card-title themed q-default custheme-something">
+<div class="cus-sizable wrapper-div card p-3 m-2">
+    <h2 class="cus-sizable quiz-title text-center themed q-default custheme-something">
         <em *ngIf="quiz.theme==='Actor'" class="fas fa-film"></em>
 
         {{quiz.name}}
     </h2>
-    <div class="card-subtitle">
+    <div class="cus-sizable text-center card-subtitle">
         Theme : {{quiz.theme}}
     </div>
-    <div class="text-center">
-        <button class="ml-1 mr-1 btn btn-success" (click)="quizLaunch()"> <em class="fas fa-play"></em> Jouer</button>
+    <div class="text-center btn-wrapper">
+        <button class="btn-play-quiz ml-1 mr-1 btn btn-success cus-sizable" (click)="quizLaunch()"> <em class="fas fa-play"></em> Jouer</button>
     </div>
 
 </div>

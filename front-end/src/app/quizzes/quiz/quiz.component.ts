@@ -4,7 +4,7 @@ import { Quiz } from '../../../models/quiz.model';
 @Component({
   selector: 'app-quiz',
   templateUrl: './quiz.component.html',
-  styleUrls: ['./quiz.component.scss']
+  styleUrls: ['./quiz.component.css']
 })
 export class QuizComponent implements OnInit {
 
@@ -21,7 +21,7 @@ export class QuizComponent implements OnInit {
   }
 
   quizLaunch() {
-    console.log("emit: "+this.quiz.id)
+    console.log('emit: ' + this.quiz.id);
     this.quizLaunched.emit(this.quiz);
   }
 

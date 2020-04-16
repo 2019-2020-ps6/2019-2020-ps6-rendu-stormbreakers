@@ -1,0 +1,24 @@
+@media(min-width:1000px) {
+  .quiz-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+  .cus-sizable.cussize-2x.quiz-list {
+    grid-template-columns: 1fr 1fr;
+  }
+  .cus-sizable.cussize-3x.quiz-list {
+    grid-template-columns: 1fr 1fr;
+    
+  }
+
+  .cus-sizable.cussize-4x.quiz-list {
+    grid-template-columns: auto;
+    
+  }
+}
+
+@media(max-width:415px) {
+  .quiz-list {
+    grid-template-columns: 1fr;
+  }
+}

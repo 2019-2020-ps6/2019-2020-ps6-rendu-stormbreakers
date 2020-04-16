@@ -1,0 +1,32 @@
+
+
+.wrapper-div{
+    width: 300px;
+    height: 200px;
+}
+.quiz-title{
+    text-transform: capitalize;
+}
+/** 2x*/
+.cus-sizable.cussize-2x.wrapper-div{
+    width: 500px;
+    height: 300px;
+}
+.cus-sizable.quiz-title.cussize-2x{
+    
+    font-size: 24pt;
+}
+.card-subtitle.cus-sizable.cussize-2x{
+    font-size: 18pt;
+}
+.cus-sizable.cussize-2x.btn-play-quiz{
+    font-size: 18pt;
+}
+
+
+.cus-sizable.cussize-3x.wrapper-div{
+    width: 500px;
+    height: 300px;
+}
+
+

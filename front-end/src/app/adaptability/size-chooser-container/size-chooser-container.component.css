@@ -1,0 +1,16 @@
+.size-chooser-wrapper-component {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 1%;
+    column-gap: 1%;
+    grid-template-rows: 1fr 1fr;
+    justify-items: center;
+}
+
+@media(max-width:415px) {
+    .size-chooser-wrapper-component {
+        display: grid;
+        grid-template-columns: 1fr;
+        row-gap: 1%;
+    }
+}

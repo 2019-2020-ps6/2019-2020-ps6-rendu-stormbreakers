@@ -35,6 +35,10 @@ export class AdminCreationQuizComponent implements OnInit {
       this.router.navigate(['admin']);
     }
   }
+  addQuestionToQuiz(){
+    this.create()
+    console.log(this.quizService.lastCreatedQuiz$)
+  }
   create(){
     console.log(this.createQuiz.value)
     if(this.createQuiz.get("quizName").value!==null){
@@ -54,5 +58,12 @@ export class AdminCreationQuizComponent implements OnInit {
 
   quizSelect(quiz:Quiz){
     console.log("test")
+  }
+  goToHome(){
+    this.router.navigate(['admin/dashboard']);
+  }
+  
+  goToStat(){
+    this.router.navigate(['admin/statistique']);
   }
 }

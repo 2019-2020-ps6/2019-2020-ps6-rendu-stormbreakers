@@ -49,8 +49,7 @@ export class QuizService {
       this.getQuizzes();
       this.lastCreatedQuiz = response;
       this.lastCreatedQuiz$.next(this.lastCreatedQuiz);
-    });
-    this.http.post<Quiz>(this.quizUrl, quiz, httpOptionsBase);
+    })
     // You need here to update the list of quiz and then update our observable (Subject) with the new list
     // More info: https://angular.io/tutorial/toh-pt6#the-searchterms-rxjs-subject
 

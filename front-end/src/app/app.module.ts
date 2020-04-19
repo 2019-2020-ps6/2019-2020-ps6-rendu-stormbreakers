@@ -27,6 +27,9 @@ import { EditQuizComponent } from './quizzes/edit-quiz/edit-quiz.component';
 import { PlayQuestionComponent } from './quizzes/play-question/play-question.component';
 import { PlayQuizComponent } from './quizzes/play-quiz/play-quiz.component';
 import { QuestionFormComponent } from './quizzes/question-form/question-form.component';
+import { ChartsModule } from 'ng2-charts';
+import { AdminStatistiqueComponent } from './admin/admin-statistique/admin-statistique.component';
+import { AdminChartComponent } from './admin/admin-chart/admin-chart.component';
 import { QuestionListComponent } from './quizzes/question-list/question-list.component';
 import { QuestionComponent } from './quizzes/question/question.component';
 import { QuizAdminComponent } from './quizzes/quiz-admin/quiz-admin.component';
@@ -36,6 +39,7 @@ import { QuizComponent } from './quizzes/quiz/quiz.component';
 import { BaseComponent } from './adaptability/base/base.component';
 import { LecteurComponent } from './adaptability/lecteur/lecteur.component';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { AdminListStatistiqueComponent } from './admin/admin-list-statistique/admin-list-statistique.component';
 
 
 
@@ -59,7 +63,10 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     DashboardAdminComponent,
     AdminCreationQuizComponent,
     QuizAdminComponent,
+    AdminStatistiqueComponent,
+    AdminChartComponent,
     QuestionListComponent,
+    AdminListStatistiqueComponent,
     QuestionComponent,
     AdapterComponent,
     SizeChooserContainerComponent,
@@ -75,6 +82,7 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     HttpClientModule,
     StorageServiceModule,
     FormsModule,
+    ChartsModule,
     BrowserAnimationsModule,
     MatDialogModule, MatInputModule, MatButtonModule, MatCardModule, MatFormFieldModule, MatSlideToggleModule
 

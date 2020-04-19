@@ -7,6 +7,9 @@ import { Quiz } from 'src/models/quiz.model';
 import { AdaptabilityService } from 'src/services/adaptability.service';
 import { QuizService } from '../../../services/quiz.service';
 
+import { Statistique } from 'src/models/statistique.model';
+import { StatService } from 'src/services/statistique.service';
+
 @Component({
   selector: 'app-play-quiz',
   templateUrl: './play-quiz.component.html',
@@ -17,6 +20,7 @@ export class PlayQuizComponent extends BaseComponent implements OnInit {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
+    private statservice:StatService,
     private quizService: QuizService,
     @Inject(LOCAL_STORAGE) public storage: WebStorageService,
     protected adaptability: AdaptabilityService
@@ -27,13 +31,15 @@ export class PlayQuizComponent extends BaseComponent implements OnInit {
     });
   }
 
-  public quizPlayed: Quiz;
-  public isLaunch: boolean;
-  public currentQuestionPos: number;
-  public currentQuestion: Question;
-  public quizIsFinished: boolean;
-  public reponseUtilisateur: Answer[] = [];
-
+  public quizPlayed:Quiz;
+  public isLaunch:boolean;
+  public currentQuestionPos:number;
+  public currentQuestion:Question;
+  public quizIsFinished:boolean;
+  /** statistique about quiz */
+  public reponseUtilisateur:Answer[]=[];
+  public timeToRespond:number[]=[];
+  public quizBegining:Date;
 
   ngOnInit() {
     setTimeout(()=> this.sizeChooseHandler(JSON.parse(this.storage.get("styleclassname"))),300);
@@ -46,27 +52,32 @@ export class PlayQuizComponent extends BaseComponent implements OnInit {
     this.quizService.getSelectQuiz(id);
   }
 
-  launch() {
-    this.isLaunch = true;
-    this.currentQuestion = this.quizPlayed.questions[0];
-    this.currentQuestionPos = 0;
-  }
-  
-   
-  
-
-  changingQuestion(val: Answer) {
-    console.log("receive" + val.value);
-    this.currentQuestionPos++;
-    if (this.quizPlayed.questions.length > this.currentQuestionPos) {
-      this.currentQuestion = this.quizPlayed.questions[this.currentQuestionPos];
-      this.reponseUtilisateur.push(val)
-    } else {
-      this.reponseUtilisateur.push(val)
-      setTimeout(()=> this.sizeChooseHandler(JSON.parse(this.storage.get("styleclassname"))),300);
-      this.quizIsFinished = true;
+    launch(){
+      this.isLaunch=true;
+      this.currentQuestion= this.quizPlayed.questions[0];
+      this.currentQuestionPos = 0;
+      this.quizBegining = new Date();
     }
-  }
+
+    changingQuestion(val:Answer){
+      console.log("receive"+val.value);
+      this.currentQuestionPos++;
+      const dateEndQuiz=new Date();
+      const difference =dateEndQuiz.getTime()-this.quizBegining.getTime();
+      this.timeToRespond.push(difference);
+      this.quizBegining=new Date()
+      if(this.quizPlayed.questions.length>this.currentQuestionPos){
+        this.currentQuestion= this.quizPlayed.questions[this.currentQuestionPos];
+        this.reponseUtilisateur.push(val)
+      }else{
+        this.reponseUtilisateur.push(val)
+        setTimeout(()=> this.sizeChooseHandler(JSON.parse(this.storage.get("styleclassname"))),300);
+        this.quizIsFinished=true;
+      }
+      
+    }
+    
+  
   passingQuestion() {
     console.log("question passed");
     var tmp: Answer = { value: null, isCorrect: false };
@@ -82,7 +93,21 @@ export class PlayQuizComponent extends BaseComponent implements OnInit {
 
 
   showResult() {
-    console.log("quiz results of quiz n°" + this.quizPlayed.id);
-    this.router.navigate([this.router.url + '/results'], { state: { result: this.reponseUtilisateur } })
+    console.log("quiz result"+this.quizPlayed.id);
+    this.sendData()
+    this.router.navigate([this.router.url+'/results'],{state: {result:this.reponseUtilisateur}})
   }
+  sendData() {
+    for(let i=0;i<this.quizPlayed.questions.length;i++){
+    let stat:Statistique= {
+      quizId: "" + this.quizPlayed.id,
+      questionId : "" + this.quizPlayed.questions[i].id,
+      time : this.timeToRespond[i],
+      answer : this.reponseUtilisateur[i].isCorrect
+    }
+    this.statservice.addStatistique(stat)
+  }
+  }
+
+
 }

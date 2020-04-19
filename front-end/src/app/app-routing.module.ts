@@ -9,6 +9,7 @@ import {ThemeComponent} from './themes/theme/theme.component';
 import { AdminComponent } from './admin/admin.component';
 import { DashboardAdminComponent } from './admin/dashboard-admin/dashboard-admin.component'
 import { AdminCreationQuizComponent } from './admin/admin-creation-quiz/admin-creation-quiz.component';
+import { AdminStatistiqueComponent } from './admin/admin-statistique/admin-statistique.component';
 const routes: Routes = [
   
   {
@@ -34,6 +35,10 @@ const routes: Routes = [
   {
     path: 'admin/quiz',
     component: AdminCreationQuizComponent
+  },
+  {
+    path: 'admin/statistique',
+    component: AdminStatistiqueComponent
   },
   {
     path: 'admin/editquiz/:id',

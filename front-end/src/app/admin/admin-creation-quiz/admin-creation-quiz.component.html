@@ -1,32 +1,36 @@
-<p>admin-creation-quiz works!</p>
 <div class="column">
-<nav>
-<ul>
-    <li>
-        <button><i class="fas fa-home"></i></button>
-    </li>
-    <li>
-        <button ><i class="far fa-file"></i></button>
-    </li>
-</ul>
-</nav>
-<div class="card m-1">
-    <app-quiz-admin  *ngFor="let quiz of quizzes" [quiz]="quiz"   (quizSelected)="quizSelect($event)"  (quizDeleted)="quizDelete($event)" class="reverse-list"></app-quiz-admin>
-</div>
-<div class="center-form "> 
-    <form [formGroup]="createQuiz" (ngSubmit)="create()">
-       <div>
-            <div> Quiz :</div>
-            <input name="quizName" class="form-control-plaintext" type="text" formControlName="quizName" placeholder="Nom" >
-        </div>
-        <div>
-            <div>Theme :</div>
-            <input class="form-control-plaintext" type="text" formControlName="theme" placeholder="Theme">
-        </div>
-        <div >
-          <!--  <button type='submit'>ajouter question</button>-->
-            <button type="submit">valider</button>
-        </div> 
-    </form>
-</div>
+    <nav>
+        <ul>
+            <li>
+                <button (click)="goToHome()"><em class="fas fa-home"></em></button>
+            </li>
+            <li>
+                <button><em class="far fa-file"></em></button>
+            </li>
+            <li>
+                <button (click)="goToStat()"><em class="fas fa-chart-bar"></em></button>
+            </li>
+        </ul>
+    </nav>
+    <div class="mycard m-1">
+        <app-quiz-admin *ngFor="let quiz of quizzes" [quiz]="quiz" (quizSelected)="quizSelect($event)"
+            (quizDeleted)="quizDelete($event)" class="reverse-list"></app-quiz-admin>
+    </div>
+    <div class="center-form ">
+        <form [formGroup]="createQuiz" (ngSubmit)="create()">
+            <div>
+                <div> Quiz :</div>
+                <input name="quizName" class="form-control-plaintext" type="text" formControlName="quizName"
+                    placeholder="Nom">
+            </div>
+            <div>
+                <div>Theme :</div>
+                <input class="form-control-plaintext" type="text" formControlName="theme" placeholder="Theme">
+            </div>
+            <div>
+                <!--  <button type='submit'>ajouter question</button>-->
+                <button type="submit">valider</button>
+            </div>
+        </form>
+    </div>
 </div>

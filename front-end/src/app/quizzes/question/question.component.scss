@@ -4,12 +4,7 @@ input{
     align-content: space-between;
 }
 
-button.btn.button-card {
-    display: flex;
-    margin-bottom: 0.5rem;
-}
-
-.btn-danger {
-    align-self: flex-end;
-    flex-direction: column;
+.btn-footer{
+    width:100%;
+    margin-bottom: 0em;
 }

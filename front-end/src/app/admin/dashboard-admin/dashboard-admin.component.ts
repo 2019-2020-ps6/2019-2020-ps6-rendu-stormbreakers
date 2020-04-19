@@ -25,8 +25,11 @@ export class DashboardAdminComponent implements OnInit {
   }
       
   goToCreation(){
-    const newUrl:String[]=this.router.url.split('/dashboard',this.router.url.length);
     this.router.navigate(['admin/quiz']);
+  }
+  
+  goToStat(){
+    this.router.navigate(['admin/statistique']);
   }
 
 }

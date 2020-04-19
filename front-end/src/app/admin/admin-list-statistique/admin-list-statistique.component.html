@@ -1,4 +1,4 @@
-<div class="mycard p-3 m-2">
+<div class="card p-3 m-2">
     <h2 class="card-title">
         {{quiz.name}}
     </h2>
@@ -9,8 +9,7 @@
         Créé le {{quiz.date | date}}
     </div>
     <div class="text-center">
-        <button class="ml-1 mr-1 btn btn-success" (click)="quizEdit()">Modifier</button>
-        <button class="ml-1 mr-1 btn btn-success" (click)="quizDelete()">Supprimer</button>
+        <button class="ml-1 mr-1 btn btn-success" (click)="quizSelect()">afficher</button>
     </div>
 
 </div>

@@ -7,6 +7,7 @@ import { Answer } from 'src/models/question.model';
 import { Question } from 'src/models/question.model';
 import { BaseComponent } from 'src/app/adaptability/base/base.component';
 import { LOCAL_STORAGE, WebStorageService } from 'angular-webstorage-service';
+import { AdaptabilityService } from 'src/services/adaptability.service';
 
 @Component({
   selector: 'app-quiz-result',
@@ -20,11 +21,12 @@ export class QuizResultComponent extends BaseComponent implements OnInit{
     private route: ActivatedRoute,
     private quizService: QuizService,
     private location: Location,
-    @Inject(LOCAL_STORAGE) protected storage: WebStorageService
+    @Inject(LOCAL_STORAGE) protected storage: WebStorageService,
+    protected adaptability:AdaptabilityService
     
   ) {
     
-    super(storage);
+    super(storage,adaptability);
     this.userAnswers = this.router.getCurrentNavigation().extras.state.result;
     this.quizService.quizPlayed$.subscribe(quiz => {
       this.quiz = quiz

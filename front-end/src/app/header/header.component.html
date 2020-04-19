@@ -1,5 +1,25 @@
-<div class="header">
+<div class="header" [ngClass]="setClasses()">
     <h3> <a  title="Poly" href="http://localhost:4200">Poly Quiz</a></h3>
+
+    <img (click)="toggleScreenReader()" width="48" height="48" src="https://cdn3.iconfinder.com/data/icons/viiva-accessibility/32/screen_reader-512.png" alt="Screen reader icon">
+    <div class="mt-2 text-center">
+        <mat-slide-toggle  [checked]="darkMode" (toggleChange)="switchMode()">
+            <em *ngIf="darkMode" class="fas fa-2x fa-moon" ></em>
+            <em *ngIf="!darkMode" class="fas fa-2x fa-sun"></em>
+    
+            
+    
+        </mat-slide-toggle>
+        <ng-template [ngIf]="darkMode" [ngIfElse]="none">
+            <p >Passer en mode jour</p>
+        </ng-template>
+
+        <ng-template  #none>
+            <p >Passer en mode nuit</p>
+        </ng-template>
+    </div>
+    
+
     <em (click)="clickMe()" class="fas fa-3x fa-low-vision"></em>
 </div>
    

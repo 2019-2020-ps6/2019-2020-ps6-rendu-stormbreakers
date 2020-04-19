@@ -29,4 +29,13 @@
     height: 300px;
 }
 
+.cus-sizable.cussize-4x.wrapper-div{
+    width: 500px;
+    height: 300px;
+}
+
+.card.darktheme{
+    box-shadow: 0px 0px 2px white;
+}
+
 

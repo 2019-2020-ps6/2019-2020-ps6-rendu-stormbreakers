@@ -1,7 +1,6 @@
-<div class="cus-sizable wrapper-div card p-3 m-2">
-    <h2 class="cus-sizable quiz-title text-center themed q-default custheme-something">
-        <em *ngIf="quiz.theme==='Actor'" class="fas fa-film"></em>
-
+<div class="cus-sizable wrapper-div card p-3 m-2" [ngClass]="setClasses()">
+    <h2 class="cus-sizable quiz-title text-center"  >
+        <app-lecteur [textToRead]="quiz.name" ></app-lecteur>
         {{quiz.name}}
     </h2>
     <div class="cus-sizable text-center card-subtitle">

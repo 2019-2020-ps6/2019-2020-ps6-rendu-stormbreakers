@@ -1,11 +1,11 @@
 <div class="theme-container-wrapper mt-5">
     
-    <div *ngFor="let theme of themesList" >
+    <span (click)="switchToDarkMode()" class="card p-3 darktheme">
+        Dark Mode
 
-        <app-base-theme [csstheme]="theme" (themeChosen)="themeHandler($event)">
-    
-        </app-base-theme>
-        
-    
-    </div>
+    </span>
+
+    <span (click)="switchToLightMode()" class="card p-3">
+        Light Mode
+    </span>
 </div>

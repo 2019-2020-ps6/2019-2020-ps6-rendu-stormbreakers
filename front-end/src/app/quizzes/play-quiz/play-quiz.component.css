@@ -33,5 +33,9 @@ h2 {text-align: center;}
   width: 60%;
 }
 
+.darktheme{
+ background-color: #1b1f23 !important;
+ color: white !important;
+}
 
 h2 {text-align: center;}

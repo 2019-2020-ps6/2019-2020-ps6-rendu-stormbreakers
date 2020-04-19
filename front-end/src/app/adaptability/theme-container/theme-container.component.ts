@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { LOCAL_STORAGE, WebStorageService } from 'angular-webstorage-service';
+import { AdaptabilityService } from 'src/services/adaptability.service';
 
 @Component({
   selector: 'app-theme-container',
@@ -9,7 +10,7 @@ import { LOCAL_STORAGE, WebStorageService } from 'angular-webstorage-service';
 export class ThemeContainerComponent implements OnInit {
 
   themesList: string[] = ['custheme-dark', 'custheme-light'];
-  constructor(@Inject(LOCAL_STORAGE) private storage: WebStorageService) { }
+  constructor(@Inject(LOCAL_STORAGE) private storage: WebStorageService, private adaptability:AdaptabilityService) { }
 
   ngOnInit() {
     const theme = this.storage.get('uithemed');
@@ -32,5 +33,15 @@ export class ThemeContainerComponent implements OnInit {
     });
 
     this.storage.set('uithemed', theme);
+  }
+
+  switchToDarkMode(){
+    
+    this.adaptability.darkMode$.next(true);
+  }
+
+  switchToLightMode(){
+    
+    this.adaptability.darkMode$.next(false);
   }
 }

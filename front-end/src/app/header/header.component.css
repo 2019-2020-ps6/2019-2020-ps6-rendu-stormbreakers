@@ -8,8 +8,16 @@
   color: white;
 }
 
-.header {
+.ordinarytheme{
   background: rgb(4, 4, 100);
+}
+
+a{
+  text-decoration: none;
+  color: inherit;
+}
+
+.header {
   padding: 0.5em;
   display: flex;
   flex-direction: row;

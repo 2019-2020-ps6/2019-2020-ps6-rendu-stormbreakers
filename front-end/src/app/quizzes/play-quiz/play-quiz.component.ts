@@ -1,11 +1,11 @@
-import { Component, OnInit, Output, EventEmitter, Inject, } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Location } from '@angular/common';
-import { QuizService } from '../../../services/quiz.service';
-import { Quiz } from 'src/models/quiz.model';
-import { Question, Answer } from 'src/models/question.model';
-import { BaseComponent } from 'src/app/adaptability/base/base.component';
 import { LOCAL_STORAGE, WebStorageService } from 'angular-webstorage-service';
+import { BaseComponent } from 'src/app/adaptability/base/base.component';
+import { Answer, Question } from 'src/models/question.model';
+import { Quiz } from 'src/models/quiz.model';
+import { AdaptabilityService } from 'src/services/adaptability.service';
+import { QuizService } from '../../../services/quiz.service';
 
 @Component({
   selector: 'app-play-quiz',
@@ -18,10 +18,10 @@ export class PlayQuizComponent extends BaseComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private quizService: QuizService,
-    private location: Location,
-    @Inject(LOCAL_STORAGE) public storage: WebStorageService
+    @Inject(LOCAL_STORAGE) public storage: WebStorageService,
+    protected adaptability: AdaptabilityService
   ) {
-    super(storage);
+    super(storage,adaptability);
     this.quizService.quizPlayed$.subscribe(quiz => {
       this.quizPlayed = quiz
     });

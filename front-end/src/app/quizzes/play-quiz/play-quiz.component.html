@@ -1,5 +1,5 @@
-<div class="wrapper-play-quiz  m-2">
-    <div class="container card p-3">
+
+    <div [ngClass]="setClasses()"  class=" wrapper-play-quiz container  p-3">
         <h2 class="cus-sizable title-quiztolaunch" *ngIf="!isLaunch ">Vous allez lancer le quiz "{{quizPlayed.name | titlecase}}"</h2>
         <div class="text-center">
             <button class="cus-sizable ml-1 mr-1 btn btn-success " (click)="launch()" *ngIf="!isLaunch">Lancer</button>
@@ -20,4 +20,3 @@
     </div>
     
 
-</div>

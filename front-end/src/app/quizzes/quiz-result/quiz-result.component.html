@@ -1,21 +1,21 @@
-<div class="card p-3 m-2">
+<div class="mycard p-3 m-2">
      <h2 class="cus-sizable card-title">
-         Résultats du quiz {{quiz.name}}
+        <app-lecteur [textToRead]="quiz.name" ></app-lecteur>  Résultats du quiz: {{quiz.name |titlecase }}
      </h2>
      
      <div class="cus-sizable card-body" >
           <div class="card-body res">
-              <div class="card res" id="nbQuestions">
+              <div class="mycard res" id="nbQuestions">
                Nombre de questions : {{quiz.questions.length}}
            </div>
            <span class="resStats">
-             <div class="card res" id="true">
+             <div class="mycard res" id="true">
                  Nombre de bonnes réponses : {{goodAnswersCount}}
              </div>
-             <div class="card res" id="false">
+             <div class="mycard res" id="false">
                  Nombre de réponses incorrectes : {{badAnswersCount}}
              </div>
-             <div class="card res" id="skipped">
+             <div class="mycard res" id="skipped">
                  Nombre de questions sautées : {{unsansweredCount}}
              </div>
             </span>
@@ -23,7 +23,7 @@
          <div>
 
          </div>
-         <div *ngFor="let i = index; let question of quiz.questions;" class="cus-sizable card p-3 m-2">
+         <div *ngFor="let i = index; let question of quiz.questions;" class="cus-sizable mycard p-3 m-2">
               <h5 class="cus-sizable card-title"> Question n°{{i}} </h5>
               <div> "{{question.label}}" </div>
               <ng-container *ngFor="let answer of userAnswers"><div *ngIf="answerFromQuestion(question, answer)"> Votre réponse était : {{answer.value}}</div></ng-container>

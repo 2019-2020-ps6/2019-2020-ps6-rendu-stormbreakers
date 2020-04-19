@@ -34,6 +34,8 @@ import { QuizListComponent } from './quizzes/quiz-list/quiz-list.component';
 import { QuizResultComponent } from './quizzes/quiz-result/quiz-result.component';
 import { QuizComponent } from './quizzes/quiz/quiz.component';
 import { BaseComponent } from './adaptability/base/base.component';
+import { LecteurComponent } from './adaptability/lecteur/lecteur.component';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 
 
@@ -63,7 +65,8 @@ import { BaseComponent } from './adaptability/base/base.component';
     SizeChooserContainerComponent,
     BaseSizeChooserComponent,
     ModalAdapterComponent,
-    BaseComponent
+    BaseComponent,
+    LecteurComponent
   ],
   imports: [
     BrowserModule,
@@ -73,7 +76,7 @@ import { BaseComponent } from './adaptability/base/base.component';
     StorageServiceModule,
     FormsModule,
     BrowserAnimationsModule,
-    MatDialogModule, MatInputModule, MatButtonModule, MatCardModule, MatFormFieldModule
+    MatDialogModule, MatInputModule, MatButtonModule, MatCardModule, MatFormFieldModule, MatSlideToggleModule
 
   ],
   providers: [CookieService],

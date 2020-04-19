@@ -10,7 +10,7 @@
     justify-content: center;
 }
 
-.card.res{
+.mycard.res{
     color: white;
     width: 18rem;
     padding: 1.4rem;
@@ -20,20 +20,20 @@
     font-family: "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
-.card#nbQuestions{
+.mycard#nbQuestions{
     background-color: blue;
     align-self: center;
 }
 
-.card#true{
+.mycard#true{
     background-color: green;
 }
 
-.card#false{
+.mycard#false{
     background-color: red;
 }
 
-.card#skipped{
+.mycard#skipped{
     background-color: purple;
 }
 

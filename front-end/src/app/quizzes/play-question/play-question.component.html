@@ -1,7 +1,16 @@
 <h2 class="cus-sizable card-title text-center">
+    <app-lecteur [textToRead]="question.label" ></app-lecteur>
     {{question.label}}
 </h2>
 <div class=" answer-list ">
-    <button class="cus-sizable ml-1 mr-1 btn btn-dark " *ngFor="let answer of question.answers"
-        (click)="changingQuestion(answer)">{{answer.value}}</button>
+    
+    
+        <span *ngFor="let answer of question.answers" class="cus-sizable ml-1 mr-1 btn btn-dark ">
+            <app-lecteur [textToRead]="answer.value" ></app-lecteur>
+            <span  
+        (click)="changingQuestion(answer)"> {{answer.value}}</span>
+        </span>
+        
+    
+    
 </div>

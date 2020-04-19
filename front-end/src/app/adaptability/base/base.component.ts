@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { LOCAL_STORAGE, WebStorageService } from 'angular-webstorage-service';
+import { AdaptabilityService } from 'src/services/adaptability.service';
 
 @Component({
   selector: 'app-base',
@@ -11,13 +12,17 @@ import { LOCAL_STORAGE, WebStorageService } from 'angular-webstorage-service';
   styleUrls: ['./base.component.css']
 })
 export class BaseComponent{
-
+  protected darkMode: boolean;
   
-  constructor(@Inject(LOCAL_STORAGE) protected storage: WebStorageService) { 
+  constructor(@Inject(LOCAL_STORAGE) protected storage: WebStorageService ,protected adaptability:AdaptabilityService) { 
     console.log("BaseComponent"+storage);
   }
 
-  
+  ngOnInit(): void {
+    this.adaptability.darkMode$.subscribe(v=>{
+      this.darkMode=v;
+    });
+  }
 
   ngOnChanges(changes: import("@angular/core").SimpleChanges): void {
     console.log("Salut dom"+changes);
@@ -41,6 +46,13 @@ export class BaseComponent{
 
     });
 
+  }
+
+  setClasses(){
+    return {
+      darktheme: this.darkMode,
+      ordinarytheme:!this.darkMode
+    }
   }
 
 

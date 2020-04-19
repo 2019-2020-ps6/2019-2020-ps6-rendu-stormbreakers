@@ -1,9 +1,9 @@
 <div class="card p-3 m-2">
-     <h2 class="card-title">
+     <h2 class="cus-sizable card-title">
          Résultats du quiz {{quiz.name}}
      </h2>
      
-     <div class="card-body" >
+     <div class="cus-sizable card-body" >
           <div class="card-body res">
               <div class="card res" id="nbQuestions">
                Nombre de questions : {{quiz.questions.length}}
@@ -23,8 +23,8 @@
          <div>
 
          </div>
-         <div *ngFor="let i = index; let question of quiz.questions;" class="card p-3 m-2">
-              <h5 class="card-title"> Question n°{{i}} </h5>
+         <div *ngFor="let i = index; let question of quiz.questions;" class="cus-sizable card p-3 m-2">
+              <h5 class="cus-sizable card-title"> Question n°{{i}} </h5>
               <div> "{{question.label}}" </div>
               <ng-container *ngFor="let answer of userAnswers"><div *ngIf="answerFromQuestion(question, answer)"> Votre réponse était : {{answer.value}}</div></ng-container>
               <ng-container *ngFor="let qAnswer of question.answers"><div *ngIf="qAnswer.isCorrect">La bonne réponse est : {{qAnswer.value}}</div></ng-container>

@@ -1,7 +1,7 @@
-
-    <h2 class="card-title text-center">
-        {{question.label}}
-    </h2>
-    <div class=" answer-list ">
-    <button class="ml-1 mr-1 btn btn-dark " *ngFor="let answer of question.answers" (click)="changingQuestion(answer)">{{answer.value}}</button>
-    </div>
+<h2 class="cus-sizable card-title text-center">
+    {{question.label}}
+</h2>
+<div class=" answer-list ">
+    <button class="cus-sizable ml-1 mr-1 btn btn-dark " *ngFor="let answer of question.answers"
+        (click)="changingQuestion(answer)">{{answer.value}}</button>
+</div>

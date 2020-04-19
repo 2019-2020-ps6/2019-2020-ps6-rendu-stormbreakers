@@ -1,8 +1,37 @@
 
-#btn_center{
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+@media(min-width:415px){
+  .wrapper-play-quiz{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .title-quiztolaunch.cussize-1x{
+    font-size: 20pt;
+  }
+  .title-quiztolaunch.cussize-2x{
+    font-size: 24pt;
+  }
+  .title-quiztolaunch.cussize-3x{
+    font-size: 28pt;
+  }
+  .title-quiztolaunch.cussize-4x{
+    font-size: 32pt;
+  }
 }
+
+h2 {text-align: center;}
+
+.to_center{
+  position: absolute; /* postulat de départ */
+  top: 50%; left: 50%; /* à 50%/50% du parent référent */
+  transform: translate(-50%, -50%); 
+}
+
+.center_hor{
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+}
+
 
 h2 {text-align: center;}

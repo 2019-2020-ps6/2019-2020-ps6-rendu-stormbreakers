@@ -1,0 +1,45 @@
+.to_center{
+  position: absolute; 
+  top: 10%; left: 10%; 
+  transform: translate(-50%, -50%); 
+}
+.marge-button{
+    margin-top: 1em;
+}
+  .btn_cntr{
+      display: flex;
+      justify-content: flex-end;
+  }
+
+  @media(max-width:450px){
+    .answer-list{
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      
+      
+    }
+
+    .btn + .btn{
+      margin: 5px;
+    }
+    
+  }
+
+  @media(min-width:451px){
+    .answer-list{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      row-gap: 8px;
+      
+      
+    }
+  }
+
+
+  
+  .question {
+    display: flex;
+    justify-content: center;
+  }
+

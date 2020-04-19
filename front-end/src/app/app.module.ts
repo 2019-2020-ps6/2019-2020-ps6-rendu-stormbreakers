@@ -33,6 +33,7 @@ import { QuizAdminComponent } from './quizzes/quiz-admin/quiz-admin.component';
 import { QuizListComponent } from './quizzes/quiz-list/quiz-list.component';
 import { QuizResultComponent } from './quizzes/quiz-result/quiz-result.component';
 import { QuizComponent } from './quizzes/quiz/quiz.component';
+import { BaseComponent } from './adaptability/base/base.component';
 
 
 
@@ -61,7 +62,8 @@ import { QuizComponent } from './quizzes/quiz/quiz.component';
     AdapterComponent,
     SizeChooserContainerComponent,
     BaseSizeChooserComponent,
-    ModalAdapterComponent
+    ModalAdapterComponent,
+    BaseComponent
   ],
   imports: [
     BrowserModule,

@@ -36,3 +36,7 @@
 .card#skipped{
     background-color: purple;
 }
+
+.card-title.cussize-1x{
+    font-size: 28pt;
+}

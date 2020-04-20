@@ -3,8 +3,17 @@
     <canvas baseChart 
     [datasets]="data"
     [labels]="questionsNumber"
-    [options]="lineChartOptions"
-    [colors]="lineChartColors"
-    [legend]="lineChartLegend"
-    [chartType]="lineChartType">
+    [options]="ChartOptions"
+    [colors]="ChartColors"
+    [legend]="ChartLegend"
+    [chartType]="'line'">
   </canvas>
+  <canvas baseChart 
+  [datasets]="barchartData"
+  [labels]="questionsNumber"
+  [options]="ChartOptions"
+  [colors]="ChartColors"
+  [legend]="ChartLegend"
+  [chartType]="'bar'">
+</canvas>
+  </div>

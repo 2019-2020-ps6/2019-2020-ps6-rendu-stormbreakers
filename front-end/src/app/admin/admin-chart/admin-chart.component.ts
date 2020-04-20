@@ -19,17 +19,17 @@ export class AdminChartComponent implements OnInit {
   quiz: Quiz;
 
   data:ChartDataSets[] = [{data :[0], label: "temps pour repondre"}];
+  barchartData:ChartDataSets[] = [{data :[0], label: "taux de reussite"}]
   questionsNumber:Label[] =[];
 
-  lineChartOptions = {
+  ChartOptions = {
     responsive:true,
   };
-  lineChartColors: Color[]=[{
+  ChartColors: Color[]=[{
     borderColor: 'black'
   }];
-  lineChartLegend = true;
-  lineChartPlugins = [];
-  lineChartType= 'line'
+  ChartLegend = true;
+  ChartPlugins = [];
 
   public statList: Statistique[]=[]
   constructor(
@@ -50,20 +50,37 @@ export class AdminChartComponent implements OnInit {
 
   setData() {
     const listTimeToRespond:number[] =[];
+    const listSucess:number[]=[];
+    this.questionsNumber=[];
     for(let i=0;i<this.quiz.questions.length;i++){
-        const statsByQuestion:Statistique[]=[];   
-        console.log(this.statList)   
+        const statsByQuestion:Statistique[]=[];    
         for(let j=0;j<this.statList.length;j++){
           if(this.statList[j].questionId==this.quiz.questions[i].id){
             statsByQuestion.push(this.statList[j])
           }
         }
         listTimeToRespond.push(this.calculateMoyenne(statsByQuestion));
+        listSucess.push(this.pourcentageReussite(statsByQuestion));
         this.questionsNumber.push("question"+i); 
     }
-    this.data=[]
+    this.data=[];
     this.data.push({data :listTimeToRespond, label: "temps pour repondre"});
+    this.barchartData= [];
+    this.barchartData.push({data:listSucess,label:"taux de reussite"})
   }  
+  pourcentageReussite(statistique:Statistique[]){
+    let reussite:number =0;
+    for(let i=0;i<statistique.length;i++){
+      if(statistique[i].answer){
+        reussite++;
+      }
+    }
+    if(statistique.length>0){
+      return reussite/statistique.length;
+    }else{
+      return 0;
+    }
+  }
   calculateMoyenne(statistique:Statistique[]) {
     let moyenne:number=0;
     for(let i=0;i<statistique.length;i++){

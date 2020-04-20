@@ -23,5 +23,11 @@ a{
   flex-direction: row;
   justify-content: space-between;
   
+  
+}
+
+.header.darktheme{
+ 
+  background-color: #121212;
 }
 

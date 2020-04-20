@@ -50,7 +50,7 @@ html, body {
 
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  
 }
 
 .mycard {
@@ -64,4 +64,9 @@ body {
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem;
+}
+
+
+.darkaccent{
+  background-color: #ea80fc;
 }

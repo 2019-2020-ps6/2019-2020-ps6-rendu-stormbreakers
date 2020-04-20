@@ -3,18 +3,19 @@ const { Router } = require('express')
 const { Quiz } = require('../../models')
 const { buildQuizz, buildQuizzes } = require('./manager')
 
-const QuestionsRouter = require('./questions');
+const QuestionsRouter = require('./questions')
+
 const router = new Router()
 
-router.use('/:quizId/questions',QuestionsRouter)
+router.use('/:quizId/questions', QuestionsRouter)
 
 router.get('/', (req, res) => {
   try {
-  /*const response = [...Quiz.get()];
+  /* const response = [...Quiz.get()];
    for(let i=0;response.size>i;i++){
     questions:Question.get().filter((q) => q.quizId === req.params.quizId)
-    }*/
-    const response=buildQuizzes()
+    } */
+    const response = buildQuizzes()
     res.status(200).json(response)
   } catch (err) {
     res.status(500).json(err)
@@ -23,8 +24,8 @@ router.get('/', (req, res) => {
 router.get('/:quizId', (req, res) => {
   try {
   //  const response = {...Quiz.getById(req.params.quizId), questions:Question.get().filter((q) => q.quizId === req.params.quizId)}
-  const response= buildQuizz(req.params.quizId)  
-  res.status(200).json(response)
+    const response = buildQuizz(req.params.quizId)
+    res.status(200).json(response)
   } catch (err) {
     res.status(500).json(err)
   }
@@ -40,8 +41,7 @@ router.post('/', (req, res) => {
       res.status(500).json(err)
     }
   }
-}) 
-
+})
 
 
 router.delete('/:quizId', (req, res) => {

@@ -37,6 +37,34 @@
     background-color: purple;
 }
 
+.darktheme.mycard#true{
+    box-shadow: 0px 0px 4px ;
+    background-color: inherit;
+    color: #bb86fc;
+}
+
+.darktheme.mycard#false{
+    box-shadow: 0px 0px 4px #352c2d;
+    background-color: inherit;
+    color: #ff7597;
+}
+
+.darktheme.mycard#nbQuestions{
+    box-shadow: 0px 0px 4px #ffd740;
+    background-color: inherit;
+    color: #ffd740;
+}
+
+.darktheme.mycard#skipped{
+    box-shadow: 0px 0px 4px #910d96;
+    background-color: inherit;
+    color: rgb(53, 53, 109);
+}
+
+.darktheme .mycard{
+    box-shadow: 0px 0px 2px white;
+  }
+
 .card-title.cussize-1x{
     font-size: 28pt;
 }

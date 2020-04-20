@@ -1,10 +1,12 @@
 const { Router } = require('express')
+
 const router = new Router()
-const{ Quiz} = require('../../models')
+const { Quiz } = require('../../models')
 const { Statistique } = require('../../models')
+
 router.get('/', (req, res) => {
   try {
-    response =  [...Statistique.get()]
+    const response = [...Statistique.get()]
     res.status(200).json(response)
   } catch (err) {
     res.status(500).json(err)
@@ -12,21 +14,21 @@ router.get('/', (req, res) => {
 })
 router.get('/:quizId', (req, res) => {
   try {
-  const response = [...Statistique.get().filter((stat) => stat.quizId == req.params.quizId )]
-  res.status(200).json(response)
+    const response = [...Statistique.get().filter((stat) => stat.quizId === req.params.quizId)]
+    res.status(200).json(response)
   } catch (err) {
     res.status(500).json(err)
   }
 })
 
 router.get('/:quizId/:questionId', (req, res) => {
-    try {
-    const response = [...Statistique.get().filter((stat) => stat.quizId == req.params.quizId && stat.questionId ==  req.params.questionId)]
+  try {
+    const response = [...Statistique.get().filter((stat) => stat.quizId === req.params.quizId && stat.questionId === req.params.questionId)]
     res.status(200).json(response)
-    } catch (err) {
-      res.status(500).json(err)
-    }
-  })
+  } catch (err) {
+    res.status(500).json(err)
+  }
+})
 
 router.post('/', (req, res) => {
   try {
@@ -39,7 +41,7 @@ router.post('/', (req, res) => {
       res.status(500).json(err)
     }
   }
-}) 
+})
 
 
 module.exports = router

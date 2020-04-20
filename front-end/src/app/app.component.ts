@@ -13,9 +13,12 @@ import { BaseComponent } from './adaptability/base/base.component';
 export class AppComponent extends BaseComponent{
   title = 'PolyQuiz Stormbreakers';
   
+  
   constructor(protected adaptability: AdaptabilityService,@Inject(LOCAL_STORAGE) protected storage: WebStorageService ) {
     super(storage,adaptability);
   }
+
+  
   
 
   

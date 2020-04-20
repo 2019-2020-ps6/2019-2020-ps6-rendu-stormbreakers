@@ -11,32 +11,37 @@ import { AdaptabilityService } from 'src/services/adaptability.service';
   `,
   styleUrls: ['./base.component.css']
 })
-export class BaseComponent{
+export class BaseComponent {
   protected darkMode: boolean;
-  
-  constructor(@Inject(LOCAL_STORAGE) protected storage: WebStorageService ,protected adaptability:AdaptabilityService) { 
-    console.log("BaseComponent"+storage);
+  fontFamily:string;
+
+  constructor(@Inject(LOCAL_STORAGE) protected storage: WebStorageService, protected adaptability: AdaptabilityService) {
+    console.log("BaseComponent" + storage);
   }
 
   ngOnInit(): void {
-    this.adaptability.darkMode$.subscribe(v=>{
-      this.darkMode=v;
+    this.adaptability.darkMode$.subscribe(v => {
+      this.darkMode = v;
+    });
+
+    this.adaptability.fontFamily$.subscribe(v=>{
+      this.fontFamily=v;
     });
   }
 
   ngOnChanges(changes: import("@angular/core").SimpleChanges): void {
-    console.log("Salut dom"+changes);
+    console.log("Salut dom" + changes);
     console.log(this);
-    
-      console.log("Salut dom ready");
-      setTimeout(()=> this.sizeChooseHandler(JSON.parse(this.storage.get("styleclassname"))),300);
-      
-    
+
+    console.log("Salut dom ready");
+    setTimeout(() => this.sizeChooseHandler(JSON.parse(this.storage.get("styleclassname"))), 300);
+
+
   }
 
   sizeChooseHandler(sizechoosen: { className: string, toDisplay: string }) {
     console.log(sizechoosen);
-    this.storage.set("styleclassname",JSON.stringify(sizechoosen));
+    this.storage.set("styleclassname", JSON.stringify(sizechoosen));
     document.querySelectorAll('.cus-sizable').forEach(balise => {
       const tmpclasses = balise.className.split(' ').filter(cls => !cls.startsWith('cussize-'));
       tmpclasses.push(sizechoosen.className);
@@ -48,10 +53,10 @@ export class BaseComponent{
 
   }
 
-  setClasses(){
+  setClasses() {
     return {
       darktheme: this.darkMode,
-      ordinarytheme:!this.darkMode
+      ordinarytheme: !this.darkMode
     }
   }
 

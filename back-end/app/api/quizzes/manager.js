@@ -7,9 +7,9 @@ const { filterQuestionsFromQuizz } = require('./questions/manager')
  * @param quizId
  */
 const buildQuizz = (quizId) => {
-    const quiz = Quiz.getById(quizId);
-    const questions = filterQuestionsFromQuizz(quiz.id);
-    return { ...quiz, questions: questions }
+  const quiz = Quiz.getById(quizId)
+  const questions = filterQuestionsFromQuizz(quiz.id)
+  return { ...quiz, questions }
 }
 
 /**
@@ -17,11 +17,11 @@ const buildQuizz = (quizId) => {
  * This function aggregates the questions and answers from the database to build entire quizzes.
  */
 const buildQuizzes = () => {
-    const quizzes = Quiz.get(); 
-    return quizzes.map((quiz) => buildQuizz(quiz.id))
-} 
+  const quizzes = Quiz.get()
+  return quizzes.map((quiz) => buildQuizz(quiz.id))
+}
 
 module.exports = {
-    buildQuizz,
-    buildQuizzes
+  buildQuizz,
+  buildQuizzes,
 }

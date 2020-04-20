@@ -1,21 +1,21 @@
-<div class="mycard p-3 m-2">
+<div class="mycard p-3 m-2" [ngClass]="setClasses()">
      <h2 class="cus-sizable card-title">
         <app-lecteur [textToRead]="quiz.name" ></app-lecteur>  Résultats du quiz: {{quiz.name |titlecase }}
      </h2>
      
      <div class="cus-sizable card-body" >
           <div class="card-body res">
-              <div class="mycard res" id="nbQuestions">
+              <div class="mycard res" id="nbQuestions" [ngClass]="setClasses()">
                Nombre de questions : {{quiz.questions.length}}
            </div>
            <span class="resStats">
-             <div class="mycard res" id="true">
+             <div class="mycard res" id="true" [ngClass]="setClasses()">
                  Nombre de bonnes réponses : {{goodAnswersCount}}
              </div>
-             <div class="mycard res" id="false">
+             <div class="mycard res" id="false" [ngClass]="setClasses()">
                  Nombre de réponses incorrectes : {{badAnswersCount}}
              </div>
-             <div class="mycard res" id="skipped">
+             <div class="mycard res" id="skipped" [ngClass]="setClasses()">
                  Nombre de questions sautées : {{unsansweredCount}}
              </div>
             </span>

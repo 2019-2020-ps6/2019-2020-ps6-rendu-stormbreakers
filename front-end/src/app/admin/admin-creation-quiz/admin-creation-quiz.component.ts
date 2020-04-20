@@ -4,6 +4,8 @@ import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
 import { Quiz } from 'src/models/quiz.model';
 import { QuizService } from 'src/services/quiz.service';
+import {MatDialog,MatDialogConfig} from '@angular/material';
+import { AdminDialogDeleteQuizComponent } from '../admin-dialog-delete-quiz/admin-dialog-delete-quiz.component';
 @Component({
   selector: 'app-admin-creation-quiz',
   templateUrl: './admin-creation-quiz.component.html',
@@ -16,7 +18,8 @@ export class AdminCreationQuizComponent implements OnInit {
     private formBuilder: FormBuilder,
     private cookieService:CookieService,
     private  router:Router,
-    private quizService:QuizService) { }
+    private quizService:QuizService,
+    private dialog:MatDialog) { }
 
   ngOnInit() {
     this.quizService.quizzes$.subscribe((quizzes: Quiz[]) => {
@@ -53,8 +56,20 @@ export class AdminCreationQuizComponent implements OnInit {
   }
 
   quizDelete(quiz:Quiz){
-      this.quizService.deleteQuiz(quiz);
-  }
+    
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.data = quiz;
+
+    const alertdialog =this.dialog.open(AdminDialogDeleteQuizComponent,dialogConfig)
+    alertdialog.afterClosed().subscribe( isDelete => {
+      if(isDelete){
+        this.quizService.deleteQuiz(quiz);
+      }
+    }
+    )
+     }
 
   quizSelect(quiz:Quiz){
     console.log("test")

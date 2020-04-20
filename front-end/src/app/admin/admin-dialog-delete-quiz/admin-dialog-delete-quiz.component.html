@@ -1,0 +1,8 @@
+<div *ngIf="quiz">
+    <p>vous allez supprimer le quiz {{quiz.name}}</p>
+    <p>nombre de question: {{quiz.questions.length}}</p>
+</div>
+<div class="center">
+    <button class="mat-raised-button"(click)="close()">annuler</button>
+    <button class="mat-raised-button mat-primary"(click)="delete()">valider</button>
+</div>

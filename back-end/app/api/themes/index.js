@@ -37,7 +37,8 @@ router.get('/:themeId/quiz', (req, res) => {
     res.status(500).json(err)
   }
 })
-router.post('/', (req, res) => {
+
+router.post('/themes', (req, res) => {
   try {
     const theme = Theme.create({...req.body})
     res.status(201).json(theme)

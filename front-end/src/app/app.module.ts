@@ -41,7 +41,8 @@ import { LecteurComponent } from './adaptability/lecteur/lecteur.component';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { AdminListStatistiqueComponent } from './admin/admin-list-statistique/admin-list-statistique.component';
 import { AdminDialogDeleteQuizComponent } from './admin/admin-dialog-delete-quiz/admin-dialog-delete-quiz.component';
-
+import { ThemeListComponent } from './themes/theme-list/theme-list.component';
+import { ThemeComponent } from './themes/theme/theme.component'
 
 
 
@@ -75,7 +76,9 @@ import { AdminDialogDeleteQuizComponent } from './admin/admin-dialog-delete-quiz
     ModalAdapterComponent,
     BaseComponent,
     LecteurComponent,
-    AdminDialogDeleteQuizComponent
+    AdminDialogDeleteQuizComponent,
+    ThemeListComponent,
+    ThemeComponent
   ],
   imports: [
     BrowserModule,

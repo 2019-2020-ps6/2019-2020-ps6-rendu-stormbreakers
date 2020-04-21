@@ -1,7 +1,8 @@
 .theme-list{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: left;
+    margin: 5px;
   }
   
   @media(max-width:300px){

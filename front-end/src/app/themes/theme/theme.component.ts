@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import { Theme } from '../../../models/theme.model';
+import { ThemeService } from 'src/services/theme.service';
 @Component({
   selector: 'app-theme',
   templateUrl: './theme.component.html',
@@ -12,10 +13,12 @@ export class ThemeComponent implements OnInit {
 
   @Output()
   themeLaunched: EventEmitter<Theme> = new EventEmitter<Theme>();
-
-  constructor() {
+  isLast:boolean = false;
+  constructor(private themeService: ThemeService) {
+    
   }
 
   ngOnInit() {
+
   }
 }

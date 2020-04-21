@@ -70,6 +70,14 @@ export class QuizService {
     });
   }
 
+  getQuizzesByTheme(themeId:number){
+    this.http.request('GET', serverUrl+"/themes/"+themeId+"/quiz", { responseType: 'json' }).subscribe((result: Quiz[]) => {
+
+      this.quizzes = result;
+      this.quizzes$.next(this.quizzes);
+
+    });
+  }
   getSelectQuiz(quizId: string) {
     this.http.get<Quiz>(this.quizUrl + '/' + quizId, { responseType: 'json' }).subscribe((quiz) => {
       this.quizPlayed$.next(quiz);

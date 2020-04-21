@@ -1,7 +1,8 @@
-<div class="theme-list">
-    
+<div > 
     <!--Inputs & Output allow communication between parent & child components.-->
     <!--More information: https://angular.io/guide/component-interaction-->
+    <h2 class="card-title theme-list">
+        Tous les thèmes:
     <app-theme *ngFor="let theme of themeList" [theme]="theme" ></app-theme>
-
+    </h2>
 </div>

@@ -14,7 +14,7 @@ export class ThemeListComponent implements OnInit {
 
   constructor(private router:Router,public themeService: ThemeService) {
     //this.quizService.getQuizzes();
-    this.themeService.themes$.subscribe((theme) => {this.themeList = theme; console.log(this.themeList); });
+    this.themeService.themes$.subscribe((theme: Theme[]) => {this.themeList = theme; console.log(this.themeList); });
   }
   ngOnInit() {
   }

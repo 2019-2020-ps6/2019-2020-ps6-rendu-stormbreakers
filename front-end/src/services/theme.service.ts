@@ -3,6 +3,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { Theme} from '../models/theme.model';
 import { THEME_LIST } from '../mocks/quiz-list.mock';
 import { HttpClient } from '@angular/common/http';
+import { serverUrl, httpOptionsBase } from '../configs/server.config';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +19,7 @@ export class ThemeService {
    * The list is retrieved from the mock.
    */
 
-  private url = 'https://api.myjson.com/bins/13ajhy';
+  private url = serverUrl+"/themes";
   private themes: Theme[] = THEME_LIST;
 
   /**
@@ -28,7 +29,7 @@ export class ThemeService {
   public themes$: BehaviorSubject<Theme[]> = new BehaviorSubject(this.themes);
 
   constructor(private http: HttpClient) {
-
+    this.getThemes();
   }
 
   addTheme(theme: Theme) {
@@ -43,10 +44,12 @@ export class ThemeService {
     this.themes$.next(this.themes);
   }
 
-  //getThemes() {
-   // this.http.request('GET', this.url, { responseType: 'json' }).subscribe((result: { themes: Theme[] }) => {
-     // this.themes = result.themes;
-      //this.themes$.next(this.themes);
-    //});
-  //}
+  getThemes() {
+    this.http.request('GET', this.url, { responseType: 'json' }).subscribe((result: Theme[]) => {
+    
+      this.themes = result;
+      this.themes$.next(this.themes);
+      console.log(result)
+    });
+  }
 }

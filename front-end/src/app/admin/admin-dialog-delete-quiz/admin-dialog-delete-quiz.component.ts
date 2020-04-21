@@ -17,6 +17,7 @@ export class AdminDialogDeleteQuizComponent implements OnInit {
   }
 
   ngOnInit() {
+    
   }
   close(){
     this.dialogRef.close(false);

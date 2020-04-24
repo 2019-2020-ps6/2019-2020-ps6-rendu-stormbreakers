@@ -4,7 +4,7 @@ import { Theme} from './theme.model';
 export interface Quiz {
     id?: string;
     name: string;
-    theme?: Theme;
+    theme?: string;
     questions: Question[];
     date?: Date;
 }

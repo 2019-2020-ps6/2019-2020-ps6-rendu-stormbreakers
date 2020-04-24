@@ -1,4 +1,3 @@
-<p>admin-chart works!</p>
 <div class="chart-wrapper">
     <canvas baseChart 
     [datasets]="data"
@@ -8,7 +7,7 @@
     [legend]="ChartLegend"
     [chartType]="'line'">
   </canvas>
-  <canvas baseChart 
+  <canvas baseChart *ngIf="!isHidden"
   [datasets]="barchartData"
   [labels]="questionsNumber"
   [options]="ChartOptions"

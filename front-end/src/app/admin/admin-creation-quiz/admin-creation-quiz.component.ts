@@ -25,10 +25,6 @@ export class AdminCreationQuizComponent implements OnInit {
     this.quizService.quizzes$.subscribe((quizzes: Quiz[]) => {
       this.quizzes = quizzes;
     });
-    this.createQuiz=new FormGroup({
-      quizName: new FormControl(),
-      theme: new FormControl(),
-    })
 
     if(this.cookieService.check('connect')){
       if(this.cookieService.get('connect')==='false'){
@@ -38,21 +34,9 @@ export class AdminCreationQuizComponent implements OnInit {
       this.router.navigate(['admin']);
     }
   }
-  addQuestionToQuiz(){
-    this.create()
-    console.log(this.quizService.lastCreatedQuiz$)
-  }
-  create(){
-    console.log(this.createQuiz.value)
-    if(this.createQuiz.get("quizName").value!==null){
-      console.log("not null")
-      const quiz:Quiz= {
-          name: ""+this.createQuiz.get("quizName").value,
-          questions:[],
-      }
+
+  create(quiz:Quiz){
       this.quizService.addQuiz(quiz)
-      
-    }
   }
 
   quizDelete(quiz:Quiz){

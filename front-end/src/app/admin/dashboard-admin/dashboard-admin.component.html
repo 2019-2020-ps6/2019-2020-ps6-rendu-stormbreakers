@@ -1,6 +1,3 @@
-<div class="wrapper-d-admin">
-
-
 <ul>
     <li>
         <button><em class="fas fa-2x fa-home"></em></button>
@@ -8,9 +5,19 @@
     <li>
         <button (click)="goToCreation()"><em class="far  fa-2x fa-file"></em></button>
     </li>
-    <li> 
+    <li>
         <button (click)="goToStat()"><em class="fas  fa-2x fa-chart-bar"></em></button>
     </li>
 </ul>
+<div class="row">
+    <div class="cus-sizable wrapper-div card p-3 m-2 taille-card">
+        <div>statistique</div>
+        <app-admin-chart></app-admin-chart>
+       <!--- <button (click)="goToStat()" class="btn-play-quiz ml-1 mr-1 btn btn-success cus-sizable">aller à</button>
+       --></div>
+    <div class="cus-sizable wrapper-div card p-3 m-2 taille-card">
+        <app-admin-form-creation-quiz></app-admin-form-creation-quiz>
+        <!--<button (click)="goToCreation()" class="btn-play-quiz ml-1 mr-1 btn btn-success cus-sizable">aller à</button>
+        -->
+    </div>
 </div>
-

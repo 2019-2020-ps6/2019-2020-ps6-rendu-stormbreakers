@@ -56,9 +56,8 @@ export class QuizService {
   }
 
   deleteQuiz(deleted: Quiz) {
-    // this.quizzes = this.quizzes.filter(q => q.name !== deleted.name /*&& q.theme !== deleted.name*/);
     this.http.delete<Quiz>(this.quizUrl + '/' + deleted.id).subscribe(() => this.getQuizzes());
-    //  this.quizzes$.next(this.quizzes);
+
   }
 
   getQuizzes() {

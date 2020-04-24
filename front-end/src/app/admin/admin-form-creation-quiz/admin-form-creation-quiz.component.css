@@ -11,8 +11,3 @@
     margin-left: auto;
     margin-right: auto;
   }
-
-  .reverse-list{
-      display: flex;
-      flex-direction: column-reverse;
-  }

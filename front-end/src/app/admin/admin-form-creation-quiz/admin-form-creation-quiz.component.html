@@ -1,0 +1,17 @@
+ <div class="center-form ">
+        <form [formGroup]="createQuiz" (ngSubmit)="create()">
+            <div>
+                <div> Quiz :</div>
+                <input name="quizName" class="form-control-plaintext" type="text" formControlName="quizName"
+                    placeholder="Nom">
+            </div>
+            <div>
+                <div>Theme :</div>
+                <input class="form-control-plaintext" type="text" formControlName="theme" placeholder="Theme">
+            </div>
+            <div>
+                <!--  <button type='submit'>ajouter question</button>-->
+                <button type="submit" class="btn-play-quiz ml-1 mr-1 btn btn-success cus-sizable">valider</button>
+            </div>
+        </form>
+    </div> 

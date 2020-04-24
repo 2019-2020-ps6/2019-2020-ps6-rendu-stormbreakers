@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ElementRef } from '@angular/core';
 import { ChartDataSets, ChartOptions} from 'chart.js';
 import { Color, Label } from 'ng2-charts';
 import { Quiz } from '../../../models/quiz.model';
@@ -18,6 +18,7 @@ export class AdminChartComponent implements OnInit {
   @Input()
   quiz: Quiz;
 
+  isHidden:boolean=false;
   data:ChartDataSets[] = [{data :[0], label: "temps pour repondre"}];
   barchartData:ChartDataSets[] = [{data :[0], label: "taux de reussite"}]
   questionsNumber:Label[] =[];
@@ -33,7 +34,8 @@ export class AdminChartComponent implements OnInit {
 
   public statList: Statistique[]=[]
   constructor(
-    private statService: StatService
+    private statService: StatService,
+    private er: ElementRef
   ) { 
 
   }
@@ -46,6 +48,13 @@ export class AdminChartComponent implements OnInit {
       }
     });
     this.statService.getStatistiques()
+    
+
+    console.log('height---' + this.er.nativeElement.offsetHeight);  //<<<===here
+    console.log('width---' + this.er.nativeElement.offsetWidth);  
+    if( this.er.nativeElement.offsetWidth<1000){
+      this.isHidden=true;
+    }
   }
 
   setData() {
@@ -64,6 +73,7 @@ export class AdminChartComponent implements OnInit {
         this.questionsNumber.push("question"+i); 
     }
     this.data=[];
+    console.log(this.data);
     this.data.push({data :listTimeToRespond, label: "temps pour repondre"});
     this.barchartData= [];
     this.barchartData.push({data:listSucess,label:"taux de reussite"})
@@ -84,6 +94,7 @@ export class AdminChartComponent implements OnInit {
   calculateMoyenne(statistique:Statistique[]) {
     let moyenne:number=0;
     for(let i=0;i<statistique.length;i++){
+      
       moyenne+= statistique[i].time;
     }
     if(statistique.length>0){

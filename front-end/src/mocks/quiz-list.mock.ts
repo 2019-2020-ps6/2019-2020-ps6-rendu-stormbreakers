@@ -55,13 +55,13 @@ export const QUIZ_LIST: Quiz[] = [
     {
         id: 'vfjnkvf',
         name: 'Les Acteurs', // What's happening if I change this value..?
-        theme: THEME_LIST[0],
+        theme: THEME_LIST[0].name,
         questions: [QUESTION_ACTOR,QUESTION_ACTOR2,QUESTION_ACTOR3],
     },
     {
         id: 'dcbdvd',
         name: 'Les Sports',
-        theme: THEME_LIST[1],
+        theme: THEME_LIST[1].name,
         questions: [],
     }
 ];

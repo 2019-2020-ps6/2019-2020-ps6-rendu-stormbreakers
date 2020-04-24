@@ -12,25 +12,11 @@
             </li>
         </ul>
     </nav>
-    <div class="mycard m-1">
+    <div class="mycard m-1 reverse-list">
         <app-quiz-admin *ngFor="let quiz of quizzes" [quiz]="quiz" (quizSelected)="quizSelect($event)"
-            (quizDeleted)="quizDelete($event)" class="reverse-list"></app-quiz-admin>
+            (quizDeleted)="quizDelete($event)" class=""></app-quiz-admin>
     </div>
-    <div class="center-form ">
-        <form [formGroup]="createQuiz" (ngSubmit)="create()">
-            <div>
-                <div> Quiz :</div>
-                <input name="quizName" class="form-control-plaintext" type="text" formControlName="quizName"
-                    placeholder="Nom">
-            </div>
-            <div>
-                <div>Theme :</div>
-                <input class="form-control-plaintext" type="text" formControlName="theme" placeholder="Theme">
-            </div>
-            <div>
-                <!--  <button type='submit'>ajouter question</button>-->
-                <button type="submit">valider</button>
-            </div>
-        </form>
-    </div>
+    <div class="center-form">
+    <app-admin-form-creation-quiz (quizCreated)="create($event)"></app-admin-form-creation-quiz>
+</div>
 </div>

@@ -18,6 +18,20 @@ router.get('/', (req, res) => {
     res.status(500).json(err)
   }
 })
+
+router.get('/:name', (req, res) => {
+  try {
+    const themes = Theme.get()
+    for(let i=0;i<themes.length;i++){
+      if(themes[i].name== req.params.name){
+        res.status(200).json(themes[i])
+      }
+    }
+    res.status(200).json({})
+  } catch (err) {
+    res.status(500).json(err)
+  }
+})
 router.get('/:themeId/quiz', (req, res) => {
   try {
   //renvoie les quiz qui ont ce thème
@@ -38,7 +52,8 @@ router.get('/:themeId/quiz', (req, res) => {
   }
 })
 
-router.post('/themes', (req, res) => {
+
+router.post('/', (req, res) => {
   try {
     const theme = Theme.create({...req.body})
     res.status(201).json(theme)

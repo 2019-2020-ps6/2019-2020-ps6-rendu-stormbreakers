@@ -1,7 +1,10 @@
+<div class="app-wrapper" [ngClass]="setClasses()">
+
 
 <app-header></app-header>
 <div class="content" [ngClass]="setClasses()" [style.font-family]="fontFamily" >
     <router-outlet></router-outlet>
+</div>
 </div>
 
  

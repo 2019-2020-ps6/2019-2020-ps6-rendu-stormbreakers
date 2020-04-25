@@ -43,3 +43,11 @@
     justify-content: center;
   }
 
+  .selected{
+    background-color: blueviolet;
+  }
+
+
+  .radio-btn-discret{
+    visibility: hidden;
+  }

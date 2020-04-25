@@ -2,15 +2,23 @@
     <app-lecteur [textToRead]="question.label" ></app-lecteur>
     {{question.label}}
 </h2>
-<div class=" answer-list ">
+<form class=" answer-list " >
     
     
-        <span *ngFor="let answer of question.answers" class="cus-sizable ml-1 mr-1 btn btn-dark ">
-            <app-lecteur [textToRead]="answer.value" ></app-lecteur>
-            <span  
-        (click)="changingQuestion(answer)"> {{answer.value}}</span>
+        <span *ngFor="let answer of question.answers" class="cus-sizable ml-1 mr-1 btn btn-dark " [class.selected]="reponseValue === answer.value">
+            <app-lecteur [textToRead]="answer.value"></app-lecteur>
+
+           <label  > <input class="radio-btn-discret" (change)="radioChangeHandler($event)"
+            value="{{answer.value}}"  type="radio" name="reponse"  >
+            {{answer.value}}
+        </label>
         </span>
+
+        
         
     
     
+</form>
+<div class="text-center mt-3">
+    <button class="btn btn-success cus-sizable" (click)="changingQuestion()">Valider</button>
 </div>

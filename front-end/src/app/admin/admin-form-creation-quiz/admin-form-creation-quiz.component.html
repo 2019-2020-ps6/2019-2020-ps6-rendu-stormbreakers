@@ -2,12 +2,12 @@
         <form [formGroup]="createQuiz" (ngSubmit)="create()">
             <div>
                 <div> Quiz :</div>
-                <input name="quizName" class="form-control-plaintext" type="text" formControlName="quizName"
+                <input name="quizName" class="form-control" type="text" formControlName="quizName"
                     placeholder="Nom">
             </div>
             <div>
                 <div>Theme :</div>
-                <input class="form-control-plaintext" type="text" formControlName="theme" placeholder="Theme">
+                <input class="form-control" type="text" formControlName="theme" placeholder="Theme">
             </div>
             <div>
                 <!--  <button type='submit'>ajouter question</button>-->

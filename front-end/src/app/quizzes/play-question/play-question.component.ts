@@ -5,6 +5,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { QuizService } from '../../../services/quiz.service';
 import { LOCAL_STORAGE, WebStorageService } from 'angular-webstorage-service';
 import { BaseComponent } from 'src/app/adaptability/base/base.component';
+import { FormBuilder, Validators } from '@angular/forms';
+import { AdaptabilityService } from 'src/services/adaptability.service';
 
 @Component({
   selector: 'app-play-question',
@@ -27,12 +29,35 @@ export class PlayQuestionComponent extends BaseComponent {
   public currentQuestion: Question;
   public reponseUtilisateur:Answer[]=[];
   public quizIsFinished:boolean;
+  public reponseValue:string;
+  public reponse:Answer;
+  
 
-  changingQuestion(answer:Answer){
-    console.log("question emit");
-    this.changeQuestion.emit(answer);
+  constructor(@Inject(LOCAL_STORAGE) protected storage: WebStorageService, protected adaptability: AdaptabilityService){
+    super(storage,adaptability);
   }
 
+  changingQuestion(){
+    console.log("question emit");
+    this.changeQuestion.emit(this.reponse);
+  }
+
+  radioChangeHandler($event){
+    console.log($event);
+    console.log($event.target.value);
+    this.reponseValue=$event.target.value;
+    console.log(this.reponseValue);
+    
+    for (const iterator of this.question.answers) {
+      if(iterator.value===$event.target.value){
+        this.reponse=iterator;
+      }
+    }
+
+  }
+
+
+  
   
   
 }

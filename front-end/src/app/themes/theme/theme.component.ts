@@ -24,7 +24,7 @@ export class ThemeComponent implements OnInit {
 
   }
 
-  toQUizList(){
+  toQuizList(){
     this.router.navigate([this.theme.id + '/quiz'], { state: { result: this.theme } });
   }
 }

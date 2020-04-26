@@ -2,7 +2,10 @@
     <h3> <a  title="Poly" href="http://localhost:4200">Poly Quiz</a></h3>
 
     <div class="text-center cus-sizable">
-        <img (click)="toggleScreenReader()" width="48" height="48" src="https://cdn3.iconfinder.com/data/icons/viiva-accessibility/32/screen_reader-512.png" alt="Screen reader icon">
+        <div>
+            <em (click)="toggleScreenReader()"  class="fas fa-3x fa-file-audio"></em>
+           
+        </div>
        <ng-template [ngIf]="screenreader" [ngIfElse]="noreader">
             <p  >Cacher le lecteur d'écran</p>
         </ng-template>

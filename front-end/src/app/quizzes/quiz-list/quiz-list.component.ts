@@ -15,6 +15,12 @@ export class QuizListComponent implements OnInit {
   constructor(private router: Router, public quizService: QuizService) {
     //this.quizService.getQuizzes();
     this.quizService.quizzes$.subscribe((quizzes: Quiz[]) => {
+      for(let i=0;i<quizzes.length;i++){
+        if(quizzes[i].questions.length==0){
+          quizzes.splice(i,1);
+          i--;
+        }
+      }
       this.quizList = quizzes;
     });
     console.log(this.quizList);

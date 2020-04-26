@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ThemeService } from '../../../services/theme.service';
-import { Theme } from '../../../models/theme.model';
 import { Router } from '@angular/router';
+import { QuizService } from 'src/services/quiz.service';
+import { ThemeService } from 'src/services/theme.service';
 
 @Component({
   selector: 'app-theme-list',
@@ -10,12 +10,18 @@ import { Router } from '@angular/router';
 })
 export class ThemeListComponent implements OnInit {
 
-  public themeList: Theme[] = [];
+  public themeList: String[] = [];
 
-  constructor(private router:Router,public themeService: ThemeService) {
-    //this.quizService.getQuizzes();
-    this.themeService.themes$.subscribe((theme: Theme[]) => {this.themeList = theme; console.log(this.themeList); });
+  constructor(private router:Router,public quizService: QuizService, public themeService: ThemeService) {
+    this.themeService.themes$.subscribe((themes: String[]) => {
+      this.themeList = themes;
+    });
   }
+
   ngOnInit() {
+  }
+  
+  toQUizList(themeName: String){
+    this.router.navigate(['/themes/' + themeName + '/quizzes']);
   }
 }

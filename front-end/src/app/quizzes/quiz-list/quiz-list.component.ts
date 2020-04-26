@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Quiz } from '../../../models/quiz.model';
 import { QuizService } from '../../../services/quiz.service';
 
@@ -12,15 +12,24 @@ export class QuizListComponent implements OnInit {
 
   public quizList: Quiz[] = [];
 
-  constructor(private router: Router, public quizService: QuizService) {
-    //this.quizService.getQuizzes();
-    this.quizService.quizzes$.subscribe((quizzes: Quiz[]) => {
-      this.quizList = quizzes;
-    });
-    console.log(this.quizList);
-  }
+  constructor(private router: Router, 
+    private route: ActivatedRoute,
+    public quizService: QuizService) {
+
+    }
 
   ngOnInit() {
+    console.log(this.route.snapshot.paramMap.get('themeName'));
+    if(this.route.snapshot.paramMap.get('themeName') != null){
+      this.quizService.getQuizzesByTheme(this.route.snapshot.paramMap.get('themeName'));
+      this.quizService.quizzes$.subscribe((quizzes: Quiz[]) => {
+        this.quizList = quizzes;
+      });
+    } else {
+      this.quizService.quizzes$.subscribe((quizzes: Quiz[]) => {
+        this.quizList = quizzes;
+      });
+    }
   }
 
   quizLaunched(launch: Quiz) {

@@ -9,5 +9,5 @@ router.get('/status', (req, res) => res.status(200).json('ok'))
 router.use('/quizzes', QuizzesRouter)
 router.use('/users', UserRouter)
 router.use('/statistique', StatRoute)
-router.use('/themes',ThemeRoute)
+router.use('/themes', ThemeRoute)
 module.exports = router

@@ -39,7 +39,14 @@ font-weight: 400;
 }
 
 .summary-actions-wrapper{
+    
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    height: 100%;
+}
+
+.height-total{
+   
+    height: 100%;
 }

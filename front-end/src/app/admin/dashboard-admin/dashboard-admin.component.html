@@ -1,5 +1,5 @@
-<mat-sidenav-container >
-    <mat-sidenav class="navbar" mode="side" opened>
+<mat-sidenav-container class="height-total">
+    <mat-sidenav class="navbar sidenav-content" mode="side" opened>
         <ul>
             <li title="Home">
                 <em  class="fas fa-2x fa-home"></em><span class="menu-title" >Dashboard</span>
@@ -14,8 +14,8 @@
             </li>
         </ul>
     </mat-sidenav>
-    <mat-sidenav-content>
-        <div class="summary-actions-wrapper" >
+    <div class="summary-actions-wrapper">
+        
             <div class="cus-sizable wrapper-div card p-3 m-2 taille-card">
                 <div>statistique</div>
                 <app-admin-chart></app-admin-chart>
@@ -27,6 +27,6 @@
                 <!--<button (click)="goToCreation()" class="btn-play-quiz ml-1 mr-1 btn btn-success cus-sizable">aller à</button>
             -->
             </div>
+        
         </div>
-    </mat-sidenav-content>
 </mat-sidenav-container>

@@ -1,22 +1,28 @@
-<div class="column">
-    <nav>
-        <ul>
-            <li>
-                <button (click)="goToHome()"><em class="fas fa-home"></em></button>
-            </li>
-            <li>
-                <button><em class="far fa-file"></em></button>
-            </li>
-            <li>
-                <button (click)="goToStat()"><em class="fas fa-chart-bar"></em></button>
-            </li>
-        </ul>
-    </nav>
-    <div class="mycard m-1 reverse-list">
-        <app-quiz-admin *ngFor="let quiz of quizzes" [quiz]="quiz" (quizSelected)="quizSelect($event)"
-            (quizDeleted)="quizDelete($event)" class=""></app-quiz-admin>
-    </div>
-    <div class="center-form">
-    <app-admin-form-creation-quiz (quizCreated)="create($event)"></app-admin-form-creation-quiz>
+
+    <mat-sidenav-container>
+        <mat-sidenav class="navbar" mode="side" opened>
+            <ul>
+                <li title="Home" (click)="goToHome()">
+                    <em class="fas fa-2x fa-home"></em><span class="menu-title">Dashboard</span>
+                </li>
+                <li title="Création">
+                    <em class="far  fa-2x fa-file"></em>
+                    <span class="menu-title">Création</span>
+                </li>
+                <li title="Chart" (click)="goToStat()">
+                    <em class=" fas  fa-2x fa-chart-bar"></em>
+                    <span class="menu-title">Chart</span>
+                </li>
+            </ul>
+        </mat-sidenav>
+        <div class="column">
+            <div class="mycard m-1 reverse-list">
+                <app-quiz-admin *ngFor="let quiz of quizzes" [quiz]="quiz" (quizSelected)="quizSelect($event)"
+                    (quizDeleted)="quizDelete($event)" class=""></app-quiz-admin>
+            </div>
+            <div class="center-form">
+                <app-admin-form-creation-quiz (quizCreated)="create($event)"></app-admin-form-creation-quiz>
+            </div>
+            
 </div>
-</div>
+    </mat-sidenav-container>

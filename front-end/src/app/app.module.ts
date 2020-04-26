@@ -44,6 +44,7 @@ import { AdminDialogDeleteQuizComponent } from './admin/admin-dialog-delete-quiz
 import { ThemeListComponent } from './themes/theme-list/theme-list.component';
 import { ThemeComponent } from './themes/theme/theme.component'
 import { HomeComponent } from './home/home.component';
+import {MatSidenavModule} from '@angular/material/sidenav'; 
 import { AdminFormCreationQuizComponent } from './admin/admin-form-creation-quiz/admin-form-creation-quiz.component'
 
 
@@ -92,7 +93,7 @@ import { AdminFormCreationQuizComponent } from './admin/admin-form-creation-quiz
     FormsModule,
     ChartsModule,
     BrowserAnimationsModule,
-    MatDialogModule, MatInputModule, MatButtonModule, MatCardModule, MatFormFieldModule, MatSlideToggleModule
+    MatDialogModule, MatInputModule, MatButtonModule, MatCardModule, MatFormFieldModule, MatSlideToggleModule,MatSidenavModule
 
   ],
   providers: [CookieService],

@@ -3,7 +3,8 @@ import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
 import { Quiz } from 'src/models/quiz.model';
-import { QuizService } from 'src/services/quiz.service';
+import { ThemeService } from 'src/services/theme.service';
+
 @Component({
   selector: 'app-admin-form-creation-quiz',
   templateUrl: './admin-form-creation-quiz.component.html',
@@ -20,8 +21,8 @@ export class AdminFormCreationQuizComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private cookieService:CookieService,
-    private router:Router,
-    private quizServive: QuizService
+    private  router:Router,
+    private themeService:ThemeService
   ) { 
    
   }
@@ -31,15 +32,36 @@ export class AdminFormCreationQuizComponent implements OnInit {
       quizName: new FormControl(),
       theme: new FormControl(),
     })
-
-    this.quizServive.currentTheme$.subscribe((result:String) =>{
-      console.log(" created")
+/*
+    this.themeService.currentTheme$.subscribe((result:Theme) =>{
+      if(this.createQuiz.get("theme").value){
+        if(result && result.name){
+          console.log(" created")
+          const quiz:Quiz= {
+            name: ""+this.createQuiz.get("quizName").value,
+            theme:result.name,
+            questions:[],
+        }
+        console.log(result)
+        this.quizCreated.emit(quiz)
+        }else{
+          console.log("not created")
+          const theme:Theme = {name: this.createQuiz.get("theme").value}
+          this.themeService.addThemeToServer(theme)
+        }
+      }
+    })
+    this.themeService.lastCreatedTheme$.subscribe((result:Theme)=>{
+      if(this.createQuiz.get("theme").value){
+        console.log("lastcreated")
         const quiz:Quiz= {
           name: ""+this.createQuiz.get("quizName").value,
-          theme: result.toString(),
-          questions:[]
+          theme:result.name,
+          questions:[],
       }
+      console.log(result)
       this.quizCreated.emit(quiz)
+      }
     })
   }
 
@@ -50,6 +72,7 @@ export class AdminFormCreationQuizComponent implements OnInit {
       const theme= ""+this.createQuiz.get("theme").value;
       if(theme){
         console.log("theme not null")
+        this.themeService.getThemesByName(theme)
       }else{
         const quiz:Quiz= {
             name: ""+this.createQuiz.get("quizName").value,
@@ -57,7 +80,7 @@ export class AdminFormCreationQuizComponent implements OnInit {
         }
         this.quizCreated.emit(quiz)
       }
-    }
+    }*/
   }
  
 }

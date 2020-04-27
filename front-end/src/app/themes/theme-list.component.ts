@@ -19,7 +19,6 @@ export class ThemeListComponent implements OnInit {
   }
 
   ngOnInit() {
-    //this.themeList.filter((value, index, self) => self.indexOf(value) === index)
   }
   
   toQUizList(themeName: String){

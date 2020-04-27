@@ -41,7 +41,7 @@ import { LecteurComponent } from './adaptability/lecteur/lecteur.component';
 import { MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { AdminListStatistiqueComponent } from './admin/admin-list-statistique/admin-list-statistique.component';
 import { AdminDialogDeleteQuizComponent } from './admin/admin-dialog-delete-quiz/admin-dialog-delete-quiz.component';
-import { ThemeListComponent } from './themes/theme-list/theme-list.component';
+import { ThemeListComponent } from './themes/theme-list.component';
 import { HomeComponent } from './home/home.component';
 import { AdminFormCreationQuizComponent } from './admin/admin-form-creation-quiz/admin-form-creation-quiz.component'
 

@@ -14,7 +14,6 @@ export class AdminFormCreationQuizComponent implements OnInit {
 
   private createQuiz: FormGroup;
 
-  //quizCreate:Quiz;
   @Output()
   quizCreated: EventEmitter<Quiz> = new EventEmitter<Quiz>();
   themeList: String[];
@@ -32,38 +31,6 @@ export class AdminFormCreationQuizComponent implements OnInit {
       quizName: new FormControl(),
       theme: new FormControl(),
     })
-
-    /*
-    this.themeService.currentTheme$.subscribe((result: string) =>{
-      if(this.createQuiz.get("theme").value){
-        if(result){
-          console.log(" created")
-          const quiz:Quiz= {
-            name: ""+this.createQuiz.get("quizName").value,
-            theme: result,
-            questions:[],
-        }
-        console.log(result)
-        this.quizCreated.emit(quiz)
-        }else{
-          console.log("not created")
-          const theme:Theme = {name: this.createQuiz.get("theme").value}
-          this.themeService.addThemeToServer(theme)
-        }
-      }
-    })
-    this.themeService.lastCreatedTheme$.subscribe((result: string)=>{
-      if(this.createQuiz.get("theme").value){
-        console.log("lastcreated")
-        const quiz:Quiz= {
-          name: ""+this.createQuiz.get("quizName").value,
-          theme:result.name,
-          questions:[],
-      }
-      console.log(result)
-      this.quizCreated.emit(quiz)
-      }
-    })*/
   }
 
   create(){

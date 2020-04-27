@@ -15,18 +15,21 @@
         </ul>
     </mat-sidenav>
     <div class="summary-actions-wrapper">
-        
-            <div class="cus-sizable wrapper-div card p-3 m-2 taille-card">
-                <div>statistique</div>
+
+        <div class="card" style="width: 20rem;">
+            <div>statistique</div>
                 <app-admin-chart></app-admin-chart>
-                <!--- <button (click)="goToStat()" class="btn-play-quiz ml-1 mr-1 btn btn-success cus-sizable">aller à</button>
-           -->
+                <div class="centre">
+                <button (click)="goToStat()" class="btn-play-quiz ml-1 mr-1 btn btn-success cus-sizable" style="width: 8rem;text-align : center;">Voir</button>
             </div>
-            <div class="cus-sizable wrapper-div card p-3 m-2 taille-card">
+            </div>
+
+       
+            <div class="card" style="width: 20rem;">
+                <div class="centre">
                 <app-admin-form-creation-quiz></app-admin-form-creation-quiz>
-                <!--<button (click)="goToCreation()" class="btn-play-quiz ml-1 mr-1 btn btn-success cus-sizable">aller à</button>
-            -->
+                <button (click)="goToCreation()" class="btn-play-quiz ml-1 mr-1 btn btn-success cus-sizable" style="width: 8rem;text-align : center;">Voir</button>
             </div>
-        
         </div>
+    </div>
 </mat-sidenav-container>

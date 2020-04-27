@@ -3,8 +3,6 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { Quiz } from '../models/quiz.model';
 import { QUIZ_LIST } from '../mocks/quiz-list.mock';
 import { HttpClient } from '@angular/common/http';
-import { Theme } from 'src/models/theme.model';
-import { THEME_LIST } from '../mocks/quiz-list.mock';
 import { serverUrl, httpOptionsBase } from '../configs/server.config';
 import { Question } from 'src/models/question.model';
 
@@ -24,10 +22,13 @@ export class QuizService {
 
   private quizUrl = serverUrl + '/quizzes';
   private questionsPath = 'questions';
+  private themesPath = 'themes';
 
   private quizzes: Quiz[] = QUIZ_LIST;
   private questions: Question[];
+  private themes: String[];
   private quizPlayed: Quiz;
+  private currentTheme: String;
   private lastCreatedQuiz: Quiz;
   private lastCreatedQst: Question;
   /**
@@ -36,7 +37,9 @@ export class QuizService {
    */
   public quizzes$: BehaviorSubject<Quiz[]> = new BehaviorSubject(this.quizzes);
   public questions$: BehaviorSubject<Question[]> = new BehaviorSubject(this.questions);
+  public themes$: BehaviorSubject<String[]> = new BehaviorSubject(this.themes);
   public quizPlayed$: BehaviorSubject<Quiz> = new BehaviorSubject(this.quizPlayed);
+  public currentTheme$: BehaviorSubject<String> = new BehaviorSubject(this.currentTheme);
   public lastCreatedQuiz$: BehaviorSubject<Quiz> = new BehaviorSubject(this.lastCreatedQuiz);
   public lastCreatedQst$: BehaviorSubject<Question> = new BehaviorSubject(this.lastCreatedQst);
 
@@ -69,12 +72,20 @@ export class QuizService {
     });
   }
 
-  getQuizzesByTheme(themeId:number){
-    this.http.request('GET', serverUrl+"/themes/"+themeId+"/quiz", { responseType: 'json' }).subscribe((result: Quiz[]) => {
+  getThemes(){
+    this.http.get<String[]>(this.themesPath, { responseType: 'json' }).subscribe(() => {
+      this.getQuizzes();
+      this.quizzes.forEach((q) => {
+        this.themes.push(q.theme);
+      })
+      this.themes$.next(this.themes);
+    })
+  }
 
+  getQuizzesByTheme(theme: string){
+    this.http.request('GET', serverUrl+"/" + this.themesPath + "/" + theme + "/quizzes", { responseType: 'json' }).subscribe((result: Quiz[]) => {
       this.quizzes = result;
       this.quizzes$.next(this.quizzes);
-
     });
   }
   getSelectQuiz(quizId: string) {
@@ -90,7 +101,7 @@ export class QuizService {
 
   deleteQuestion(quiz: Quiz, question: Question) {
     console.log(question);
-    const questionUrl = this.quizUrl + '/' + quiz.id + '/questions/' + question.id;
+    const questionUrl = this.quizUrl + '/' + quiz.id + '/' + this.questionsPath + '/' + question.id;
     this.http.delete<Question>(questionUrl, httpOptionsBase).subscribe(() => this.getSelectQuiz(quiz.id));
   }
 }

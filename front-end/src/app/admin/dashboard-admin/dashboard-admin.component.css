@@ -25,6 +25,11 @@ font-weight: 400;
 .taille-card{
     width: 32%;
     height: 32%;
+    
+}
+.center{
+    display: flex;
+    align-items: center;
 }
 
 .row{
@@ -50,6 +55,7 @@ font-weight: 400;
    
     height: 100%;
 }
+<<<<<<< HEAD
 .centre{
     text-align: center;
 
@@ -58,3 +64,9 @@ font-weight: 400;
     margin-right: auto;
 
   }
+=======
+
+.width-total{
+    width: 100%;
+}
+>>>>>>> a81dfc49784a8c15c1d7028a2d223bf3515f75a5

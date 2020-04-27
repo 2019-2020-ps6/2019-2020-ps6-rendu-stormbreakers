@@ -30,6 +30,7 @@ router.get('/:quizId', (req, res) => {
     res.status(500).json(err)
   }
 })
+
 router.post('/', (req, res) => {
   try {
     const quiz = Quiz.create({ ...req.body })

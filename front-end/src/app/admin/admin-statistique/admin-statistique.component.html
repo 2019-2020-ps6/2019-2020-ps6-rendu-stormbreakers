@@ -1,13 +1,14 @@
-<mat-sidenav-container>
-  <mat-sidenav class="navbar" mode="side" opened>
+<mat-sidenav-container class="height-total">
+  <mat-sidenav class="navbar sidenav-content" mode="side" opened>
       <li title="Home" (click)="goToHome()">
-        <em class="fas fa-2x fa-home"></em><span class="menu-title">Dashboard</span>
+        <em class="fas fa-2x fa-home"></em>
+        <span class="menu-title">Dashboard</span>
       </li>
       <li (click)="goToCreation()" title="Création">
         <em class="far  fa-2x fa-file"></em>
         <span class="menu-title">Création</span>
       </li>
-      <li title="Chart" (click)="goToStat()">
+      <li title="Chart" >
         <em class=" fas  fa-2x fa-chart-bar"></em>
         <span class="menu-title">Chart</span>
       </li>

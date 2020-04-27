@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { Theme} from '../models/theme.model';
-import { THEME_LIST } from '../mocks/quiz-list.mock';
 import { HttpClient } from '@angular/common/http';
 import { serverUrl, httpOptionsBase } from '../configs/server.config';
 
@@ -20,35 +18,28 @@ export class ThemeService {
    */
 
   private url = serverUrl+"/themes";
-  private themes: Theme[] = THEME_LIST;
-  private currentTheme:Theme;
-  private lastCreatedTheme:Theme;
+  private themes : String[];
+  private currentTheme: String;
+  private lastCreatedTheme: String;
   /**
    * Observable which contains the list of the quiz.
    * Naming convention: Add '$' at the end of the variable name to highlight it as an Observable.
    */
-  public themes$: BehaviorSubject<Theme[]> = new BehaviorSubject(this.themes);
-  public currentTheme$: BehaviorSubject<Theme> = new BehaviorSubject(this.currentTheme);
-  public lastCreatedTheme$: BehaviorSubject<Theme> = new BehaviorSubject(this.lastCreatedTheme);
+  public themes$: BehaviorSubject<String[]> = new BehaviorSubject(this.themes);
+  public currentTheme$: BehaviorSubject<String> = new BehaviorSubject(this.currentTheme);
+  public lastCreatedTheme$: BehaviorSubject<String> = new BehaviorSubject(this.lastCreatedTheme);
 
   constructor(private http: HttpClient) {
     this.getThemes();
   }
 
-  addTheme(theme: Theme) {
+  addTheme(theme: String) {
     this.themes.push(theme);
     this.themes$.next(this.themes);
     // You need here to update the list of quiz and then update our observable (Subject) with the new list
     // More info: https://angular.io/tutorial/toh-pt6#the-searchterms-rxjs-subject
   }
   
-  addThemeToServer(theme: Theme){
-    this.http.post<Theme>(this.url, theme, httpOptionsBase).subscribe((response) => {
-      this.getThemes();
-      this.lastCreatedTheme=response;
-      this.lastCreatedTheme$.next(this.lastCreatedTheme);
-    })
-  }
 /*
   deleteTheme(deleted: Theme) {
     this.themes = this.themes.filter(q => q.name !== deleted.name /*&& q.theme !== deleted.name);
@@ -56,18 +47,15 @@ export class ThemeService {
   }
 */
   getThemes() {
-    this.http.request('GET', this.url, { responseType: 'json' }).subscribe((result: Theme[]) => {
-    
+    this.http.request('GET', this.url, { responseType: 'json' }).subscribe((result: String[]) => {
       this.themes = result;
       this.themes$.next(this.themes);
-    //  console.log(result)
-    });
+    })
   }
 
-  getThemesByName(name:String){
-    this.http.request('GET', this.url+"/"+name,{ responseType: 'json' }).subscribe((result: Theme) => {
+  getThemeByName(name:String){
+    this.http.request('GET', this.url + "/" + name,{ responseType: 'json' }).subscribe((result: String) => {
       this.currentTheme$.next(result);
-    //  console.log(result)
     });
   }
 }

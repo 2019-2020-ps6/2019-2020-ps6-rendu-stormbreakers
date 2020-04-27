@@ -13,10 +13,10 @@ const getQuizzesByTheme = (theme) => {
   const quizzes = Quiz.get();
   var response = [];
     for(let i = 0; i < quizzes.length; i++){
-      if(quizzes[i].theme == theme){
+      if(quizzes[i].theme && quizzes[i].theme === theme){
         response.push(quizzes[i]);
       }
-    }
+  }
     return response;
 }
 

@@ -13,34 +13,28 @@ export class QuizListComponent implements OnInit {
   public quizList: Quiz[] = [];
 
   constructor(private router: Router, private route: ActivatedRoute, public quizService: QuizService) {
-    if(this.route.snapshot.paramMap.get('themeName') != null){
-      
-      this.quizService.quizzes$.subscribe((quizzes: Quiz[]) => {
-        this.quizService.getQuizzesByTheme(this.route.snapshot.paramMap.get('themeName'));
-        for(let i=0;i<quizzes.length;i++){
-          if(quizzes[i].questions.length == 0){
-            quizzes.splice(i,1);
-            i--;
-          }
-        }
-      this.quizList = quizzes;
-    });
-    } else {
-      this.quizService.quizzes$.subscribe((quizzes: Quiz[]) => {
-        for(let i=0;i<quizzes.length;i++){
-          if(quizzes[i].questions.length < 1){
-            quizzes.splice(i,1);
-            i--;
-          }
-        }
-      this.quizList = quizzes;
-    });
-    }
+    
   }
 
   ngOnInit() {
-    
+    if(this.route.snapshot.paramMap.get('themeName') != null){
+      this.quizService.getQuizzesByTheme(this.route.snapshot.paramMap.get('themeName'));
+    }
+      this.quizService.quizzes$.subscribe((quizzes: Quiz[]) => {        
+      this.quizList = quizzes;
+      this.generateQuizzes();
+      });
   }
+
+  generateQuizzes(){
+    for(let i=0;i<this.quizList.length;i++){
+      if(this.quizList[i].questions.length == 0){
+        this.quizList.splice(i,1);
+        i--;
+      }
+    }
+  }
+
   quizLaunched(launch: Quiz) {
     console.log('quiz launch' + launch.id);
     this.router.navigate(['/playquiz/' + launch.id]);

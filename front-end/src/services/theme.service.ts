@@ -47,18 +47,16 @@ export class ThemeService {
   }
 */
   getThemes() {
+    console.log(":)")
     this.http.request('GET', this.url, { responseType: 'json' }).subscribe((result: String[]) => {
-    
       this.themes = result;
       this.themes$.next(this.themes);
-    //  console.log(result)
-    });
+    })
   }
 
   getThemeByName(name:String){
     this.http.request('GET', this.url + "/" + name,{ responseType: 'json' }).subscribe((result: String) => {
       this.currentTheme$.next(result);
-    //  console.log(result)
     });
   }
 }

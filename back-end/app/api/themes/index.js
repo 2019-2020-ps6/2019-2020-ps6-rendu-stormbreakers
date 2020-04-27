@@ -19,7 +19,7 @@ router.get('/', (req, res) => {
 
 router.get('/:themeName/quizzes', (req, res) => {
   try {
-    const response = getQuizzesByTheme(req.params.themeName);
+    const response = getQuizzesByTheme(req.params.themeName).filter((value, index, self) => self.indexOf(value) === index);
     console.log(response);
     res.status(200).json(response);
   } catch (err) {

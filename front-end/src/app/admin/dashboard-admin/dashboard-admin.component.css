@@ -1,11 +1,35 @@
-.wrapper-d-admin ul{
+ul{
     list-style-type: none;
- 
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    
 }
 
+
+ul li+li{
+    margin-top: 3px;
+}
+ul li{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.navbar, .menu-title{
+    font-size: 1.1rem;
+font-family: 'Montserrat', Helvetica, Arial, serif;
+font-weight: 400;
+}
 .taille-card{
-    width: 33%;
-    height: 33%;
+    width: 32%;
+    height: 32%;
+    
+}
+.center{
+    display: flex;
+    align-items: center;
 }
 
 .row{
@@ -17,4 +41,21 @@
 .column{
     display: flex;
     flex-direction: row;
+}
+
+.summary-actions-wrapper{
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 100%;
+}
+
+.height-total{
+   
+    height: 100%;
+}
+
+.width-total{
+    width: 100%;
 }

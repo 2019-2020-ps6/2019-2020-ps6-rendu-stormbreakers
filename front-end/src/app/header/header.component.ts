@@ -14,21 +14,25 @@ export class HeaderComponent extends BaseComponent implements OnInit {
   darkMode: boolean;
   fontsAvailable:string[]= ["Roboto","Arial","Lucida Bright","Consolas",
   "Helvetica","Verdana","Calibri"];
+  public screenreader:boolean;
   
 
   constructor(private dialog: MatDialog, @Inject(LOCAL_STORAGE) protected storage: WebStorageService, protected adaptability: AdaptabilityService) {
     super(storage,adaptability);
+    this.screenreader=this.storage.get('screenreader');
   }
   
   toggleScreenReader() {
-    const screenreader = this.storage.get('screenreader');
-    if (screenreader == null) {
+    this.screenreader = this.storage.get('screenreader');
+    if (this.screenreader == null) {
       this.storage.set('screenreader', true);
       this.adaptability.displayScreenReader$.next(true);
+      this.screenreader=true;
     }
     else {
-      this.storage.set('screenreader', !screenreader);
-      this.adaptability.displayScreenReader$.next(!screenreader);
+      this.storage.set('screenreader', !this.screenreader);
+      this.adaptability.displayScreenReader$.next(!this.screenreader);
+      this.screenreader=!this.screenreader;
       
     }
   }

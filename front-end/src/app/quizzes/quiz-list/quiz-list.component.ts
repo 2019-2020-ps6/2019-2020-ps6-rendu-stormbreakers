@@ -12,11 +12,19 @@ export class QuizListComponent implements OnInit {
 
   public quizList: Quiz[] = [];
 
-  constructor(private router: Router, 
-    private route: ActivatedRoute,
-    public quizService: QuizService) {
-
-    }
+  constructor(private router: Router, private route: ActivatedRoute, public quizService: QuizService) {
+    //this.quizService.getQuizzes();
+    this.quizService.quizzes$.subscribe((quizzes: Quiz[]) => {
+      for(let i=0;i<quizzes.length;i++){
+        if(quizzes[i].questions.length==0){
+          quizzes.splice(i,1);
+          i--;
+        }
+      }
+      this.quizList = quizzes;
+    });
+    console.log(this.quizList);
+  }
 
   ngOnInit() {
     console.log(this.route.snapshot.paramMap.get('themeName'));

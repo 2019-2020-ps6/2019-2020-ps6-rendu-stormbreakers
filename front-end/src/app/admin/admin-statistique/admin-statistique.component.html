@@ -1,21 +1,28 @@
-
-<ul>
-  <li>
-      <button (click)="goToHome()"><em class="fas fa-2x fa-home"></em></button>
-  </li>
-  <li>
-      <button (click)="goToCreation()"><em class="far  fa-2x fa-file"></em></button>
-  </li>
-  <li> 
-      <button><em class="fas  fa-2x fa-chart-bar"></em></button>
-  </li>
-</ul>
-
-<div class="row">
-  <div>
-  <app-admin-list-statistique *ngFor="let quiz of quizList" [quiz]="quiz" (quizSelected)="quizSelected($event)"></app-admin-list-statistique>
-  </div>
-  <div class="chart" *ngIf="selectQuiz">
-    <app-admin-chart [quiz]="selectQuiz"></app-admin-chart>
-  </div>
-</div>
+<mat-sidenav-container class="height-total">
+  <mat-sidenav class="navbar sidenav-content" mode="side" opened>
+      <li title="Home" (click)="goToHome()">
+        <em class="fas fa-2x fa-home"></em>
+        <span class="menu-title">Dashboard</span>
+      </li>
+      <li (click)="goToCreation()" title="Création">
+        <em class="far  fa-2x fa-file"></em>
+        <span class="menu-title">Création</span>
+      </li>
+      <li title="Chart" >
+        <em class=" fas  fa-2x fa-chart-bar"></em>
+        <span class="menu-title">Chart</span>
+      </li>
+    
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="row">
+      <div>
+        <app-admin-list-statistique *ngFor="let quiz of quizList" [quiz]="quiz" (quizSelected)="quizSelected($event)">
+        </app-admin-list-statistique>
+      </div>
+      <div class="chart" *ngIf="selectQuiz">
+        <app-admin-chart [quiz]="selectQuiz"></app-admin-chart>
+      </div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

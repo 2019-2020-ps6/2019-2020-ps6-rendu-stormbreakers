@@ -10,7 +10,6 @@ const router = new Router()
 router.get('/', (req, res) => {
   try {
     const response = getThemes();
-    console.log(response);
     res.status(200).json(response);
   } catch (err) {
     res.status(500).json(err)
@@ -19,8 +18,7 @@ router.get('/', (req, res) => {
 
 router.get('/:themeName/quizzes', (req, res) => {
   try {
-    const response = getQuizzesByTheme(req.params.themeName).filter((value, index, self) => self.indexOf(value) === index);
-    console.log(response);
+    const response = getQuizzesByTheme(req.params.themeName);
     res.status(200).json(response);
   } catch (err) {
     res.status(500).json(err)

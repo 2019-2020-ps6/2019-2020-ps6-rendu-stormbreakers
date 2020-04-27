@@ -6,7 +6,8 @@ const getThemes = () => {
     for(let i = 0; i < quizzes.length; i++){
       themes.push(quizzes[i].theme);
     }
-    return themes;
+    
+    return themes.filter((value, index, self) => self.indexOf(value) === index);;
 }
 
 const getQuizzesByTheme = (theme) => {
@@ -14,10 +15,10 @@ const getQuizzesByTheme = (theme) => {
   var response = [];
     for(let i = 0; i < quizzes.length; i++){
       if(quizzes[i].theme == theme){
-        console.log(quizzes[i]);
         response.push(quizzes[i]);
       }
     }
+    console.log(response[4] === response[5])
     return response;
 }
 

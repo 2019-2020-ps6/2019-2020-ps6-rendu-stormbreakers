@@ -78,18 +78,14 @@ export class QuizService {
       this.quizzes.forEach((q) => {
         this.themes.push(q.theme);
       })
-      console.log("THEMES");
-      console.log(this.themes);
       this.themes$.next(this.themes);
     })
   }
 
   getQuizzesByTheme(theme: string){
     this.http.request('GET', serverUrl+"/" + this.themesPath + "/" + theme + "/quizzes", { responseType: 'json' }).subscribe((result: Quiz[]) => {
-
       this.quizzes = result;
       this.quizzes$.next(this.quizzes);
-
     });
   }
   getSelectQuiz(quizId: string) {

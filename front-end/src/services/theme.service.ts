@@ -47,7 +47,6 @@ export class ThemeService {
   }
 */
   getThemes() {
-    console.log(":)")
     this.http.request('GET', this.url, { responseType: 'json' }).subscribe((result: String[]) => {
       this.themes = result;
       this.themes$.next(this.themes);

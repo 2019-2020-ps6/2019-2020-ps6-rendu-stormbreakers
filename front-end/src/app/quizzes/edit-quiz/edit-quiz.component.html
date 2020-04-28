@@ -1,7 +1,26 @@
 <!--<button class="button-card" routerLink="/quiz-list">Back</button>-->
-
+<mat-sidenav-container class="height-total">
+    <mat-sidenav class="navbar sidenav-content" mode="side" opened>
+        <ul>
+            <li title="Home" (click)="goToHome()">
+                <em  class="fas fa-2x fa-home"></em>
+                <span class="menu-title" >Dashboard</span>
+            </li>
+            <li (click)="goToCreation()" title="Création" >
+                <em   class="far  fa-2x fa-file"></em>
+                <span class="menu-title" >Création</span>
+            </li>
+            <li title="Chart" (click)="goToStat()">
+                <em  class=" fas  fa-2x fa-chart-bar"></em>
+                <span class="menu-title" >Chart</span>
+            </li>
+        </ul>
+    </mat-sidenav>
+<mat-sidenav-content>
 <ng-container *ngIf="quiz">
     <h2 class="text-center">{{quiz.name |titlecase}}</h2>
     <app-question-form [quiz]="quiz"></app-question-form>
     <app-question-list [quiz]="quiz"></app-question-list>
 </ng-container>
+</mat-sidenav-content>
+</mat-sidenav-container>

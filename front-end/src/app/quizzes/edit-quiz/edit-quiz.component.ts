@@ -13,7 +13,9 @@ export class EditQuizComponent implements OnInit {
   @Input()
   quiz: Quiz;
 
-  constructor(private route: ActivatedRoute, router:Router, public quizService: QuizService) { 
+  constructor(private route: ActivatedRoute,
+     private router:Router,
+      private quizService: QuizService) { 
     //this.questions= this.router.getCurrentNavigation().extras.state.result
     this.quizService.quizPlayed$.subscribe(quiz => {
       this.quiz=quiz
@@ -35,4 +37,16 @@ export class EditQuizComponent implements OnInit {
     this.toSave = true;
   }
 
+
+  goToCreation(){
+    this.router.navigate(['admin/quiz']);
+  }
+  
+  goToStat(){
+    this.router.navigate(['admin/statistique']);
+  }
+
+  goToHome(){
+    this.router.navigate(['admin/dashboard']);
+  }
 }

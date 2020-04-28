@@ -4,9 +4,12 @@
 
     <div *ngFor="let theme of themeList" >
         <ng-container *ngIf="theme != null">
-            <div class="card m-2 cus-sizable">
+            <div class="mycard m-2 cus-sizable">
                 <div class="card-body">
-                    <h3 class="card-title d-flex justify-content-center cus-sizable">{{theme}}</h3>
+                    
+                    <h3 class="card-title d-flex justify-content-center cus-sizable">
+                        <app-lecteur [textToRead]="theme" ></app-lecteur>
+                        {{theme}}</h3>
                     <button class="btnToQuizList btn btn-success cus-sizable" (click)="toQUizList(theme)">Accéder aux quiz de ce
                         thème</button>
                 </div>

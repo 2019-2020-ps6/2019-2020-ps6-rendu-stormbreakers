@@ -10,10 +10,10 @@ import { ThemeService } from 'src/services/theme.service';
 })
 export class ThemeListComponent implements OnInit {
 
-  public themeList: String[] = [];
+  public themeList: string[] = [];
 
   constructor(private router:Router,public quizService: QuizService, public themeService: ThemeService) {
-    this.themeService.themes$.subscribe((themes: String[]) => {
+    this.themeService.themes$.subscribe((themes: string[]) => {
       this.themeList = themes;
     });
   }
@@ -21,7 +21,7 @@ export class ThemeListComponent implements OnInit {
   ngOnInit() {
   }
   
-  toQUizList(themeName: String){
+  toQUizList(themeName: string){
     this.router.navigate(['/themes/' + themeName + '/quizzes']);
   }
 }

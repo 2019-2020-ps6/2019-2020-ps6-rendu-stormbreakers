@@ -37,5 +37,11 @@
     "theme": "ThemeTest",
     "questions": [],
     "id": 1587991310771
+  },
+  {
+    "name": "Les films des années 70",
+    "theme": "Les années 70",
+    "questions": [],
+    "id": 1588030098634
   }
 ]

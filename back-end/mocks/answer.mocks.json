@@ -304,5 +304,185 @@
     "isCorrect": true,
     "questionId": 1587836436717,
     "id": 1587836436718
+  },
+  {
+    "value": "Deux Oscars",
+    "isCorrect": false,
+    "questionId": 1588030213809,
+    "id": 1588030213810
+  },
+  {
+    "value": "Trois Oscars",
+    "isCorrect": true,
+    "questionId": 1588030213809,
+    "id": 1588030213811
+  },
+  {
+    "value": "Quatre Oscars",
+    "isCorrect": false,
+    "questionId": 1588030213809,
+    "id": 1588030213812
+  },
+  {
+    "value": "Drame et Guerre",
+    "isCorrect": true,
+    "questionId": 1588030454707,
+    "id": 1588030454708
+  },
+  {
+    "value": "Comédie",
+    "isCorrect": false,
+    "questionId": 1588030454707,
+    "id": 1588030454708
+  },
+  {
+    "value": "Romance amoureuse",
+    "isCorrect": false,
+    "questionId": 1588030454707,
+    "id": 1588030454709
+  },
+  {
+    "value": "Horreur",
+    "isCorrect": false,
+    "questionId": 1588030454707,
+    "id": 1588030454709
+  },
+  {
+    "value": "Francis Ford Coppola",
+    "isCorrect": false,
+    "questionId": 1588030696624,
+    "id": 1588030696625
+  },
+  {
+    "value": "Dan O'Bannon ",
+    "isCorrect": false,
+    "questionId": 1588030696624,
+    "id": 1588030696625
+  },
+  {
+    "value": "Francis Ford Coppola",
+    "isCorrect": false,
+    "questionId": 1588030720076,
+    "id": 1588030720077
+  },
+  {
+    "value": " Dan O'Bannon",
+    "isCorrect": true,
+    "questionId": 1588030720076,
+    "id": 1588030720077
+  },
+  {
+    "value": " 1973",
+    "isCorrect": false,
+    "questionId": 1588030906018,
+    "id": 1588030906019
+  },
+  {
+    "value": "1971",
+    "isCorrect": true,
+    "questionId": 1588030906018,
+    "id": 1588030906019
+  },
+  {
+    "value": "1979",
+    "isCorrect": false,
+    "questionId": 1588030906018,
+    "id": 1588030906020
+  },
+  {
+    "value": "1977",
+    "isCorrect": false,
+    "questionId": 1588030906018,
+    "id": 1588030906022
+  },
+  {
+    "value": "30 ans",
+    "isCorrect": false,
+    "questionId": 1588031003038,
+    "id": 1588031003038
+  },
+  {
+    "value": "121 ans",
+    "isCorrect": true,
+    "questionId": 1588031003038,
+    "id": 1588031003039
+  },
+  {
+    "value": "45 ans",
+    "isCorrect": false,
+    "questionId": 1588031003038,
+    "id": 1588031003039
+  },
+  {
+    "value": "67 ans",
+    "isCorrect": false,
+    "questionId": 1588031003038,
+    "id": 1588031003040
+  },
+  {
+    "value": "Robert Mulligan",
+    "isCorrect": false,
+    "questionId": 1588031066453,
+    "id": 1588031066454
+  },
+  {
+    "value": "William Peter Blatty",
+    "isCorrect": true,
+    "questionId": 1588031066453,
+    "id": 1588031066454
+  },
+  {
+    "value": "Joe d'Amato",
+    "isCorrect": false,
+    "questionId": 1588031066453,
+    "id": 1588031066455
+  },
+  {
+    "value": "Michel Piccoli",
+    "isCorrect": false,
+    "questionId": 1588031153591,
+    "id": 1588031153597
+  },
+  {
+    "value": "Alan Parker",
+    "isCorrect": true,
+    "questionId": 1588031153591,
+    "id": 1588031153598
+  },
+  {
+    "value": "Jean-Paul Belmondo",
+    "isCorrect": false,
+    "questionId": 1588031153591,
+    "id": 1588031153599
+  },
+  {
+    "value": "Brigitte Fossey",
+    "isCorrect": false,
+    "questionId": 1588031153591,
+    "id": 1588031153600
+  },
+  {
+    "value": "1976",
+    "isCorrect": false,
+    "questionId": 1588031237820,
+    "id": 1588031237821
+  },
+  {
+    "value": "1970",
+    "isCorrect": true,
+    "questionId": 1588031237820,
+    "id": 1588031237821
+  },
+  {
+    "value": "1976",
+    "isCorrect": false,
+    "questionId": 1588032087992,
+    "id": 1588032087996
+  },
+  {
+    "value": " 1970",
+    "isCorrect": true,
+    "questionId": 1588032087992,
+    "id": 1588032087997
   }
 ]

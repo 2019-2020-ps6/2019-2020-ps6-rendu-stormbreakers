@@ -1,5 +1,8 @@
 <div class="mycard p-3 m-2" [ngClass]="setClasses()">
-    <button class="btn-play-quiz ml-1 mr-1 btn btn-success cus-sizable" (click)="goToHome()">retour</button>
+    <div class="left">
+    <button class="btn-play-quiz ml-1 mr-1 btn btn-success cus-sizable" style="width: 8rem; "(click)="goToHome()">retour</button>
+    </div>
+
      <h2 class="cus-sizable card-title">
         <app-lecteur [textToRead]="quiz.name" ></app-lecteur>  Résultats du quiz: {{quiz.name |titlecase }}
      </h2>

@@ -68,3 +68,8 @@
 .card-title.cussize-1x{
     font-size: 28pt;
 }
+.left{
+    text-align: center;
+    position:relative;
+    left:45%;
+}

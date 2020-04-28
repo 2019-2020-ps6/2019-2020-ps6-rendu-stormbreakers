@@ -21,24 +21,6 @@
     "id": 1587727586357
   },
   {
-    "name": "Test1",
-    "theme": "ThemeTest",
-    "questions": [],
-    "id": 1587991306721
-  },
-  {
-    "name": "Test2",
-    "theme": "ThemeTest",
-    "questions": [],
-    "id": 1587991308885
-  },
-  {
-    "name": "Test3",
-    "theme": "ThemeTest",
-    "questions": [],
-    "id": 1587991310771
-  },
-  {
     "name": "Les films des années 70",
     "theme": "Les années 70",
     "questions": [],
@@ -55,5 +37,11 @@
     "theme": "Musique",
     "questions": [],
     "id": 1588039507687
+  },
+  {
+    "name": "Ski",
+    "theme": "Sport",
+    "questions": [],
+    "id": 1588060505963
   }
 ]

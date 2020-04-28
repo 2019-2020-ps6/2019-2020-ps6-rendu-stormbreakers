@@ -17,7 +17,7 @@
     </div>
 
     
-    <div class="mt-2 text-center">
+    <div class="mt-2 text-center cus-sizable">
         <mat-slide-toggle  [checked]="darkMode" (toggleChange)="switchMode()">
             <em *ngIf="darkMode" class="fas fa-2x fa-moon" ></em>
             <em *ngIf="!darkMode" class="fas fa-2x fa-sun"></em>
@@ -30,12 +30,12 @@
         </ng-template>
 
         <ng-template  #none>
-            <p >Passer en mode nuit</p>
+            <p>Passer en mode nuit</p>
         </ng-template>
     </div>
-    <select  [(ngModel)]="fontFamily" (ngModelChange)="onFontChange($event)" name="font-selector" id="font-selector">
+    <select  [(ngModel)]="fontFamily" (ngModelChange)="onFontChange($event)" name="font-selector" id="font-selector" class="cus-sizable">
         <option value="">Choisissez une police</option>
-        <option  *ngFor="let font of fontsAvailable" value={{font}} [attr.selected]="font==fontFamily ? true : false" > 
+        <option  *ngFor="let font of fontsAvailable" value={{font}} [attr.selected]="font==fontFamily ? true : false" class="cus-sizable"> 
              {{font}}</option>
     </select>
     

@@ -229,5 +229,60 @@
     "label": "Le film 'Le Cercle rouge' est sorti en quelle année?",
     "quizId": 1588030098634,
     "id": 1588032087992
+  },
+  {
+    "label": "Qui a écrit \"La Chartreuse de Parme \"?",
+    "quizId": 1588038830836,
+    "id": 1588038882016
+  },
+  {
+    "label": "Où se trouve Le panthéon?",
+    "quizId": 1588038830836,
+    "id": 1588038957259
+  },
+  {
+    "label": "Qui a composé \" Le Boléro\"?",
+    "quizId": 1588038830836,
+    "id": 1588039016317
+  },
+  {
+    "label": "Qui est la figure de proue du pop art américain?",
+    "quizId": 1588038830836,
+    "id": 1588039245969
+  },
+  {
+    "label": "Qui a dessiné \"Le tableau Les Mangeurs de pommes de terre\"?",
+    "quizId": 1588038830836,
+    "id": 1588039331651
+  },
+  {
+    "label": "A Bollywood produit des films :",
+    "quizId": 1588038830836,
+    "id": 1588039413577
+  },
+  {
+    "label": "Qui chantait \"Vers quel océan secret, le vent les a emportés\" ?\n",
+    "quizId": 1588039507687,
+    "id": 1588039567397
+  },
+  {
+    "label": "Qui chantait \"Au soleil, sous la pluie, à midi ou à minuit \" ?\n",
+    "quizId": 1588039507687,
+    "id": 1588039629649
+  },
+  {
+    "label": "Qui chantait \"Après les cours on allait boire un verre\" ?\n",
+    "quizId": 1588039507687,
+    "id": 1588039687462
+  },
+  {
+    "label": "Qui chantait \"Ce soir si tu le veux, dans un grand lit nous serons mieux\" ?\n",
+    "quizId": 1588039507687,
+    "id": 1588039765950
+  },
+  {
+    "label": "Qui chantait \"Envole-moi\" ?\n",
+    "quizId": 1588039507687,
+    "id": 1588039914554
   }
 ]

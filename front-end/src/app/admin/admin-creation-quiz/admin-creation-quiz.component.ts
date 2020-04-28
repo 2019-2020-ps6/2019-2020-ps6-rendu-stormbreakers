@@ -6,6 +6,7 @@ import { Quiz } from 'src/models/quiz.model';
 import { QuizService } from 'src/services/quiz.service';
 import {MatDialog,MatDialogConfig} from '@angular/material';
 import { AdminDialogDeleteQuizComponent } from '../admin-dialog-delete-quiz/admin-dialog-delete-quiz.component';
+import { AdminDialogQuizCreateComponent } from 'src/app/admin-dialog-quiz-create/admin-dialog-quiz-create.component';
 @Component({
   selector: 'app-admin-creation-quiz',
   templateUrl: './admin-creation-quiz.component.html',
@@ -37,6 +38,11 @@ export class AdminCreationQuizComponent implements OnInit {
 
   create(quiz:Quiz){
       this.quizService.addQuiz(quiz)
+      /*const dialogConfig = new MatDialogConfig();
+      dialogConfig.disableClose = false;
+      dialogConfig.autoFocus = true;
+      dialogConfig.data = quiz;
+      const alertdialog =this.dialog.open(AdminDialogQuizCreateComponent,dialogConfig)*/
   }
 
   quizDelete(quiz:Quiz){

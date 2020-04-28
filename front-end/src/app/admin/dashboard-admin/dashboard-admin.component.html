@@ -29,7 +29,7 @@
        
             <div class="cus-sizable wrapper-div card p-3 m-2 taille-card">
                 <div class="centre">
-                <app-admin-form-creation-quiz></app-admin-form-creation-quiz>
+                <app-admin-form-creation-quiz (quizCreated)="create($event)"></app-admin-form-creation-quiz>
                 <button (click)="goToCreation()" class="btn-play-quiz ml-1 mr-1 btn btn-success cus-sizable" style="width: 8rem;text-align : center; margin: 2pt;">Voir</button>
             </div>
         </div>

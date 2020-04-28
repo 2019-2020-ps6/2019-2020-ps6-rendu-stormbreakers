@@ -44,7 +44,8 @@ import { AdminDialogDeleteQuizComponent } from './admin/admin-dialog-delete-quiz
 import { ThemeListComponent } from './themes/theme-list.component';
 import { HomeComponent } from './home/home.component';
 import {MatSidenavModule} from '@angular/material/sidenav'; 
-import { AdminFormCreationQuizComponent } from './admin/admin-form-creation-quiz/admin-form-creation-quiz.component'
+import { AdminFormCreationQuizComponent } from './admin/admin-form-creation-quiz/admin-form-creation-quiz.component';
+import { AdminDialogQuizCreateComponent } from './admin-dialog-quiz-create/admin-dialog-quiz-create.component'
 
 
 
@@ -80,7 +81,8 @@ import { AdminFormCreationQuizComponent } from './admin/admin-form-creation-quiz
     AdminDialogDeleteQuizComponent,
     ThemeListComponent,
     HomeComponent,
-    AdminFormCreationQuizComponent
+    AdminFormCreationQuizComponent,
+    AdminDialogQuizCreateComponent
   ],
   imports: [
     BrowserModule,
@@ -96,6 +98,6 @@ import { AdminFormCreationQuizComponent } from './admin/admin-form-creation-quiz
   ],
   providers: [CookieService],
   bootstrap: [AppComponent],
-  entryComponents: [AdapterComponent,AdminDialogDeleteQuizComponent]
+  entryComponents: [AdapterComponent,AdminDialogDeleteQuizComponent,AdminDialogQuizCreateComponent]
 })
 export class AppModule { }

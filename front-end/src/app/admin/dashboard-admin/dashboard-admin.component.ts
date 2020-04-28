@@ -3,6 +3,8 @@ import { CookieService } from 'ngx-cookie-service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { QuizService } from 'src/services/quiz.service';
 import { Quiz } from 'src/models/quiz.model';
+import { AdminDialogQuizCreateComponent } from 'src/app/admin-dialog-quiz-create/admin-dialog-quiz-create.component';
+import { MatDialogConfig, MatDialog } from '@angular/material';
 
 @Component({
   selector: 'app-dashboard-admin',
@@ -15,7 +17,8 @@ export class DashboardAdminComponent implements OnInit {
     private cookieService:CookieService,
     private  router:Router,
     private route: ActivatedRoute,
-    private quizService:QuizService) { 
+    private quizService:QuizService,
+    private dialog:MatDialog) { 
       quizService.quizzes$.subscribe((quizzes)=>this.quizToDispaly=quizzes[0])
     }
 
@@ -29,6 +32,16 @@ export class DashboardAdminComponent implements OnInit {
     }
     this.quizService.getQuizzes();
   }
+
+  create(quiz:Quiz){
+    this.quizService.addQuiz(quiz)
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = false;
+    dialogConfig.autoFocus = true;
+    dialogConfig.data = quiz;
+    const alertdialog =this.dialog.open(AdminDialogQuizCreateComponent,dialogConfig)
+}
+
       
   goToCreation(){
     this.router.navigate(['admin/quiz']);
@@ -38,4 +51,5 @@ export class DashboardAdminComponent implements OnInit {
     this.router.navigate(['admin/statistique']);
   }
 
+  
 }

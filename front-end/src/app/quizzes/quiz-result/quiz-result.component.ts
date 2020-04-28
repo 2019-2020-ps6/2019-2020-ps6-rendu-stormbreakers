@@ -68,4 +68,8 @@ export class QuizResultComponent extends BaseComponent implements OnInit{
     if (answer.value == null) return false;
     return q.answers.find(a => a.value === answer.value);
   }
+
+  goToHome(){
+      this.router.navigate(['']);
+  }
 }

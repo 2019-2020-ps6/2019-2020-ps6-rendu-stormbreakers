@@ -1,51 +1,46 @@
 <div class="header" [ngClass]="setClasses()" [style.font-family]="fontFamily">
-    <h3> <a  title="Poly" href="http://localhost:4200">Poly Quiz</a></h3>
+    <h3> <a title="Poly" href="http://localhost:4200">Poly Quiz</a></h3>
+    
 
-    <div class="text-center" [ngClass]="setClasses()">
-        <div>
-            <em (click)="toggleScreenReader()"  class="fas fa-3x fa-file-audio"></em>
-           
-        </div>
-       <ng-template [ngIf]="screenreader" [ngIfElse]="noreader">
-            <p  >Cacher le lecteur d'écran</p>
-        </ng-template>
-
-        <ng-template  #noreader>
-            <p class="text-center">Afficher le lecteur d'écran</p>
-        </ng-template>
-
-    </div>
 
     <em (click)="clickMe()" class="fas fa-3x fa-low-vision"></em>
+    
 
-    
-    <div class="mt-2 text-center" [ngClass]="setClasses()">
-        <mat-slide-toggle  [checked]="darkMode" (toggleChange)="switchMode()">
-            <em *ngIf="darkMode" class="fas fa-2x fa-moon" ></em>
-            <em *ngIf="!darkMode" class="fas fa-2x fa-sun"></em>
-    
-            
-    
-        </mat-slide-toggle>
-        <ng-template [ngIf]="darkMode" [ngIfElse]="none">
-            <p >Passer en mode jour</p>
-        </ng-template>
 
-        <ng-template  #none>
-            <p>Passer en mode nuit</p>
-        </ng-template>
+    <div class="text-center" [ngClass]="setClasses()">
+    <div>
+    <em (click)="toggleScreenReader()" class="fas fa-3x fa-file-audio"></em>
     </div>
-    <select  [(ngModel)]="fontFamily" (ngModelChange)="onFontChange($event)" name="font-selector" id="font-selector" >
-        <option value="" [attr.selected]="fontFamily == '' ">Choisissez une police</option>
-        <option  *ngFor="let font of fontsAvailable" 
-            [style.font-family]="font"
-        value={{font}} [attr.selected]="font==fontFamily ? true : false" [ngClass]="setClasses()"> 
-             {{font}}</option>
+    <ng-template [ngIf]="screenreader" [ngIfElse]="noreader">
+    <p >Cacher le lecteur d'écran</p>
+    </ng-template>
+    <ng-template #noreader>
+    <p class="text-center">Afficher le lecteur d'écran</p>
+    </ng-template>
+    </div>
+    
+
+
+    <div class="mt-2 text-center" [ngClass]="setClasses()">
+    <mat-slide-toggle [checked]="darkMode" (toggleChange)="switchMode()">
+    <em *ngIf="darkMode" class="fas fa-2x fa-moon" ></em>
+    <em *ngIf="!darkMode" class="fas fa-2x fa-sun"></em>
+    </mat-slide-toggle>
+    <ng-template [ngIf]="darkMode" [ngIfElse]="none">
+    <p >Passer en mode jour</p>
+    </ng-template>
+
+    <ng-template #none>
+    <p>Passer en mode nuit</p>
+    </ng-template>
+    </div>
+    
+    <select [(ngModel)]="fontFamily" (ngModelChange)="onFontChange($event)" name="font-selector" id="font-selector" >
+    <option value="" [attr.selected]="fontFamily == '' ">Choisissez une police</option>
+    <option *ngFor="let font of fontsAvailable"
+    [style.font-family]="font"
+    value={{font}} [attr.selected]="font==fontFamily ? true : false" [ngClass]="setClasses()">
+    {{font}}</option>
     </select>
     
-    
-
-    
-</div>
-   
-
+    </div>

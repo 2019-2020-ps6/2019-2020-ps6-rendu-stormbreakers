@@ -8,7 +8,8 @@ import { WebStorageService, LOCAL_STORAGE } from 'angular-webstorage-service';
 export class AdaptabilityService {
   public displayScreenReader$: BehaviorSubject<boolean> = new BehaviorSubject(false);
   public darkMode$: BehaviorSubject<boolean> = new BehaviorSubject(false);
-  public fontFamily$:BehaviorSubject<string> =new BehaviorSubject("Helvetica Neue");
+  public fontFamily$: BehaviorSubject<string> = new BehaviorSubject('');
+  public size$: BehaviorSubject<number> = new BehaviorSubject(1);
   constructor(@Inject(LOCAL_STORAGE) protected storage: WebStorageService) {
     let tmp = storage.get('screenreader');
     if (tmp != null) {
@@ -21,8 +22,14 @@ export class AdaptabilityService {
     }
 
     tmp = storage.get('font-family')
-    if(tmp!=null){
+    if (tmp != null) {
       this.fontFamily$.next(tmp);
+    }
+
+    tmp = storage.get('layout-size')
+
+    if (tmp != null) {
+      this.size$.next(parseInt(tmp));
     }
 
 

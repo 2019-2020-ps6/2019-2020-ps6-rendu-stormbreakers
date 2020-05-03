@@ -5,16 +5,16 @@
     margin-left: auto;
     margin-right: auto;
   }
-  .title-quiztolaunch.cussize-1x{
+  .title-quiztolaunch.cusize1x{
     font-size: 20pt;
   }
-  .title-quiztolaunch.cussize-2x{
+  .title-quiztolaunch.cusize2x{
     font-size: 24pt;
   }
-  .title-quiztolaunch.cussize-3x{
+  .title-quiztolaunch.cusize3x{
     font-size: 28pt;
   }
-  .title-quiztolaunch.cussize-4x{
+  .title-quiztolaunch.cusize4x{
     font-size: 32pt;
   }
 }

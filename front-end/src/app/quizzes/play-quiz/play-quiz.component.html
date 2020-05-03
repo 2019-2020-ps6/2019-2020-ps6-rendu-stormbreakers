@@ -1,12 +1,12 @@
 
     <div [ngClass]="setClasses()"  class=" wrapper-play-quiz container  p-3">
-        <h2 class="cus-sizable title-quiztolaunch" *ngIf="!isLaunch ">Vous allez lancer le quiz "{{quizPlayed.name | titlecase}}"</h2>
+        <h2  [ngClass]="setClasses()" class="title-quiztolaunch" *ngIf="!isLaunch ">Vous allez lancer le quiz "{{quizPlayed.name | titlecase}}"</h2>
         <div class="text-center">
-            <button class="cus-sizable ml-1 mr-1 btn btn-success " (click)="launch()" *ngIf="!isLaunch">Lancer</button>
+            <button [ngClass]="setClasses()" class="ml-1 mr-1 btn btn-success " (click)="launch()" *ngIf="!isLaunch">Lancer</button>
         </div>
 
 
-        <h2 class="cus-sizable" *ngIf="isLaunch">{{quizPlayed.name | titlecase}}</h2>
+        <h2 [ngClass]="setClasses()" *ngIf="isLaunch">{{quizPlayed.name | titlecase}}</h2>
 
         <div *ngIf="isLaunch && !quizIsFinished">
             <app-play-question [question]="currentQuestion" (changeQuestion)="changingQuestion($event)"></app-play-question>
@@ -15,14 +15,14 @@
 
     
         <div class="text-center m-3" *ngIf="isLaunch && !quizIsFinished">
-            <button type="button" class="cus-sizable ml-1 mr-1 btn btn-warning " (click)="passingQuestion()">Passer</button>
+            <button type="button" class="ml-1 mr-1 btn btn-warning " [ngClass]="setClasses()" (click)="passingQuestion()">Passer</button>
         </div>
 
 
         <div *ngIf="quizIsFinished">
-            <h2 class="cus-sizable"> Quiz terminé</h2>
+            <h2 [ngClass]="setClasses()"> Quiz terminé</h2>
             <div class="text-center">
-                <button class="cus-sizable btn btn-success" (click)="showResult()">Résultats </button>
+                <button class="btn btn-success" (click)="showResult()" [ngClass]="setClasses()">Résultats </button>
             </div>
         </div>
     </div>

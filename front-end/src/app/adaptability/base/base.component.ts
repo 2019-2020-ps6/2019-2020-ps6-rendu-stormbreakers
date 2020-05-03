@@ -13,7 +13,8 @@ import { AdaptabilityService } from 'src/services/adaptability.service';
 })
 export class BaseComponent {
   protected darkMode: boolean;
-  fontFamily:string;
+  fontFamily: string = '';
+  protected size: number;
 
   constructor(@Inject(LOCAL_STORAGE) protected storage: WebStorageService, protected adaptability: AdaptabilityService) {
     console.log("BaseComponent" + storage);
@@ -24,39 +25,26 @@ export class BaseComponent {
       this.darkMode = v;
     });
 
-    this.adaptability.fontFamily$.subscribe(v=>{
-      this.fontFamily=v;
+    this.adaptability.fontFamily$.subscribe(v => {
+      this.fontFamily = v;
     });
+    this.adaptability.size$.subscribe(v =>
+      this.size = v
+    )
   }
 
-  ngOnChanges(changes: import("@angular/core").SimpleChanges): void {
-    console.log("Salut dom" + changes);
-    console.log(this);
+  
 
-    console.log("Salut dom ready");
-    setTimeout(() => this.sizeChooseHandler(JSON.parse(this.storage.get("styleclassname"))), 300);
-
-
-  }
-
-  sizeChooseHandler(sizechoosen: { className: string, toDisplay: string }) {
-    console.log(sizechoosen);
-    this.storage.set("styleclassname", JSON.stringify(sizechoosen));
-    document.querySelectorAll('.cus-sizable').forEach(balise => {
-      const tmpclasses = balise.className.split(' ').filter(cls => !cls.startsWith('cussize-'));
-      tmpclasses.push(sizechoosen.className);
-
-      balise.className = tmpclasses.join(' ');
-
-
-    });
-
-  }
+  
 
   setClasses() {
     return {
       darktheme: this.darkMode,
-      ordinarytheme: !this.darkMode
+      ordinarytheme: !this.darkMode,
+      cusize1x: this.size == 1,
+      cusize2x: this.size == 2,
+      cusize3x: this.size == 3,
+      cusize4x: this.size == 4
     }
   }
 

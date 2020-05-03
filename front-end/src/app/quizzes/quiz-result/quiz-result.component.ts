@@ -41,7 +41,6 @@ export class QuizResultComponent extends BaseComponent implements OnInit{
 
   ngOnInit() {
     super.ngOnInit();
-    setTimeout(()=> this.sizeChooseHandler(JSON.parse(this.storage.get("styleclassname"))),300);
     this.getQuiz();
     console.log(this.userAnswers);
     this.setAnswersCount();

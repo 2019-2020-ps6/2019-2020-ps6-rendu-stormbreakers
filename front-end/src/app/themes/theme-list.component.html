@@ -1,16 +1,16 @@
-<div class="cus-sizable card-deck pl-5">
+<div class=" card-deck pl-5" [ngClass]="setClasses()">
     <!--Inputs & Output allow communication between parent & child components.-->
     <!--More information: https://angular.io/guide/component-interaction-->
 
     <div *ngFor="let theme of themeList" >
         <ng-container *ngIf="theme != null">
-            <div class="mycard m-2 cus-sizable">
-                <div class="card-body">
+            <div class="mycard m-2 " [ngClass]="setClasses()">
+                <div class="card-body" [ngClass]="setClasses()">
                     
-                    <h3 class="card-title d-flex justify-content-center cus-sizable">
+                    <h3 class="card-title d-flex justify-content-center" [ngClass]="setClasses()">
                         <app-lecteur [textToRead]="theme" ></app-lecteur>
                         {{theme}}</h3>
-                    <button class="btnToQuizList btn btn-success cus-sizable" (click)="toQUizList(theme)">Accéder aux quiz de ce
+                    <button class="btnToQuizList btn btn-success" [ngClass]="setClasses()" (click)="toQUizList(theme)">Accéder aux quiz de ce
                         thème</button>
                 </div>
             </div>

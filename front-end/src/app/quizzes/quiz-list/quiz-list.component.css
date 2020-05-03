@@ -3,15 +3,15 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
-  .cus-sizable.cussize-2x.quiz-list {
+  .cusize2x.quiz-list {
     grid-template-columns: 1fr 1fr;
   }
-  .cus-sizable.cussize-3x.quiz-list {
+  .cusize3x.quiz-list {
     grid-template-columns: 1fr 1fr;
     
   }
 
-  .cus-sizable.cussize-4x.quiz-list {
+  .cusize4x.quiz-list {
     grid-template-columns: 1fr 1fr;
     
   }

@@ -8,28 +8,28 @@
     text-transform: capitalize;
 }
 /** 2x*/
-.cus-sizable.cussize-2x.wrapper-div{
+.cusize2x.wrapper-div{
     width: 500px;
     height: 300px;
 }
-.cus-sizable.quiz-title.cussize-2x{
+.quiz-title.cusize2x{
     
     font-size: 24pt;
 }
-.card-subtitle.cus-sizable.cussize-2x{
+.card-subtitle.cusize2x{
     font-size: 18pt;
 }
-.cus-sizable.cussize-2x.btn-play-quiz{
+.cusize2x.btn-play-quiz{
     font-size: 18pt;
 }
 
 
-.cus-sizable.cussize-3x.wrapper-div{
+.cusize3x.wrapper-div{
     width: 500px;
     height: 300px;
 }
 
-.cus-sizable.cussize-4x.wrapper-div{
+.cusize4x.wrapper-div{
     width: 500px;
     height: 300px;
 }

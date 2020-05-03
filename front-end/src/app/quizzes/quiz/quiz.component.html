@@ -1,13 +1,13 @@
-<div class="cus-sizable wrapper-div card p-3 m-2" [ngClass]="setClasses()">
-    <h2 class="cus-sizable quiz-title text-center"  >
+<div class="wrapper-div card p-3 m-2" [ngClass]="setClasses()">
+    <h2 class="quiz-title text-center"  >
         <app-lecteur [textToRead]="quiz.name" ></app-lecteur>
         {{quiz.name}}
     </h2>
-    <div class="cus-sizable text-center card-subtitle">
+    <div class="text-center card-subtitle" [ngClass]="setClasses()">
         Theme : {{quiz.theme}}
     </div>
     <div class="text-center btn-wrapper">
-        <button class="btn-play-quiz ml-1 mr-1 btn btn-success cus-sizable" (click)="quizLaunch()"> <em class="fas fa-play"></em> Jouer</button>
+        <button class="btn-play-quiz ml-1 mr-1 btn btn-success" [ngClass]="setClasses()" (click)="quizLaunch()"> <em class="fas fa-play"></em> Jouer</button>
     </div>
 
 </div>

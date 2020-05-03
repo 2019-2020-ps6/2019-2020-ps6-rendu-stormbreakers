@@ -1,22 +1,26 @@
 <div class="mycard p-3 m-2" [ngClass]="setClasses()">
-    <button class="btn-play-quiz ml-1 mr-1 btn btn-success cus-sizable" (click)="goToHome()">retour</button>
-     <h2 class="cus-sizable card-title">
+    <button class="btn-play-quiz ml-1 mr-1 btn btn-success" [ngClass]="setClasses()" (click)="goToHome()">Retour</button>
+     <h2 class=" card-title" [ngClass]="setClasses()">
         <app-lecteur [textToRead]="quiz.name" ></app-lecteur>  Résultats du quiz: {{quiz.name |titlecase }}
      </h2>
      
-     <div class="cus-sizable card-body" >
+     <div class=" card-body" [ngClass]="setClasses()">
           <div class="card-body res">
               <div class="mycard res" id="nbQuestions" [ngClass]="setClasses()">
+                <app-lecteur [textToRead]="'Nombre de questions :'+quiz.questions.length " ></app-lecteur>
                Nombre de questions : {{quiz.questions.length}}
            </div>
            <span class="resStats">
              <div class="mycard res" id="true" [ngClass]="setClasses()">
+                <app-lecteur [textToRead]="' Nombre de bonnes réponses :'+goodAnswersCount " ></app-lecteur>
                  Nombre de bonnes réponses : {{goodAnswersCount}}
              </div>
              <div class="mycard res" id="false" [ngClass]="setClasses()">
+                <app-lecteur [textToRead]="' Nombre de réponses incorrectes :'+badAnswersCount " ></app-lecteur>
                  Nombre de réponses incorrectes : {{badAnswersCount}}
              </div>
              <div class="mycard res" id="skipped" [ngClass]="setClasses()">
+                <app-lecteur [textToRead]="' Nombre de questions sautées :'+unsansweredCount " ></app-lecteur>
                  Nombre de questions sautées : {{unsansweredCount}}
              </div>
             </span>
@@ -24,11 +28,18 @@
          <div>
 
          </div>
-         <div *ngFor="let i = index; let question of quiz.questions;" class="cus-sizable mycard p-3 m-2">
-              <h5 class="cus-sizable card-title"> Question n°{{i}} </h5>
-              <div> "{{question.label}}" </div>
-              <ng-container *ngFor="let answer of userAnswers"><div *ngIf="answerFromQuestion(question, answer)"> Votre réponse était : {{answer.value}}</div></ng-container>
-              <ng-container *ngFor="let qAnswer of question.answers"><div *ngIf="qAnswer.isCorrect">La bonne réponse est : {{qAnswer.value}}</div></ng-container>
+         <div *ngFor="let i = index; let question of quiz.questions;" class=" mycard p-3 m-2" [ngClass]="setClasses()">
+              <h5 class=" card-title" [ngClass]="setClasses()">
+                  <app-lecteur [textToRead]="'Question n°'+ i "></app-lecteur>
+                   Question n°{{i}} </h5>
+              <div> <app-lecteur [textToRead]="  question.label"></app-lecteur> "{{question.label}}" </div>
+              <ng-container *ngFor="let answer of userAnswers"><div *ngIf="answerFromQuestion(question, answer)">
+                <app-lecteur [textToRead]=" 'Votre réponse était : '+answer.value"></app-lecteur>
+                  Votre réponse était : {{answer.value}}</div></ng-container>
+              <ng-container *ngFor="let qAnswer of question.answers">
+                  <div *ngIf="qAnswer.isCorrect">
+                    <app-lecteur [textToRead]=" ' La bonne réponse est :'+qAnswer.value"></app-lecteur>
+                    La bonne réponse est : {{qAnswer.value}}</div></ng-container>
          </div>
 </div>
 

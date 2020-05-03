@@ -1,11 +1,11 @@
-<h2 class="cus-sizable card-title text-center">
+<h2 class=" card-title text-center" [ngClass]="setClasses()">
     <app-lecteur [textToRead]="question.label" ></app-lecteur>
     {{question.label}}
 </h2>
 <form class=" answer-list " >
     
     
-        <span *ngFor="let answer of question.answers" class="cus-sizable ml-1 mr-1 btn btn-dark " [class.selected]="reponseValue === answer.value">
+        <span *ngFor="let answer of question.answers" class="ml-1 mr-1 btn btn-dark " [class.selected]="reponseValue === answer.value"  [ngClass]="setClasses()" >
             <app-lecteur [textToRead]="answer.value"></app-lecteur>
 
            <label  > <input class="radio-btn-discret" (change)="radioChangeHandler($event)"
@@ -20,5 +20,5 @@
     
 </form>
 <div class="text-center mt-3">
-    <button class="btn btn-success cus-sizable" (click)="changingQuestion()">Valider</button>
+    <button [ngClass]="setClasses()" class="btn btn-success" (click)="changingQuestion()">Valider</button>
 </div>

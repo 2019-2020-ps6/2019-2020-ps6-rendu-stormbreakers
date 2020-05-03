@@ -68,3 +68,12 @@
 .card-title.cusize1x{
     font-size: 28pt;
 }
+.left{
+    text-align: center;
+    position:relative;
+    right:45%;
+}
+
+.btn-return-quiz{
+    width: min-content;
+}

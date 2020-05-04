@@ -7,9 +7,9 @@
             <div class="mycard m-2 " [ngClass]="setClasses()">
                 <div class="card-body" [ngClass]="setClasses()">
                     
-                    <h3 class="card-title d-flex justify-content-center" [ngClass]="setClasses()">
+                    <h2 class="card-title d-flex justify-content-center" [ngClass]="setClasses()">
                         <app-lecteur [textToRead]="theme" ></app-lecteur>
-                        {{theme}}</h3>
+                        {{theme}}</h2>
                     <button class="btnToQuizList btn btn-success" [ngClass]="setClasses()" (click)="toQUizList(theme)">Accéder aux quiz de ce
                         thème</button>
                 </div>

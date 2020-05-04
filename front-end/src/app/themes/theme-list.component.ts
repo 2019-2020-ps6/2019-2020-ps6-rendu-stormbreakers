@@ -27,6 +27,6 @@ export class ThemeListComponent extends BaseComponent implements OnInit {
   }
   
   toQUizList(themeName: string){
-    this.router.navigate(['/themes/' + themeName + '/quizzes']);
+    this.router.navigate(['/themes/' + themeName.toLowerCase() + '/quizzes']);
   }
 }

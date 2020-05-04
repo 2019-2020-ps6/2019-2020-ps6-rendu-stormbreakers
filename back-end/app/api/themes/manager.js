@@ -10,10 +10,13 @@ const getThemes = () => {
 }
 
 const getQuizzesByTheme = (theme) => {
+  var themeDecode= decodeURI(theme)
+  console.log("theme"+themeDecode)
   const quizzes = Quiz.get();
   var response = [];
     for(let i = 0; i < quizzes.length; i++){
-      if(quizzes[i].theme && quizzes[i].theme.toLowerCase() === theme){
+      if(quizzes[i].theme && quizzes[i].theme.toLowerCase() === themeDecode){
+        console.log("in"+quizzes[i].name)
         response.push(quizzes[i]);
       }
   }

@@ -14,7 +14,6 @@ import { LOCAL_STORAGE, WebStorageService } from 'angular-webstorage-service';
 export class QuizListComponent extends BaseComponent implements OnInit {
 
   public quizList: Quiz[] = [];
-
   constructor(private router: Router, private route: ActivatedRoute, public quizService: QuizService,protected adaptibility:AdaptabilityService ,@Inject(LOCAL_STORAGE) protected storage: WebStorageService) {
     super(storage,adaptibility);
   }
@@ -31,7 +30,7 @@ export class QuizListComponent extends BaseComponent implements OnInit {
 
   generateQuizzes(){
     for(let i=0;i<this.quizList.length;i++){
-      if(this.quizList[i].questions.length == 0){
+      if(this.quizList[i].questions && this.quizList[i].questions.length == 0){
         this.quizList.splice(i,1);
         i--;
       }

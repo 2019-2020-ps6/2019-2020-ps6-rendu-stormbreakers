@@ -88,6 +88,7 @@ export class QuizService {
       this.quizzes$.next(this.quizzes);
     });
   }
+
   getSelectQuiz(quizId: string) {
     this.http.get<Quiz>(this.quizUrl + '/' + quizId, { responseType: 'json' }).subscribe((quiz) => {
       this.quizPlayed$.next(quiz);

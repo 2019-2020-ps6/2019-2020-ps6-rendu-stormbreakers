@@ -1,7 +1,6 @@
 const { Router } = require('express')
 
 const { getThemes, getQuizzesByTheme } = require('./manager')
-const { buildQuizzes } = require('../quizzes/manager')
 
 const router = new Router()
 

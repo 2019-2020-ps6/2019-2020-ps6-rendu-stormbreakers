@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { serverUrl, httpOptionsBase } from '../configs/server.config';
+import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
+import { serverUrl } from '../configs/server.config';
 
 @Injectable({
   providedIn: 'root'
@@ -18,22 +18,22 @@ export class ThemeService {
    */
 
   private url = serverUrl+"/themes";
-  private themes : String[];
-  private currentTheme: String;
-  private lastCreatedTheme: String;
+  private themes : string[];
+  private currentTheme: string;
+  private lastCreatedTheme: string;
   /**
    * Observable which contains the list of the quiz.
    * Naming convention: Add '$' at the end of the variable name to highlight it as an Observable.
    */
-  public themes$: BehaviorSubject<String[]> = new BehaviorSubject(this.themes);
-  public currentTheme$: BehaviorSubject<String> = new BehaviorSubject(this.currentTheme);
-  public lastCreatedTheme$: BehaviorSubject<String> = new BehaviorSubject(this.lastCreatedTheme);
+  public themes$: BehaviorSubject<string[]> = new BehaviorSubject(this.themes);
+  public currentTheme$: BehaviorSubject<string> = new BehaviorSubject(this.currentTheme);
+  public lastCreatedTheme$: BehaviorSubject<string> = new BehaviorSubject(this.lastCreatedTheme);
 
   constructor(private http: HttpClient) {
     this.getThemes();
   }
 
-  addTheme(theme: String) {
+  addTheme(theme: string) {
     this.themes.push(theme);
     this.themes$.next(this.themes);
     // You need here to update the list of quiz and then update our observable (Subject) with the new list
@@ -47,14 +47,14 @@ export class ThemeService {
   }
 */
   getThemes() {
-    this.http.request('GET', this.url, { responseType: 'json' }).subscribe((result: String[]) => {
+    this.http.request('GET', this.url, { responseType: 'json' }).subscribe((result: string[]) => {
       this.themes = result;
       this.themes$.next(this.themes);
     })
   }
 
-  getThemeByName(name:String){
-    this.http.request('GET', this.url + "/" + name,{ responseType: 'json' }).subscribe((result: String) => {
+  getThemeByName(name:string){
+    this.http.request('GET', this.url + "/" + name,{ responseType: 'json' }).subscribe((result: string) => {
       this.currentTheme$.next(result);
     });
   }

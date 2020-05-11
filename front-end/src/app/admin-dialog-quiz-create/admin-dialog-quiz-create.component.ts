@@ -9,18 +9,18 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 })
 export class AdminDialogQuizCreateComponent implements OnInit {
 
-  quiz:Quiz;
+  quiz: Quiz;
   constructor(
-    private dialogRef:MatDialogRef<AdminDialogQuizCreateComponent>,
+    private dialogRef: MatDialogRef<AdminDialogQuizCreateComponent>,
     @Inject(MAT_DIALOG_DATA) data
-  ) { 
-    this.quiz=data;
+  ) {
+    this.quiz = data;
   }
 
   ngOnInit() {
-    
+
   }
-  delete(){
+  delete() {
     this.dialogRef.close();
   }
 }

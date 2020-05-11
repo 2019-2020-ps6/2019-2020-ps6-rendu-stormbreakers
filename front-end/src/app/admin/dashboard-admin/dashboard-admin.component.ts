@@ -43,13 +43,6 @@ export class DashboardAdminComponent implements OnInit {
 }
 
       
-  goToCreation(){
-    this.router.navigate(['admin/quiz']);
-  }
   
-  goToStat(){
-    this.router.navigate(['admin/statistique']);
-  }
-
   
 }

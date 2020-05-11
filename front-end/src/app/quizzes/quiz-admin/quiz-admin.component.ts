@@ -28,7 +28,7 @@ export class QuizAdminComponent implements OnInit {
   quizEdit() {
     console.log('selectionner');
     this.quizSelected.emit(this.quiz);
-    this.router.navigate(['admin/editquiz/' + this.quiz.id], { state: { result: this.quiz } });
+    this.router.navigate(['admin/dashboard/editquiz/' + this.quiz.id], { state: { result: this.quiz } });
   }
 
   quizDelete() {

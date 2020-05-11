@@ -13,4 +13,4 @@ ouvrir une nouvelle invite de comande, se placer dans le package front-end et la
 
 **mot de passe administrateur:** 1234abcd
 
-Vous pouvez maitenant tester nos scénarios.
+Vous pouvez maintenant tester nos scénarios.

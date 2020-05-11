@@ -5,12 +5,19 @@
 cloner le repository du projet: 
 ```git clone https://github.com/2019-2020-ps6/2019-2020-ps6-rendu-stormbreakers.git ```
 
+
+&nbsp;
+
 se placer dans le package back-end et lancer la commande:
 ```npm run start```
+
+
+&nbsp;
+
 ouvrir une nouvelle invite de comande, se placer dans le package front-end et lancer la commande : 
 ``` npm run start ```
 
 
 **mot de passe administrateur:** 1234abcd
 
-Vous pouvez maitenant tester nos scénarios.
+Vous pouvez maintenant tester nos scénarios.

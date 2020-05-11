@@ -1,4 +1,5 @@
 const { Quiz } = require('../../models')
+const { filterQuestionsFromQuizz } = require('../quizzes/questions/manager')
 
 const getThemes = () => {
     const quizzes = Quiz.get();
@@ -10,10 +11,13 @@ const getThemes = () => {
 }
 
 const getQuizzesByTheme = (theme) => {
+  var themeDecode= decodeURI(theme)
+  console.log("theme : "+themeDecode)
   const quizzes = Quiz.get();
   var response = [];
     for(let i = 0; i < quizzes.length; i++){
-      if(quizzes[i].theme && quizzes[i].theme === theme){
+      if(quizzes[i].theme && quizzes[i].theme.toLowerCase() === themeDecode){
+        quizzes[i].questions = filterQuestionsFromQuizz(1582017897766);
         response.push(quizzes[i]);
       }
   }

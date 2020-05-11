@@ -1,15 +1,24 @@
-<div class="center-elem">
+<div class="d-flex justify-content-center" >
+<div class="card text-center" style="max-width: 35rem;">
+    <div class="card-header">
+        <div class="center-elem">
+            <h2>
+                <div class="text-center">Admin</div>
+            </h2>
+        </div>
     <div *ngIf="wrongPassword" class="font-red">Mauvais mot de passe</div>
-    <div class="mycard size-card ">
-        <div class="text-center">Admin</div>
+
         <form [formGroup]="connectForm" (ngSubmit)="login()">
             <div data-validate="Mot de passe requis">
-                <span>mot de passe :</span>
-                <input class="form-control" type="password" formControlName="password" placeholder="password">
+                <span>Mot de passe :</span>
+                <input class="form-control" type="password" formControlName="password" placeholder="Mot de passe ">
             </div>
             <div class="center-elem">
-            <button type='submit'>Connect</button>
+            <button type='submit'>SE CONNECTER</button>
         </div>    
-        </form>
-    </div>
+    </form>
+</div>
+
+</div>
+
 </div>

@@ -9,6 +9,7 @@ import { DashboardAdminComponent } from './admin/dashboard-admin/dashboard-admin
 import { AdminCreationQuizComponent } from './admin/admin-creation-quiz/admin-creation-quiz.component';
 import { AdminStatistiqueComponent } from './admin/admin-statistique/admin-statistique.component';
 import { QuizListComponent } from './quizzes/quiz-list/quiz-list.component';
+import { AdDashboardDefaultComponent } from './admin/ad-dashboard-default/ad-dashboard-default.component';
 const routes: Routes = [
   
   {
@@ -33,20 +34,28 @@ const routes: Routes = [
   },
   {
     path: 'admin/dashboard',
-    component: DashboardAdminComponent
-  },
-  {
-    path: 'admin/quiz',
-    component: AdminCreationQuizComponent
-  },
-  {
-    path: 'admin/statistique',
-    component: AdminStatistiqueComponent
-  },
-  {
-    path: 'admin/editquiz/:id',
-    component: EditQuizComponent
-  },
+    component: DashboardAdminComponent,
+    children:[
+      {
+        path:'',
+        children:[
+            {
+              path:'quiz',
+              component:AdminCreationQuizComponent
+            },{
+              path:'statistique',
+              component:AdminStatistiqueComponent
+            },{
+              path:'',
+              component:AdDashboardDefaultComponent
+            },{
+              path:'editquiz/:id',
+              component:EditQuizComponent
+            }
+        ]
+      }
+    ]
+  }
 ];
 
 @NgModule({

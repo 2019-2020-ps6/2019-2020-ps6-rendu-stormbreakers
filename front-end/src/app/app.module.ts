@@ -45,7 +45,8 @@ import { ThemeListComponent } from './themes/theme-list.component';
 import { HomeComponent } from './home/home.component';
 import {MatSidenavModule} from '@angular/material/sidenav'; 
 import { AdminFormCreationQuizComponent } from './admin/admin-form-creation-quiz/admin-form-creation-quiz.component';
-import { AdminDialogQuizCreateComponent } from './admin-dialog-quiz-create/admin-dialog-quiz-create.component'
+import { AdminDialogQuizCreateComponent } from './admin-dialog-quiz-create/admin-dialog-quiz-create.component';
+import { AdDashboardDefaultComponent } from './admin/ad-dashboard-default/ad-dashboard-default.component'
 
 
 
@@ -82,7 +83,8 @@ import { AdminDialogQuizCreateComponent } from './admin-dialog-quiz-create/admin
     ThemeListComponent,
     HomeComponent,
     AdminFormCreationQuizComponent,
-    AdminDialogQuizCreateComponent
+    AdminDialogQuizCreateComponent,
+    AdDashboardDefaultComponent
   ],
   imports: [
     BrowserModule,

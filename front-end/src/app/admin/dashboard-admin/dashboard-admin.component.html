@@ -1,39 +1,24 @@
 <mat-sidenav-container class="height-total">
     <mat-sidenav class="navbar sidenav-content" mode="side" opened>
         <ul>
-            <li title="Home">
+            <li class="nav-link" routerLink="./" routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }" title="Home">
                 <em  class="fas fa-2x fa-home"></em>
                 <span class="menu-title" >Dashboard</span>
             </li>
-            <li (click)="goToCreation()" title="Création" >
+            <li routerLinkActive="active" class="nav-link" routerLink="./quiz"  title="Création" >
                 <em   class="far  fa-2x fa-file"></em>
                 <span class="menu-title" >Création</span>
             </li>
-            <li title="Chart" (click)="goToStat()">
+            <li routerLinkActive="active" class="nav-link" routerLink="./statistique" title="Chart"  >
                 <em  class=" fas  fa-2x fa-chart-bar"></em>
                 <span class="menu-title" >Chart</span>
             </li>
         </ul>
     </mat-sidenav>
   <mat-sidenav-content>
-    <div class="summary-actions-wrapper">
-
-        <div class="cus-sizable wrapper-div card p-3 m-2 taille-card">
-            <div>statistique</div>
-                <app-admin-chart></app-admin-chart>
-                <div class="centre">
-                <button (click)="goToStat()" class="btn-play-quiz ml-1 mr-1 btn btn-success cus-sizable" style="width: 8rem;text-align : center; ">Voir</button>
-            </div>
-            </div>
-
-       
-            <div class="cus-sizable wrapper-div card p-3 m-2 taille-card">
-                <div class="centre">
-                <app-admin-form-creation-quiz (quizCreated)="create($event)"></app-admin-form-creation-quiz>
-                <button (click)="goToCreation()" class="btn-play-quiz ml-1 mr-1 btn btn-success cus-sizable" style="width: 8rem;text-align : center; margin: 2pt;">Voir</button>
-            </div>
-        </div>
-    </div>
+      <router-outlet></router-outlet>
+    
     
 </mat-sidenav-content>
 </mat-sidenav-container>

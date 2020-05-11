@@ -14,39 +14,29 @@ export class EditQuizComponent implements OnInit {
   quiz: Quiz;
 
   constructor(private route: ActivatedRoute,
-     private router:Router,
-      private quizService: QuizService) { 
-    //this.questions= this.router.getCurrentNavigation().extras.state.result
-    this.quizService.quizPlayed$.subscribe(quiz => {
-      this.quiz=quiz
-    });
-   }
+    private router: Router,
+    private quizService: QuizService) {
 
-   private toSave: boolean = false;
+    this.quizService.quizPlayed$.subscribe(quiz => {
+      this.quiz = quiz
+    });
+  }
+
+  private toSave: boolean = false;
 
   ngOnInit() {
     this.getQuiz();
   }
 
-  getQuiz():void{
+  getQuiz(): void {
     const id = this.route.snapshot.paramMap.get('id');
     this.quizService.getSelectQuiz(id);
   }
 
-  save(){
+  save() {
     this.toSave = true;
   }
 
 
-  goToCreation(){
-    this.router.navigate(['admin/quiz']);
-  }
   
-  goToStat(){
-    this.router.navigate(['admin/statistique']);
-  }
-
-  goToHome(){
-    this.router.navigate(['admin/dashboard']);
-  }
 }

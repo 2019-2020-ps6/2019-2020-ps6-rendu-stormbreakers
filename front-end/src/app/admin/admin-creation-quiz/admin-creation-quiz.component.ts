@@ -64,11 +64,5 @@ export class AdminCreationQuizComponent implements OnInit {
   quizSelect(quiz:Quiz){
     console.log("test")
   }
-  goToHome(){
-    this.router.navigate(['admin/dashboard']);
-  }
   
-  goToStat(){
-    this.router.navigate(['admin/statistique']);
-  }
 }

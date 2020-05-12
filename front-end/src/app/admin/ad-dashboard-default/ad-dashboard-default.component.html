@@ -2,13 +2,12 @@
 
     <div class="cus-sizable wrapper-div card p-3 m-2 taille-card">
         <div>Statistique</div>
-            <app-admin-chart></app-admin-chart>
+            <app-admin-chart [quiz]="quizToDispaly"></app-admin-chart>
             <div class="centre">
             <button  routerLink="./statistique" class="btn-play-quiz ml-1 mr-1 btn btn-success cus-sizable" style="width: 8rem;text-align : center; ">Voir</button>
         </div>
         </div>
 
-   
         <div class="cus-sizable wrapper-div card p-3 m-2 taille-card">
             <div class="centre">
             <app-admin-form-creation-quiz (quizCreated)="create($event)"></app-admin-form-creation-quiz>

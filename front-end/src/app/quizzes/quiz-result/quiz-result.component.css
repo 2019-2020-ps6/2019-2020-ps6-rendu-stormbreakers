@@ -69,9 +69,11 @@
     font-size: 28pt;
 }
 .left{
-    text-align: center;
+    /*text-align: center;
     position:relative;
-    right:45%;
+    right:45%;*/
+    margin-top: 0.5em;
+    margin-left: 0.5em;
 }
 
 .btn-return-quiz{

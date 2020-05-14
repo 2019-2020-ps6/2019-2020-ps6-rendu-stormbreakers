@@ -1,9 +1,5 @@
+<button class="btn-return-quiz ml-1 mr-1 btn btn-info btn-lg left" [ngClass]="setClasses()" (click)="goToHome()">Retour</button>
 <div class="mycard p-3 m-2" [ngClass]="setClasses()">
-  <div class="left">
-
-  
-    <button class="btn-return-quiz ml-1 mr-1 btn btn-success" [ngClass]="setClasses()" (click)="goToHome()">Retour</button>
-  </div>
     <h2 class=" card-title" [ngClass]="setClasses()">
         <app-lecteur [textToRead]="quiz.name" ></app-lecteur>  Résultats du quiz: {{quiz.name |titlecase }}
      </h2>

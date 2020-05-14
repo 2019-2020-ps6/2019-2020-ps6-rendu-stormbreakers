@@ -1,6 +1,7 @@
-<div class="header" [ngClass]="setClasses()" [style.font-family]="fontFamily">
-    <h3> <a title="Poly" href="http://localhost:4200">Poly Quiz</a></h3>
-    
+<div class="header d-flex align-items-center" [ngClass]="setClasses()" [style.font-family]="fontFamily">
+    <div class="redirection"><h2 class= "mr-5" title="Poly">Poly'Quiz</h2>
+    <a class="align-self-center" href="http://localhost:4200" [ngClass]="setClasses()">Accueil</a>
+</div>
 
 
     <em (click)="clickMe()" class="fas fa-3x fa-low-vision"></em>
@@ -35,7 +36,7 @@
     </ng-template>
     </div>
     
-    <select [(ngModel)]="fontFamily" (ngModelChange)="onFontChange($event)" name="font-selector" id="font-selector" >
+    <select [(ngModel)]="fontFamily" (ngModelChange)="onFontChange($event)" name="font-selector" id="font-selector" class="form-control" [ngClass]="setClasses()">
     <option value="" [attr.selected]="fontFamily == '' ">Choisissez une police</option>
     <option *ngFor="let font of fontsAvailable"
     [style.font-family]="font"

@@ -8,8 +8,22 @@
   color: white;
 }
 
+.redirection{
+  display: flex;
+}
+
 .ordinarytheme{
   background: rgb(4, 4, 100);
+}
+
+.darktheme{
+  background: rgb(2, 2, 59);
+}
+
+#font-selector{
+  height: fit-content;
+  width: fit-content;
+  color: white;
 }
 
 a{
@@ -22,13 +36,9 @@ a{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-
-  
-  
 }
-
+/*
 .header.darktheme{
- 
   background-color: #121212;
 }
-
+*/

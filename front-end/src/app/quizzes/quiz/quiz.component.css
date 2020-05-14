@@ -2,7 +2,7 @@
 
 .wrapper-div{
     width: 300px;
-    height: 200px;
+    /*height: 200px;*/
 }
 .quiz-title{
     text-transform: capitalize;

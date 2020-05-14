@@ -1,12 +1,17 @@
-<div class="wrapper-div card p-3 m-2" [ngClass]="setClasses()">
-    <h2 class="quiz-title text-center"  >
+<div class="wrapper-div card p-3 m-2" style="display: flex; justify-content: space-around;" [ngClass]="setClasses()">
+    <h2 class="quiz-title text-center m-2" [ngClass]="setClasses()" >
         <app-lecteur [textToRead]="quiz.name" ></app-lecteur>
         {{quiz.name}}
     </h2>
-    <div class="text-center card-subtitle" [ngClass]="setClasses()">
-        Theme : {{quiz.theme}}
+    
+    <div class="text-center card-subtitle m-2" [ngClass]="setClasses()">
+        <ng-container *ngIf="quiz.theme != null">
+        <app-lecteur [textToRead]="'Thème' + quiz.theme" ></app-lecteur></ng-container>
+        Thème : {{quiz.theme}}
+        
     </div>
-    <div class="text-center btn-wrapper">
+    
+    <div class="text-center btn-wrapper m-2">
         <button class="btn-play-quiz ml-1 mr-1 btn btn-success" [ngClass]="setClasses()" (click)="quizLaunch()"> <em class="fas fa-play"></em> Jouer</button>
     </div>
 

@@ -1,6 +1,6 @@
 <h2 class="card-title">
     {{question.label}}</h2>
-<div class="answer" *ngFor="let answer of question.answers; let i=index">
-    {{i}} - {{answer.value}} <ng-container *ngIf="answer.isCorrect"><input type="checkbox" checked></ng-container>
+<div class="answer" *ngFor="let answer of question.answers; let i=index" [ngClass]="(answer.isCorrect) ? 'green font-weight-bold' : ''">
+    {{i}} - {{answer.value}}
 </div>
 <button class="button-card btn btn-danger" (click)="delete()">Delete</button>

@@ -16,18 +16,19 @@
         <div *ngFor="let address of answers.controls; let i=index">
           <div class="answer-form" [formGroupName]="i">
             <label>
-              Proposition {{i+1}}:
+              Réponse {{i+1}}:
               <input type="text" [formControlName]="'value'"></label>
-              
-              <label>
-              Correcte ?:
-              <input type="checkbox" [formControlName]="'isCorrect'"></label>
-            
+            <div class="form-check form-check-inline">
+              <input class="form-check-input ml-2" type="checkbox" id="ans{{i+1}}" name="isCorrect" [formControlName]="'isCorrect'"/> 
+              <label class="form-check-label">Correct ?</label>
+            </div>
           </div>
         </div>
       </div>
       <button class="button-card btn btn-info" (click)="addAnswer()">Ajouter une proposition</button>
-      <button type="submit" class="button-card btn btn-success" (click)="addQuestion()">Créer la question</button>
+      <button type="submit" class="button-card btn btn-success" (click)="addQuestion()" [disabled]="disableButton()">Créer la question</button>
+    
     </form>
+    
   
 </div>

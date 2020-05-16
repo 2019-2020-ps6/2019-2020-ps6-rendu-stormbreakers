@@ -1,5 +1,6 @@
 <div class="question-list card-deck">
-    <div class="question card p-3 m-2" *ngFor="let question of quiz.questions">
-            <app-question *ngIf="question" [question]="question" (deleteQuestion)="deleteQuestion($event)"></app-question>
-    </div>
-  </div>
+                <div class="question col-sm-6 card p-3 m-2 " *ngFor="let question of quiz.questions">
+                        <app-question *ngIf="question" [question]="question" (deleteQuestion)="deleteQuestion($event)">
+                        </app-question>
+        </div>
+</div>

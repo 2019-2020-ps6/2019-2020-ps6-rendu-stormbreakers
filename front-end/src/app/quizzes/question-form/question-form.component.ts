@@ -51,4 +51,16 @@ export class QuestionFormComponent implements OnInit {
       this.initializeQuestionForm();
     }
   }
+
+  disableButton() {
+    const question = this.questionForm.getRawValue() as Question;
+    if (question.answers) {
+      var aCorrectAnswer = question.answers.find(a => { if(a.isCorrect == true) return a; });
+      var answerEmpty = question.answers.find(a => { if(a.value == "") return a;})
+      if (this.answers.length >= 2 && aCorrectAnswer && !answerEmpty && question.label != "") {
+        return false;
+      }
+      return true;
+    }
+  }
 }

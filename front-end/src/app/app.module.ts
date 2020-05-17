@@ -47,6 +47,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import { AdminFormCreationQuizComponent } from './admin/admin-form-creation-quiz/admin-form-creation-quiz.component';
 import { AdminDialogQuizCreateComponent } from './admin-dialog-quiz-create/admin-dialog-quiz-create.component';
 import { AdDashboardDefaultComponent } from './admin/ad-dashboard-default/ad-dashboard-default.component'
+import { AdminDialogDeleteQuestionComponent } from './admin/admin-dialog-delete-question/admin-dialog-delete-question.component';
 
 
 
@@ -84,6 +85,7 @@ import { AdDashboardDefaultComponent } from './admin/ad-dashboard-default/ad-das
     HomeComponent,
     AdminFormCreationQuizComponent,
     AdminDialogQuizCreateComponent,
+    AdminDialogDeleteQuestionComponent,
     AdDashboardDefaultComponent
   ],
   imports: [
@@ -100,6 +102,6 @@ import { AdDashboardDefaultComponent } from './admin/ad-dashboard-default/ad-das
   ],
   providers: [CookieService],
   bootstrap: [AppComponent],
-  entryComponents: [AdapterComponent,AdminDialogDeleteQuizComponent,AdminDialogQuizCreateComponent]
+  entryComponents: [AdapterComponent,AdminDialogDeleteQuizComponent,AdminDialogQuizCreateComponent,AdminDialogDeleteQuestionComponent]
 })
 export class AppModule { }

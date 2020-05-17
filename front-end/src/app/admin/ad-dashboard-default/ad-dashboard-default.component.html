@@ -1,15 +1,21 @@
 <div class="summary-actions-wrapper">
 
     <div class="cus-sizable wrapper-div card p-3 m-2 taille-card">
-        <div>Statistique</div>
+        <div class="card-title">
+            <h4 class="text-center">Statistiques</h4>
+        </div>
             <app-admin-chart [quiz]="quizToDispaly"></app-admin-chart>
-            <div class="centre">
+            <div class="centre d-flex justify-content-center">
             <button  routerLink="./statistique" class="btn btn-info text-center mt-2">Voir</button>
         </div>
         </div>
 
-        <div class="cus-sizable wrapper-div card p-3 m-2 taille-card">
-            <div class="centre">
+        <div class="cus-sizable wrapper-div card p-1">
+            
+            <div class="card-body">
+                <div class="card-title">
+                    <h4 class="text-center">Création de quiz</h4>
+                </div>
             <app-admin-form-creation-quiz (quizCreated)="create($event)"></app-admin-form-creation-quiz>
             <button routerLink="./quiz"  class="btn btn-info text-center mt-2">Voir</button>
         </div>

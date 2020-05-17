@@ -12,6 +12,7 @@ import { AdaptabilityService } from 'src/services/adaptability.service';
   styleUrls: ['./theme-list.component.scss']
 })
 export class ThemeListComponent extends BaseComponent implements OnInit {
+
  
   public themeList: string[] = [];
 
@@ -27,6 +28,6 @@ export class ThemeListComponent extends BaseComponent implements OnInit {
   }
   
   toQUizList(themeName: string){
-    this.router.navigate(['/themes/' + themeName.toLowerCase() + '/quizzes']);
+    this.router.navigate(['/themes/' + themeName.toLowerCase() + '/quizzes'], { state: { result: themeName } });
   }
 }

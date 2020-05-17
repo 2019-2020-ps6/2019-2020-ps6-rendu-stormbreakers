@@ -33,13 +33,14 @@
                   <app-lecteur [textToRead]="'Question n°'+ i "></app-lecteur>
                    Question n°{{i}} </h5>
               <div> <app-lecteur [textToRead]="  question.label"></app-lecteur> "{{question.label}}" </div>
-              <ng-container *ngFor="let answer of userAnswers"><div *ngIf="answerFromQuestion(question, answer)">
+              <ng-container *ngFor="let answer of userAnswers"><div *ngIf="answerFromQuestion(question, answer)"
+                [ngClass]="(answer.isCorrect) ? 'green font-weight-bold' : 'red font-weight-bold'">
                 <app-lecteur [textToRead]=" 'Votre réponse était : '+answer.value"></app-lecteur>
                   Votre réponse était : {{answer.value}}</div></ng-container>
-              <ng-container *ngFor="let qAnswer of question.answers">
+              <ng-container *ngFor="let j = index; let qAnswer of question.answers">
                   <div *ngIf="qAnswer.isCorrect">
-                    <app-lecteur [textToRead]=" ' La bonne réponse est :'+qAnswer.value"></app-lecteur>
-                    La bonne réponse est : {{qAnswer.value}}</div></ng-container>
+                    <app-lecteur [textToRead]=" ' La bonne réponse n°' + j + ' est :' + qAnswer.value"></app-lecteur>
+                    {{j}}. La bonne réponse est : {{qAnswer.value}}</div></ng-container>
          </div>
 </div>
 

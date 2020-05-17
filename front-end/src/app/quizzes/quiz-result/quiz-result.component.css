@@ -79,3 +79,11 @@
 .btn-return-quiz{
     width: min-content;
 }
+
+.green{
+    color: green;
+}
+
+.red{
+    color: red;
+}

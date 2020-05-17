@@ -69,6 +69,6 @@ export class QuizResultComponent extends BaseComponent implements OnInit{
   }
 
   goToHome(){
-      this.router.navigate(['']);
+      this.router.navigate(['/playquiz/' + this.quiz.id]);
   }
 }

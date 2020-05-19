@@ -2,6 +2,12 @@
     <app-lecteur [textToRead]="question.label" ></app-lecteur>
     {{question.label}}
 </h2>
+<h3 [ngClass]="setClasses()" class="text-info text-center"><ng-container *ngIf="nbRightAnswers() > 1">
+        Il y a {{nbRightAnswers()}} réponses justes possibles ! (Veuillez en choisir une)
+    </ng-container>
+    <ng-container *ngIf="nbRightAnswers() == 1">
+        Il y a 1 seule bonne réponse possible.
+    </ng-container></h3>
 <form class=" answer-list " >
     
     
@@ -16,7 +22,7 @@
 
         <label *ngFor="let answer of question.answers" class="ml-1 mr-1 btn btn-dark flexCustom" [class.selected]="reponseValue === answer.value" [ngClass]="setClasses()">
             <app-lecteur [textToRead]="answer.value" ></app-lecteur>
-            <input class="radio-btn-discret" (change)="radioChangeHandler($event)" ng-click="$event.stopPropagation()"
+            <input class="radio-btn-discret" (change)="radioChangeHandler($event)"
             value="{{answer.value}}"  type="radio" name="reponse">
             {{answer.value}}
         </label>

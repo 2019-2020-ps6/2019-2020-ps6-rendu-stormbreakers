@@ -56,7 +56,13 @@ export class PlayQuestionComponent extends BaseComponent {
 
   }
 
-
+  nbRightAnswers(){
+    let res = 0;
+    this.question.answers.forEach(a => {
+      if(a.isCorrect) res++;
+    })
+    return res;
+  }
   
   
   

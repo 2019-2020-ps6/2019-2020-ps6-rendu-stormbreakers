@@ -6,7 +6,7 @@
         </div>
 
 
-        <h2 [ngClass]="setClasses()" *ngIf="isLaunch">{{quizPlayed.name | titlecase}}</h2>
+        <h1 *ngIf="isLaunch" class="text-center">{{quizPlayed.name | titlecase}}</h1>
 
         <div *ngIf="isLaunch && !quizIsFinished">
             <app-play-question [question]="currentQuestion" (changeQuestion)="changingQuestion($event)"></app-play-question>

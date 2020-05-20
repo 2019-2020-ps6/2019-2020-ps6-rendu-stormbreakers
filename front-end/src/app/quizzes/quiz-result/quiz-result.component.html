@@ -1,4 +1,6 @@
-<button class="btn-return-quiz ml-1 mr-1 btn btn-info btn-lg left" [ngClass]="setClasses()" (click)="goToHome()">Retour</button>
+<div ><button class="btn-return-quiz ml-1 mr-1 btn btn-info btn-lg left" [ngClass]="setClasses()" (click)="goToHome()">Retour</button>
+<app-lecteur [textToRead]="'Retour'" class="m2-1" ></app-lecteur>
+</div>
 <div class="mycard p-3 m-2" [ngClass]="setClasses()">
     <h2 class=" card-title" [ngClass]="setClasses()">
         <app-lecteur [textToRead]="quiz.name" ></app-lecteur>  Résultats du quiz: {{quiz.name |titlecase }}
@@ -37,10 +39,10 @@
                 [ngClass]="(answer.isCorrect) ? 'green font-weight-bold' : 'red font-weight-bold'">
                 <app-lecteur [textToRead]=" 'Votre réponse était : '+answer.value"></app-lecteur>
                   Votre réponse était : {{answer.value}}.</div></ng-container>
-                  <ng-container *ngIf="rightAnswers(question.answers) != null">
+                  <div *ngIf="rightAnswers(question.answers) != null">
                     <app-lecteur [textToRead]="rightAnswers(question.answers)"></app-lecteur>
                     {{rightAnswers(question.answers)}}.
-                  </ng-container>
+                  </div>
 </div>
 
 </div>

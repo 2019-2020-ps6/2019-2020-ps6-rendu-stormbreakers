@@ -43,7 +43,7 @@ export class PlayQuizComponent extends BaseComponent implements OnInit {
 
   ngOnInit() {
     super.ngOnInit();
-    this.getQuiz()
+    this.getQuiz();
     this.isLaunch = false;
     this.quizIsFinished = false;
   }

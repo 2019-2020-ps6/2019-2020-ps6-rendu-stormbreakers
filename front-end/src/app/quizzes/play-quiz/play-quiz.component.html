@@ -1,12 +1,17 @@
 
     <div [ngClass]="setClasses()"  class=" wrapper-play-quiz container  p-3">
-        <h2  [ngClass]="setClasses()" class="title-quiztolaunch" *ngIf="!isLaunch ">Vous allez lancer le quiz "{{quizPlayed.name | titlecase}}"</h2>
+        <h2  [ngClass]="setClasses()" class="title-quiztolaunch" *ngIf="!isLaunch ">
+            <app-lecteur [textToRead]="'Vous allez lancer le quiz' + quizPlayed.name | titlecase" class="mr-2" ></app-lecteur>
+            Vous allez lancer le quiz "{{quizPlayed.name | titlecase}}"</h2>
         <div class="text-center">
+            <app-lecteur [textToRead]="'Lancer'" class="mr-2" *ngIf="!isLaunch"></app-lecteur>
             <button [ngClass]="setClasses()" class="ml-1 mr-1 btn btn-success " (click)="launch()" *ngIf="!isLaunch">Lancer</button>
         </div>
 
 
-        <h1 *ngIf="isLaunch" class="text-center">{{quizPlayed.name | titlecase}}</h1>
+        <h1 *ngIf="isLaunch" class="text-center">
+            <app-lecteur [textToRead]="quizPlayed.name | titlecase" class="mr-1" ></app-lecteur>
+            {{quizPlayed.name | titlecase}}</h1>
 
         <div *ngIf="isLaunch && !quizIsFinished">
             <app-play-question [question]="currentQuestion" (changeQuestion)="changingQuestion($event)"></app-play-question>
@@ -15,13 +20,17 @@
 
     
         <div class="text-center m-3" *ngIf="isLaunch && !quizIsFinished">
+            <app-lecteur [textToRead]="'Passer'" class="mr-1" ></app-lecteur>
             <button type="button" class="ml-1 mr-1 btn btn-warning " [ngClass]="setClasses()" (click)="passingQuestion()">Passer</button>
         </div>
 
 
         <div *ngIf="quizIsFinished">
-            <h2 [ngClass]="setClasses()"> Quiz terminé</h2>
+            <h2 [ngClass]="setClasses()"> 
+                <app-lecteur [textToRead]="'Quiz terminé'" class="mr-2" ></app-lecteur>
+                Quiz terminé</h2>
             <div class="text-center">
+                <app-lecteur [textToRead]="'Résultats'" class="mr-2" ></app-lecteur>
                 <button class="btn btn-success" (click)="showResult()" [ngClass]="setClasses()">Résultats </button>
             </div>
         </div>

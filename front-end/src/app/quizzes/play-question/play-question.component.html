@@ -2,10 +2,13 @@
     <app-lecteur [textToRead]="question.label" ></app-lecteur>
     {{question.label}}
 </h2>
-<h3 [ngClass]="setClasses()" class="text-info text-center"><ng-container *ngIf="nbRightAnswers() > 1">
+<h3 [ngClass]="setClasses()" class="text-info text-center">
+    <ng-container *ngIf="nbRightAnswers() > 1">
+        <app-lecteur [textToRead]="'Il y a' + nbRightAnswers() + 'réponses justes possibles ! Veuillez en choisir une'" ></app-lecteur>
         Il y a {{nbRightAnswers()}} réponses justes possibles ! (Veuillez en choisir une)
     </ng-container>
     <ng-container *ngIf="nbRightAnswers() == 1">
+        <app-lecteur [textToRead]="'Il y a une seule bonne réponse possible'"></app-lecteur>
         Il y a 1 seule bonne réponse possible.
     </ng-container></h3>
 <form class=" answer-list " >
@@ -18,5 +21,6 @@
         </label>
 </form>
 <div class="text-center mt-3">
+    <app-lecteur [textToRead]="'Valider'" class="mr-2" ></app-lecteur>
     <button [ngClass]="setClasses()" class="btn btn-success" (click)="changingQuestion()" [disabled]="disableButton()">Valider</button>
 </div>

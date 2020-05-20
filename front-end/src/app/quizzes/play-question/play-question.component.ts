@@ -40,6 +40,7 @@ export class PlayQuestionComponent extends BaseComponent {
   changingQuestion(){
     console.log("question emit");
     this.changeQuestion.emit(this.reponse);
+    this.reponse = null;
   }
 
   radioChangeHandler($event){
@@ -64,6 +65,9 @@ export class PlayQuestionComponent extends BaseComponent {
     return res;
   }
   
-  
+  disableButton() {
+    if(this.reponse == null) return true;
+    return false;
+  }
   
 }

@@ -71,4 +71,21 @@ export class QuizResultComponent extends BaseComponent implements OnInit{
   goToHome(){
       this.router.navigate(['/playquiz/' + this.quiz.id]);
   }
+
+  rightAnswers(answers){
+    console.log(answers);
+    let correctAnswers = answers.filter(a => {
+      if(a.isCorrect) return a;
+    });
+    var res: String;
+    if(correctAnswers.length > 1){
+      res = 'Les bonnes réponses possibles sont :';
+      correctAnswers.forEach(a => {
+        res += ' ' + a.value;
+      });
+    } else {
+      res = 'La bonne réponse est : ' + correctAnswers[0].value;
+    }
+    return res;
+  }
 }

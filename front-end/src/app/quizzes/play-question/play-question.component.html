@@ -9,16 +9,6 @@
         Il y a 1 seule bonne réponse possible.
     </ng-container></h3>
 <form class=" answer-list " >
-    
-    
-        <!--<span *ngFor="let answer of question.answers" class="ml-1 mr-1 btn btn-dark " [class.selected]="reponseValue === answer.value"  [ngClass]="setClasses()" >
-            <app-lecteur [textToRead]="answer.value"></app-lecteur>
-
-           <label  > <input class="radio-btn-discret" (change)="radioChangeHandler($event)"
-            value="{{answer.value}}"  type="radio" style="width:200px" name="reponse"  >
-            {{answer.value}}
-        </label>
-        </span>-->
 
         <label *ngFor="let answer of question.answers" class="ml-1 mr-1 btn btn-dark flexCustom" [class.selected]="reponseValue === answer.value" [ngClass]="setClasses()">
             <app-lecteur [textToRead]="answer.value" ></app-lecteur>
@@ -26,10 +16,7 @@
             value="{{answer.value}}"  type="radio" name="reponse">
             {{answer.value}}
         </label>
-        
-    
-    
 </form>
 <div class="text-center mt-3">
-    <button [ngClass]="setClasses()" class="btn btn-success" (click)="changingQuestion()">Valider</button>
+    <button [ngClass]="setClasses()" class="btn btn-success" (click)="changingQuestion()" [disabled]="disableButton()">Valider</button>
 </div>

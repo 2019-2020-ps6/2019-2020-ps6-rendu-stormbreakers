@@ -36,12 +36,11 @@
               <ng-container *ngFor="let answer of userAnswers"><div *ngIf="answerFromQuestion(question, answer)"
                 [ngClass]="(answer.isCorrect) ? 'green font-weight-bold' : 'red font-weight-bold'">
                 <app-lecteur [textToRead]=" 'Votre réponse était : '+answer.value"></app-lecteur>
-                  Votre réponse était : {{answer.value}}</div></ng-container>
-              <ng-container *ngFor="let j = index; let qAnswer of question.answers">
-                  <div *ngIf="qAnswer.isCorrect">
-                    <app-lecteur [textToRead]=" ' La bonne réponse n°' + j + ' est :' + qAnswer.value"></app-lecteur>
-                    {{j}}. La bonne réponse est : {{qAnswer.value}}</div></ng-container>
-         </div>
+                  Votre réponse était : {{answer.value}}.</div></ng-container>
+                  <ng-container *ngIf="rightAnswers(question.answers) != null">
+                    <app-lecteur [textToRead]="rightAnswers(question.answers)"></app-lecteur>
+                    {{rightAnswers(question.answers)}}.
+                  </ng-container>
 </div>
 
 </div>

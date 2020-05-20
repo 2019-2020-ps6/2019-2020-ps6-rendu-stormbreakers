@@ -3,14 +3,14 @@
     <div class="card-header">
         <div class="center-elem">
             <h2>
-                <div class="text-center">Admin</div>
+                <div class="text-center" style="color:black;">Admin</div>
             </h2>
         </div>
     <div *ngIf="wrongPassword" class="font-red">Mauvais mot de passe</div>
 
         <form [formGroup]="connectForm" (ngSubmit)="login()">
             <div data-validate="Mot de passe requis">
-                <span>Mot de passe :</span>
+                <span style="color:black;">Mot de passe :</span>
                 <input class="form-control" type="password" formControlName="password" placeholder="Mot de passe ">
             </div>
             <div class="center-elem">
